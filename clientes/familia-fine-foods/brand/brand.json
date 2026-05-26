@@ -1,0 +1,310 @@
+{
+  "agency": {
+    "name": "Crown Media",
+    "tagline": "Agencia boutique enfocada en el cliente",
+    "domain": "crownmediagroup.com.co",
+    "country": "Colombia",
+    "city": "Medellín",
+    "instagram": "@crown.media"
+  },
+
+  "purpose": "Hacer sentir al cliente que somos parte de su equipo, ponernos la camiseta de su empresa, con soluciones a la medida, servicio personalizado y cercano (sólo a una llamada de distancia).",
+
+  "brand_attributes": [
+    "Boutique",
+    "Profesional",
+    "Confiable",
+    "Cercana — Cálida",
+    "Aspiracional",
+    "Sobria — Elegante"
+  ],
+
+  "voice_and_tone": {
+    "voice": "Consultiva, cálida, experta y aspiracional. Habla como un socio estratégico que conoce a fondo el negocio del cliente.",
+    "tone_rules": [
+      "Nunca jerga técnica sin explicar — el cliente puede no ser técnico",
+      "Datos siempre con contexto y recomendación accionable",
+      "Tono profesional pero cercano (tutear NO; hablar de 'nosotros' SÍ)",
+      "Frases cortas y directas en titulares; explicación amplia en cuerpos",
+      "Reconocer errores y proponer soluciones, nunca esconderlos",
+      "Cerrar siempre con próximos pasos claros y responsables"
+    ],
+    "language_default": "es-CO",
+    "currency_default": "COP",
+    "currency_supports": ["COP", "USD", "CAD", "MXN", "EUR"]
+  },
+
+  "colors": {
+    "primary": {
+      "green_dark": {
+        "hex": "#163029",
+        "rgb": "22,48,41",
+        "cmyk": "85,52,68,69",
+        "pantone": "5535 C",
+        "usage": "Fondo principal de portadas, secciones hero, headers oscuros"
+      },
+      "green_mid": {
+        "hex": "#41685B",
+        "rgb": "65,104,91",
+        "cmyk": "74,38,60,29",
+        "pantone": "5545 C",
+        "usage": "Acento secundario, separadores, bordes, hovers"
+      },
+      "cream": {
+        "hex": "#F4EAE1",
+        "rgb": "244,234,225",
+        "cmyk": "5,9,12,0",
+        "pantone": "4685 C 35%",
+        "usage": "Fondo de páginas internas, cuerpos de reporte, fondos suaves"
+      },
+      "black": {
+        "hex": "#101820",
+        "rgb": "16,24,32",
+        "cmyk": "93,77,56,78",
+        "pantone": "Black 6 C",
+        "usage": "Texto principal sobre cream, contraste fuerte"
+      },
+      "white": {
+        "hex": "#FFFFFF",
+        "rgb": "255,255,255",
+        "usage": "Tarjetas, modulos sobre fondo cream o verde"
+      }
+    },
+    "accent": {
+      "gold": {
+        "hex": "#BC955B",
+        "rgb": "188,149,91",
+        "cmyk": "23,38,68,12",
+        "pantone": "465 C",
+        "usage": "Acento dorado para highlights, KPIs destacados, divisores, números importantes. Usar con moderación."
+      }
+    },
+    "semantic": {
+      "success": "#41685B",
+      "warning": "#BC955B",
+      "danger": "#8B3A2E",
+      "info": "#163029",
+      "neutral_text": "#101820",
+      "muted_text": "#5C6660"
+    },
+    "applied_palette_rule": "Primarios = verde oscuro + verde medio + crema + negro. Dorado SOLO como acento (≤ 10% de la composición)."
+  },
+
+  "typography": {
+    "stack_strategy": "Bodoni 72 para titulares evocadores · Work Sans para sección titles y body · Prompt SOLO en mayúsculas para botones y callouts numéricos.",
+    "families": {
+      "display_serif": {
+        "name": "Bodoni 72",
+        "usage": "Títulos hero, frases evocadoras editoriales, cierre",
+        "weights": ["Book", "Book Italic"],
+        "style_rule": "Combinar Book y Book Italic en mismo titular para efecto editorial. Mayúsculas o Tipo Frase. NO usar para body.",
+        "fallback": "'Bodoni 72','Didot','Playfair Display',Georgia,serif"
+      },
+      "primary_sans": {
+        "name": "Work Sans",
+        "usage": "Body text, sección titles, navigation, tablas, captions",
+        "weights": ["Light 300", "Regular 400", "Medium 500", "SemiBold 600", "Bold 700"],
+        "style_rule": "Tipo Frase para body. Mayúsculas sostenidas para section labels y eyebrows.",
+        "fallback": "'Work Sans','Helvetica Neue',Arial,sans-serif",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap"
+      },
+      "accent_geometric": {
+        "name": "Prompt",
+        "usage": "Botones, callouts numéricos grandes, KPIs, eyebrow stats",
+        "weights": ["Regular 400", "Medium 500", "SemiBold 600", "Bold 700", "Black 900"],
+        "style_rule": "SIEMPRE en MAYÚSCULAS. Para CTAs, números destacados y elementos de tipo banner.",
+        "fallback": "'Prompt','Montserrat','Helvetica Neue',sans-serif",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;900&display=swap"
+      }
+    },
+    "hierarchy": {
+      "hero_title": {"family": "Bodoni 72", "weight": "Book Italic", "size": "72px", "case": "Tipo frase", "letter_spacing": "-0.02em"},
+      "section_title": {"family": "Work Sans", "weight": 700, "size": "16px", "case": "UPPERCASE", "letter_spacing": "0.08em"},
+      "subsection_title": {"family": "Work Sans", "weight": 600, "size": "14px", "case": "UPPERCASE", "letter_spacing": "0.06em"},
+      "kpi_value": {"family": "Prompt", "weight": 800, "size": "32px", "case": "as-is"},
+      "kpi_label": {"family": "Work Sans", "weight": 500, "size": "10px", "case": "UPPERCASE", "letter_spacing": "0.6px"},
+      "body": {"family": "Work Sans", "weight": 400, "size": "14px", "line_height": "1.5"},
+      "caption": {"family": "Work Sans", "weight": 400, "size": "11px", "color": "muted_text"},
+      "source_footnote": {"family": "Work Sans", "weight": 400, "size": "10px", "case": "Tipo frase", "prefix": "Fuente: "},
+      "page_number": {"family": "Work Sans", "weight": 500, "size": "11px", "format": "NN / TOTAL"}
+    }
+  },
+
+  "logo": {
+    "primary": {
+      "description": "Logotipo: letras 'CROWN MEDIA' + símbolo corona derivado del óvalo de la O. La relación tamaño/posición entre letras y corona NO se altera bajo ninguna circunstancia.",
+      "min_height_mm": 10,
+      "min_height_px": 38,
+      "safe_zone": "Mantener área de reserva proporcional al alto de la corona alrededor del logo, libre de cualquier elemento visual."
+    },
+    "icon_only": {
+      "description": "Corona construida sobre el óvalo de la O. Puede usarse como elemento complementario al logo.",
+      "min_height_mm": 5,
+      "min_height_px": 20
+    },
+    "color_versions": [
+      "Full color sobre fondos claros (cream, blanco)",
+      "Full color sobre fondos verde oscuro",
+      "Blanco a 1 tinta sobre fondos oscuros",
+      "Negro a 1 tinta sobre fondos claros",
+      "Dorado a 1 tinta para piezas premium"
+    ],
+    "incorrect_uses": [
+      "NO distorsionar proporciones",
+      "NO cambiar colores del logo (excepto las versiones permitidas)",
+      "NO añadir elementos, sombras o efectos",
+      "NO rotar el logo",
+      "NO colocar sobre fondos sin contraste suficiente",
+      "NO invadir el área de reserva"
+    ],
+    "position_in_reports": {
+      "cover": "Esquina superior izquierda O centrado en hero, mínimo 40px del borde",
+      "internal_pages": "Esquina superior izquierda, altura ≈ 24-32px",
+      "closing": "Centrado o esquina superior izquierda"
+    }
+  },
+
+  "design_rules": {
+    "grid": {
+      "max_width_px": 1200,
+      "inner_padding_px": 48,
+      "gutter_px": 24,
+      "radius_small": 8,
+      "radius_medium": 12,
+      "radius_large": 20
+    },
+    "spacing_scale": [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96],
+    "shadow": {
+      "soft": "0 2px 16px rgba(16,24,32,.08)",
+      "medium": "0 8px 24px rgba(16,24,32,.12)",
+      "strong": "0 12px 32px rgba(22,48,41,.18)"
+    },
+    "iconography": "Uso de íconos lineales finos (1.5px stroke). Emoji permitidos en contextos digitales como acento, no decoración principal.",
+    "imagery_style": "Fotografía cálida, premium, con paleta tierra. Las imágenes deben respirar — no saturar el layout.",
+    "data_viz_palette": [
+      "#163029",
+      "#41685B",
+      "#BC955B",
+      "#8B7355",
+      "#5C6660",
+      "#A8C5BB"
+    ],
+    "chart_principles": [
+      "Sin 3D — siempre 2D limpio",
+      "Mínimas grillas (alpha 0.06 sobre cream)",
+      "Etiquetar puntos críticos directamente, no depender de leyenda",
+      "Comparativos siempre con flechas ▲ ▼ y porcentaje"
+    ]
+  },
+
+  "report_template": {
+    "structure": [
+      {"step": "00 — AGENDA", "label": "Lo que verás hoy", "purpose": "Tabla de contenidos"},
+      {"step": "01 — RESUMEN EJECUTIVO", "label": "Highlights", "purpose": "Hero KPIs + cumplimiento de venta vs meta"},
+      {"step": "02 — RESULTADOS POR CANAL", "label": "Performance", "purpose": "Share de canales + detalle por fuente"},
+      {"step": "03 — PAID MEDIA", "label": "Inversión", "purpose": "Resultados FB + Google + top performers"},
+      {"step": "04 — IMPLEMENTACIONES", "label": "Creativo", "purpose": "Piezas en mercado + insights creativos"},
+      {"step": "05 — APRENDIZAJES Y NEXT STEPS", "label": "Cierre", "purpose": "Recomendaciones + plan + responsables"}
+    ],
+    "page_header_pattern": "[CLIENTE] · [MES DE AÑO] · [SECCIÓN]",
+    "page_number_pattern": "NN / TOTAL",
+    "source_label_pattern": "Fuente: [origen de datos]",
+    "must_include_per_page": [
+      "Eyebrow con cliente + mes + sección (UPPERCASE Work Sans)",
+      "Titular grande (Bodoni 72 italic)",
+      "Datos con flechas ▲ ▼ y comparativos vs período anterior",
+      "Footnote de Fuente al pie",
+      "Numeración NN / TOTAL al pie derecho"
+    ],
+    "closing_page": {
+      "headline": "¡Gracias!",
+      "subline": "Escríbenos, estamos siempre en contacto contigo.",
+      "contact_block": "Account Director · email · teléfono"
+    }
+  },
+
+  "kpi_formatting": {
+    "currency_large": "Compactar a M/K (ej: $491M, $66M, $214K)",
+    "percent_changes": "Siempre con flecha ▲ verde / ▼ rojo + 'vs. anterior' o 'vs. meta'",
+    "decimal_places": {"money": 0, "percent": 2, "roas": 2, "rate": 2},
+    "use_thousands_separator": true
+  },
+
+  "ui_components": {
+    "kpi_card": {
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "border_top_accent": "4px solid #BC955B",
+      "padding": "20px 24px",
+      "label_style": "Work Sans UPPERCASE 11px letter-spacing 0.6px color muted",
+      "value_style": "Prompt 900 32px color green_dark",
+      "delta_style": "Work Sans 600 12px with arrow"
+    },
+    "section_block": {
+      "background": "#FFFFFF",
+      "border_radius": "20px",
+      "padding": "32px",
+      "shadow": "soft"
+    },
+    "hero_section": {
+      "background": "linear-gradient(135deg,#163029 0%,#41685B 100%)",
+      "text_color": "#F4EAE1",
+      "accent_color": "#BC955B"
+    },
+    "table": {
+      "header_bg": "#163029",
+      "header_color": "#F4EAE1",
+      "row_hover": "#F4EAE1",
+      "row_divider": "rgba(16,24,32,.06)",
+      "font": "Work Sans 13px"
+    },
+    "button_primary": {
+      "background": "#163029",
+      "text": "#F4EAE1",
+      "border_radius": "999px",
+      "padding": "10px 24px",
+      "font": "Prompt 600 UPPERCASE letter-spacing 0.08em"
+    },
+    "badge": {
+      "positive_bg": "#E8F0EC",
+      "positive_text": "#41685B",
+      "negative_bg": "#F5E4DF",
+      "negative_text": "#8B3A2E",
+      "neutral_bg": "#F4EAE1",
+      "neutral_text": "#BC955B",
+      "font": "Work Sans 11px 600 UPPERCASE"
+    }
+  },
+
+  "approved_phrasings": {
+    "section_intros": [
+      "Lo más destacado del mes",
+      "El mes en números",
+      "Performance vs. mes anterior",
+      "Tres victorias del mes",
+      "Claves de desempeño",
+      "Plan próximo mes"
+    ],
+    "summary_starters": [
+      "Resumen del mes:",
+      "Observaciones:",
+      "Highlight del mes:"
+    ],
+    "closing_phrases": [
+      "Hasta el próximo mes",
+      "¡Gracias!",
+      "Estamos siempre en contacto contigo"
+    ]
+  },
+
+  "fonts_local_path": "/Users/crownmediadanielb/Documents/04. FAMILIA FF/Claude Familia /brand/Fuentes/",
+
+  "source_files": {
+    "brand_guidelines": "BRAND GUIDELINES CROWN MEDIA.pdf",
+    "report_template": "Crown Media - Reporte Mensual _Editable_.pptx.pdf",
+    "fonts_folder": "Fuentes/"
+  },
+
+  "version": "1.0",
+  "last_updated": "2026-05-12"
+}

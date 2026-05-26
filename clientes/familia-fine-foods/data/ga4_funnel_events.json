@@ -1,0 +1,22 @@
+[
+  {
+    "event": "view_item",
+    "count": 4358
+  },
+  {
+    "event": "add_to_cart",
+    "count": 367
+  },
+  {
+    "event": "begin_checkout",
+    "count": 38
+  },
+  {
+    "event": "add_payment_info",
+    "count": 16
+  },
+  {
+    "event": "purchase",
+    "count": 33
+  }
+]

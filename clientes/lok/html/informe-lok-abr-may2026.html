@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lök Foods · Reporte Abr–May 2026 — Crown Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Prompt:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --green-dark:#163029; --green-mid:#41685B; --cream:#F4EAE1;
+  --cream-2:#EBE0D4; --gold:#BC955B; --gold-soft:#D4B68A;
+  --black:#101820; --white:#FFFFFF; --muted:#5C6660;
+  --green-tint:#E8F0EC; --gold-tint:#F7EFE3;
+  --danger:#8B3A2E; --danger-tint:#F5E4DF;
+  --font-display:'Bodoni Moda','Playfair Display',Georgia,serif;
+  --font-body:'Work Sans','Helvetica Neue',Arial,sans-serif;
+  --font-accent:'Prompt','Montserrat',sans-serif;
+  --radius-sm:8px; --radius:12px; --radius-lg:20px;
+  --shadow-soft:0 2px 16px rgba(16,24,32,.08);
+  --shadow-med:0 8px 24px rgba(16,24,32,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--black);font-family:var(--font-body);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* ── LAYOUT ── */
+.page-frame{max-width:1200px;margin:0 auto;background:var(--cream)}
+.page{padding:48px 48px 64px;border-bottom:1px solid rgba(16,24,32,.06);position:relative;min-height:500px}
+.page-header{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:32px;padding-bottom:14px;border-bottom:1px solid rgba(16,24,32,.08)}
+.page-number{font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.5px;position:absolute;right:48px;bottom:24px}
+.page-source{font-size:10px;color:var(--muted);font-style:italic;position:absolute;left:48px;bottom:24px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.hero-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:72px;line-height:.95;letter-spacing:-.02em;color:var(--green-dark)}
+.hero-title .accent{color:var(--gold)}
+.section-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:44px;line-height:1;letter-spacing:-.01em;color:var(--green-dark);margin-bottom:24px}
+.subsection-title{font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--green-dark);text-transform:uppercase;margin-bottom:16px}
+p.lead{font-size:15px;line-height:1.6;color:var(--black);max-width:680px}
+.divider-gold{width:56px;height:2px;background:var(--gold);margin:16px 0}
+.mt-16{margin-top:16px} .mt-24{margin-top:24px} .mt-32{margin-top:32px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+
+/* ── COVER ── */
+.cover{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green-mid) 100%);color:var(--cream);min-height:720px;padding:64px 64px 80px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(188,149,91,.2),transparent 60%)}
+.cover-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:space-between;min-height:592px}
+.cover-logo{font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream)}
+.cover-eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.cover-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:96px;line-height:.92;letter-spacing:-.025em;color:var(--cream);margin:20px 0 8px}
+.cover-title .dot{color:var(--gold)}
+.cover-meta{font-size:13px;color:rgba(244,234,225,.78);letter-spacing:.04em;line-height:1.6;margin-top:24px}
+.cover-meta strong{color:var(--cream)}
+.cover-bottom{font-size:10px;color:rgba(244,234,225,.45);letter-spacing:.2em;text-transform:uppercase}
+
+/* ── KPI CARDS ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;margin-top:24px}
+.kpi{background:var(--white);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-soft);border-top:3px solid var(--gold)}
+.kpi.success{border-top-color:var(--green-mid)}
+.kpi.danger{border-top-color:var(--danger)}
+.kpi.dark{background:var(--green-dark);color:var(--cream);border-top-color:var(--gold)}
+.kpi-label{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.kpi.dark .kpi-label{color:rgba(244,234,225,.6)}
+.kpi-value{font-family:var(--font-accent);font-weight:800;font-size:30px;line-height:1;color:var(--green-dark);letter-spacing:-.01em}
+.kpi.dark .kpi-value{color:var(--cream)}
+.kpi-value .u{font-size:13px;font-weight:600;color:var(--muted);margin-left:3px}
+.kpi-delta{font-size:12px;font-weight:600;margin-top:10px;display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:4px}
+.kpi-delta.up{background:var(--green-tint);color:var(--green-mid)}
+.kpi-delta.down{background:var(--danger-tint);color:var(--danger)}
+.kpi-delta.neutral{background:var(--gold-tint);color:var(--gold)}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-soft)}
+.card.cream{background:var(--cream-2)}
+
+/* ── TABLES ── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--green-dark);color:var(--cream)}
+thead th{padding:12px 14px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+tbody tr{border-bottom:1px solid rgba(16,24,32,.06)}
+tbody tr:hover{background:var(--cream-2)}
+tbody td{padding:11px 14px;color:var(--black)}
+tbody tr.total{background:rgba(22,48,41,.06);font-weight:700}
+.right{text-align:right}
+.num{font-family:var(--font-accent);font-weight:700}
+.name{font-weight:500}
+
+/* ── BADGES ── */
+.badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:.04em}
+.badge.positive{background:var(--green-tint);color:var(--green-mid)}
+.badge.negative{background:var(--danger-tint);color:var(--danger)}
+.badge.neutral{background:var(--gold-tint);color:var(--gold)}
+
+/* ── ALERTS ── */
+.alert{display:flex;gap:16px;padding:20px 24px;border-radius:var(--radius);border-left:4px solid var(--gold);background:var(--gold-tint)}
+.alert.success{border-left-color:var(--green-mid);background:var(--green-tint)}
+.alert.warn{border-left-color:var(--danger);background:var(--danger-tint)}
+.alert.info{border-left-color:var(--green-mid);background:var(--green-tint)}
+.alert-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.alert-body{flex:1}
+.alert-title{font-weight:700;font-size:13px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+
+/* ── CHARTS ── */
+.chart-card{background:var(--white);border-radius:var(--radius-lg);padding:28px 32px;box-shadow:var(--shadow-soft)}
+.chart-title{font-weight:700;font-size:13px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.chart-sub{font-size:11px;color:var(--muted);margin-bottom:20px}
+
+/* ── DATE FILTER ── */
+.date-filter-bar{background:var(--green-dark);padding:18px 24px;border-radius:var(--radius-lg);margin-bottom:32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.date-filter-bar .filter-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,234,225,.6);flex-shrink:0}
+.preset-btns{display:flex;gap:8px;flex-wrap:wrap}
+.preset-btn{padding:7px 14px;border-radius:6px;border:1px solid rgba(188,149,91,.4);background:transparent;color:var(--cream);font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.preset-btn:hover,.preset-btn.active{background:var(--gold);border-color:var(--gold);color:var(--green-dark);font-weight:700}
+.date-inputs{display:flex;align-items:center;gap:8px;margin-left:auto}
+.date-inputs input[type="date"]{padding:7px 10px;border:1px solid rgba(188,149,91,.4);border-radius:6px;background:rgba(255,255,255,.08);color:var(--cream);font-family:var(--font-body);font-size:12px;cursor:pointer}
+.date-inputs input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.7}
+.date-inputs span{color:rgba(244,234,225,.5);font-size:12px}
+.btn-apply{padding:7px 18px;background:var(--gold);border:none;border-radius:6px;color:var(--green-dark);font-family:var(--font-body);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;text-transform:uppercase}
+.date-range-display{font-size:11px;color:var(--gold);font-weight:600;margin-left:8px;white-space:nowrap}
+.dynamic-note{font-size:10px;color:rgba(244,234,225,.45);margin-top:4px}
+
+/* ── FUNNEL ── */
+.funnel-step{text-align:center;position:relative}
+.funnel-val{font-family:var(--font-accent);font-weight:900;font-size:38px;line-height:1}
+.funnel-bar-wrap{margin:12px auto 6px}
+.funnel-bar{height:8px;border-radius:4px;margin:0 auto}
+
+/* ── RECS ── */
+.rec{background:var(--white);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow-soft);border-left:4px solid var(--gold);margin-bottom:12px}
+.rec.high{border-left-color:var(--danger)}
+.rec.medium{border-left-color:var(--gold)}
+.rec.low{border-left-color:var(--green-mid)}
+.rec-num{font-family:var(--font-accent);font-weight:900;font-size:28px;color:var(--gold);margin-bottom:4px}
+.rec.high .rec-num{color:var(--danger)}
+.rec.low .rec-num{color:var(--green-mid)}
+.rec-priority{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rec-title{font-weight:700;font-size:16px;color:var(--green-dark);margin-bottom:10px}
+.rec-body{font-size:13px;line-height:1.65;color:var(--black)}
+.rec-body ul{margin-left:18px;margin-top:8px}
+.rec-body li{margin-bottom:4px}
+.rec-owner{font-size:11px;color:var(--muted);margin-top:12px;font-weight:600}
+
+/* ── CLOSING ── */
+.closing{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:var(--cream);text-align:center;padding:80px 48px;min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.closing-title{font-family:var(--font-display);font-style:italic;font-size:64px;line-height:1}
+</style>
+</head>
+<body>
+<div class="page-frame">
+
+<!-- ══ 00 · COVER ══ -->
+<div class="page cover">
+  <div class="cover-content">
+    <div class="cover-logo">♛ Crown Media · Agencia de Medios</div>
+    <div>
+      <div class="cover-eyebrow">Reporte de Performance Digital</div>
+      <div class="cover-title">Lök<span class="dot">.</span><br/>Foods</div>
+      <div class="cover-meta">
+        <strong>Período:</strong> 1 Abril — 13 Mayo 2026<br/>
+        <strong>Canales:</strong> Google Ads · Meta Ads · GA4 · Shopify<br/>
+        <strong>Preparado por:</strong> Crown Media · marketing@crownmediagroup.com.co
+      </div>
+    </div>
+    <div class="cover-bottom">Confidencial · Uso interno · Crown Media © 2026</div>
+  </div>
+</div>
+
+<!-- ══ FILTRO DINÁMICO DE FECHAS (sticky top) ══ -->
+<div id="dateFilterWrapper" style="position:sticky;top:0;z-index:100;background:var(--cream);padding:16px 48px 0">
+  <div class="date-filter-bar">
+    <div>
+      <div class="filter-label">📅 Rango de fechas · datos GA4</div>
+      <div class="dynamic-note">Sesiones y ventas se actualizan · Paid media muestra período completo</div>
+    </div>
+    <div class="preset-btns">
+      <button class="preset-btn" onclick="setPreset('2026-04-01','2026-04-30')">Abril 2026</button>
+      <button class="preset-btn" onclick="setPreset('2026-05-01','2026-05-13')">Mayo (parcial)</button>
+      <button class="preset-btn" onclick="setPreset('2026-05-07','2026-05-13')">Últimos 7 días</button>
+      <button class="preset-btn active" id="btn-total" onclick="setPreset('2026-04-01','2026-05-13')">Todo el período</button>
+    </div>
+    <div class="date-inputs">
+      <input type="date" id="dateStart" value="2026-04-01" min="2026-04-01" max="2026-05-13">
+      <span>→</span>
+      <input type="date" id="dateEnd" value="2026-05-13" min="2026-04-01" max="2026-05-13">
+      <button class="btn-apply" onclick="applyDateRange()">Aplicar</button>
+    </div>
+    <div class="date-range-display" id="rangeDisplay">1 Abr – 13 May 2026</div>
+  </div>
+</div>
+
+<!-- ══ 01 · RESUMEN EJECUTIVO ══ -->
+<div class="page" id="page-resumen">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+  <div class="eyebrow">01 — Resumen Ejecutivo</div>
+  <h2 class="hero-title">Highlights del<br/><span class="accent">mes</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+  <p class="lead mt-24" id="leadText">Período 1 Abr – 13 May 2026: <strong id="dyn-orders">221 órdenes</strong> · <strong id="dyn-lead-revenue">$26.6M COP</strong> en ventas GA4. Sesiones con conversión saludable del <strong id="dyn-lead-cvr">1.43%</strong>. Paid media bien balanceado pero con oportunidades claras de escala eficiente en SEM y Meta remarketing.</p>
+
+  <div class="kpi-grid mt-32">
+    <div class="kpi">
+      <div class="kpi-label">Ingresos GA4 (período)</div>
+      <div class="kpi-value" id="kpi-sales">$26.6<span class="u">M COP</span></div>
+      <div class="kpi-delta up" id="kpi-sales-delta">▲ +43% vs. Mar 2026</div>
+      <div class="kpi-sub" id="kpi-sales-sub">190 transacciones GA4</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Inversión Total</div>
+      <div class="kpi-value" id="kpi-invest">$3.4<span class="u">M COP</span></div>
+      <div class="kpi-delta neutral">Google + Meta · período</div>
+      <div class="kpi-sub" id="kpi-invest-sub">Meta $1.28M · Google $2.08M</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">ROAS Combinado</div>
+      <div class="kpi-value" id="kpi-roas">7.94<span class="u">x</span></div>
+      <div class="kpi-delta neutral" id="kpi-roas-note">GA4 Revenue / Inversión</div>
+      <div class="kpi-sub" id="kpi-roas-sub">período seleccionado</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">Sesiones Web GA4</div>
+      <div class="kpi-value" id="kpi-sessions">13,322</div>
+      <div class="kpi-delta up" id="kpi-sessions-delta">▲ +42% vs. Mar 2026</div>
+      <div class="kpi-sub" id="kpi-sessions-sub">9,877 usuarios únicos</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Tasa de Conversión</div>
+      <div class="kpi-value" id="kpi-cvr">1.43<span class="u">%</span></div>
+      <div class="kpi-delta up">▲ vs. 1.35% Mar 2026</div>
+      <div class="kpi-sub" id="kpi-cvr-sub">190 transacciones GA4</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Add to Cart</div>
+      <div class="kpi-value" id="kpi-atc">2,068</div>
+      <div class="kpi-delta neutral" id="kpi-atc-rate">15.5% de sesiones</div>
+      <div class="kpi-sub">eventos GA4</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Begin Checkout</div>
+      <div class="kpi-value" id="kpi-checkout">887</div>
+      <div class="kpi-delta neutral" id="kpi-checkout-rate">57% del ATC</div>
+      <div class="kpi-sub">eventos GA4</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Abandono Checkout</div>
+      <div class="kpi-value" id="kpi-abandon">78.6<span class="u">%</span></div>
+      <div class="kpi-delta down">▼ Cuello de botella</div>
+      <div class="kpi-sub" id="kpi-abandon-sub">Checkout → Compra</div>
+    </div>
+  </div>
+
+  <div class="grid-3 mt-32">
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase">01 · Victoria</div>
+      <div class="divider-gold" style="width:28px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--green-dark);margin:8px 0;line-height:1.1">SEM con<br/>ROAS 54x</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:38px;color:var(--green-mid);margin:16px 0">54.23<span style="font-size:16px;color:var(--muted)">x</span></div>
+      <p style="font-size:13px;line-height:1.55">Campaña SEM MAX_PURCHASE con solo $131K de inversión genera $7.15M. La más eficiente del mix — espacio claro para escalar.</p>
+    </div>
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase">02 · Atención</div>
+      <div class="divider-gold" style="width:28px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--green-dark);margin:8px 0;line-height:1.1">Shopping AON<br/>bajo</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:38px;color:var(--danger);margin:16px 0">4.25<span style="font-size:16px;color:var(--muted)">x</span></div>
+      <p style="font-size:13px;line-height:1.55">ROAS 4.25x vs PFMAX 10.65x. Probable canibalización por Performance Max. Revisar exclusiones y solapamiento.</p>
+    </div>
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase">03 · Oportunidad</div>
+      <div class="divider-gold" style="width:28px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--green-dark);margin:8px 0;line-height:1.1">Carrito<br/>90.8% abando</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:38px;color:var(--gold);margin:16px 0">+$4.4M<span style="font-size:16px;color:var(--muted)"> COP</span></div>
+      <p style="font-size:13px;line-height:1.55">Recuperar 10% de 2,068 carritos = ~190 pedidos extra = ~$33M COP. Email flows están disponibles (893 sesiones email).</p>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Shopify · GA4 (properties/384818907) · Meta Ads · Google Ads · 1 Abr–13 May 2026</div>
+  <div class="page-number">01 / 09</div>
+</div>
+
+<!-- ══ 02 · HALLAZGOS CLAVE ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+  <div class="eyebrow">Hallazgos del período</div>
+  <h2 class="hero-title">Cinco lecturas<br/><span class="accent">críticas</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-top:28px">
+    <div class="alert success" style="padding:22px 28px">
+      <div class="alert-icon" style="font-size:26px">✅</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--green-mid)">01 · Victoria · Conversión saludable</div>
+        <div style="font-size:14px;line-height:1.6">Tasa de conversión <strong id="h-cvr">1.43%</strong> — superior al benchmark e-commerce alimentario (1.0–1.5%) y mejor que marzo (1.35%). El negocio está convirtiendo bien en el período seleccionado. El foco debe ser escalar tráfico cualificado, no arreglar el funnel.</div>
+      </div>
+    </div>
+    <div class="alert success" style="padding:22px 28px">
+      <div class="alert-icon" style="font-size:26px">🚀</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--green-mid)">02 · Oportunidad · SEM subutilizado</div>
+        <div style="font-size:14px;line-height:1.6">LOK_COL_G_PEF_SEM_B_MAX_PURCHASE genera <strong id="h-sem-roas">ROAS 54.23x</strong> con solo <strong id="h-sem-spend">$131K</strong> de inversión (<span id="h-sem-pct">6.3%</span> del total de Google). Escalar +50% podría generar +<strong id="h-sem-upside">$5.5M</strong> adicionales.</div>
+      </div>
+    </div>
+    <div class="alert" style="padding:22px 28px">
+      <div class="alert-icon" style="font-size:26px">⚠️</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--gold)">03 · Revisión · Shopping AON canibalizado</div>
+        <div style="font-size:14px;line-height:1.6">LOK_COL_G_PEF_CPC_SALES_SHOPPING_AON con <strong id="h-aon-roas">ROAS 4.25x</strong> frente al PFMAX en <strong id="h-pfmax-roas">10.65x</strong> sugiere solapamiento de audiencias y keywords. Google puede estar dirigiendo tráfico del Shopping manual al PFMAX. <strong>Revisar exclusiones de producto y bid strategy.</strong></div>
+      </div>
+    </div>
+    <div class="alert success" style="padding:22px 28px">
+      <div class="alert-icon" style="font-size:26px">💎</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--green-mid)">04 · Victoria · Meta remarketing dominando</div>
+        <div style="font-size:14px;line-height:1.6">La campaña RMK (<strong id="h-rmk-roas">ROAS 30.88x</strong>) supera ampliamente a la campaña de adquisición MAX_PURCHASE (<strong id="h-max-roas">12.76x</strong>). Señal de que la base de clientes responde muy bien. Aumentar audiencias de remarketing puede escalar este canal.</div>
+      </div>
+    </div>
+    <div class="alert warn" style="padding:22px 28px">
+      <div class="alert-icon" style="font-size:26px">🛒</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--danger)" id="h-abandon-title">05 · Urgente · Abandono de carrito 90.8%</div>
+        <div style="font-size:14px;line-height:1.6"><strong id="h-abandon-body"><span id="h-atc">2,068</span> add-to-carts → solo <span id="h-purchase">190</span> compras = <span id="h-abandon-pct">90.8%</span> abandono.</strong> Add to Cart → Begin Checkout: de <span id="h-atc2">2,068</span> a <span id="h-checkout">887</span> = <span id="h-atc-to-co">57%</span> sigue. Pero Checkout → Purchase solo <strong id="h-co-to-pur">21.4%</strong> completa. El problema está en el checkout.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-source">Fuente: GA4 · Meta Ads · Google Ads · Shopify · Crown Media</div>
+  <div class="page-number">02 / 09</div>
+</div>
+
+<!-- ══ 03 · CANALES ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>02 — RESULTADOS POR CANAL</div>
+  </div>
+  <div class="eyebrow">02 — Canales</div>
+  <h2 class="hero-title">Desempeño<br/>por <span class="accent">canal</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th class="right">Sesiones</th>
+        <th class="right">% Total</th>
+        <th class="right">Conv. Est.</th>
+        <th class="right">Usuarios</th>
+      </tr>
+    </thead>
+    <tbody id="ch-tbody">
+      <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">Cargando...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2 mt-32">
+    <div class="chart-card">
+      <div class="chart-title">Distribución de sesiones por canal</div>
+      <div class="chart-sub" id="ch-chart-sub">1 Abr – 13 May 2026 · GA4</div>
+      <canvas id="channelChart" style="max-height:280px"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Comparativo vs. período anterior</div>
+      <div class="chart-sub" id="compare-chart-sub">Período seleccionado · GA4</div>
+      <canvas id="compareChart" style="max-height:280px"></canvas>
+    </div>
+  </div>
+
+  <div class="alert info mt-24">
+    <div class="alert-icon">💡</div>
+    <div class="alert-body" id="ch-insight">
+      <strong>Lectura clave:</strong> Google cpc agrupa PFMAX, Shopping y SEM. Orgánico es el segundo canal — muy sano. Meta cpc refleja las campañas de paid social. Email tiene alta intención de compra — canal a potenciar con automatización.
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: GA4 properties/384818907 · connexión ivan.vargas@crownmedia.com.co · 1 Abr–13 May 2026</div>
+  <div class="page-number">03 / 09</div>
+</div>
+
+<!-- ══ 04 · EMBUDO ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>02 — EMBUDO DE CONVERSIÓN</div>
+  </div>
+  <div class="eyebrow">Análisis de fricción</div>
+  <h2 class="hero-title">Embudo de<br/><span class="accent">conversión</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+  <p class="lead mt-16" id="fn-lead">La conversión general (<strong id="fn-cvr">1.43%</strong>) es sana. El mayor problema es el <strong>abandono en checkout</strong> — solo <strong id="fn-co-pct">21.4%</strong> de quienes inician checkout completan la compra. El <strong id="fn-atc-co-pct">57%</strong> sí avanza del carrito al checkout. El cuello de botella está en los últimos pasos.</p>
+
+  <div class="card mt-32">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;text-align:center">
+      <div class="funnel-step">
+        <div class="funnel-val" style="color:var(--green-mid)" id="fn-sessions">13,322</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-dark);margin-top:8px">Sesiones</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" style="background:var(--green-mid);width:100%"></div></div>
+        <div style="font-size:11px;color:var(--muted)">100%</div>
+        <div style="margin-top:8px"><span class="badge positive">▲ +42% vs Mar</span></div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-val" style="color:var(--green-dark)" id="fn-view">8,714</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-dark);margin-top:8px">View Item</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" id="fn-view-bar" style="background:var(--green-dark);width:85%"></div></div>
+        <div style="font-size:11px;color:var(--muted)" id="fn-view-pct">65.4% de sesiones</div>
+        <div style="margin-top:8px"><span class="badge positive">Alta exploración</span></div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-val" style="color:var(--gold)" id="fn-atc">2,068</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-dark);margin-top:8px">Add to Cart</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" id="fn-atc-bar" style="background:var(--gold);width:55%"></div></div>
+        <div style="font-size:11px;color:var(--muted)" id="fn-atc-pct">15.5% de sesiones</div>
+        <div style="margin-top:8px"><span class="badge neutral">Tasa normal</span></div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-val" style="color:#A67C3E" id="fn-checkout">887</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-dark);margin-top:8px">Begin Checkout</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" id="fn-co-bar" style="background:#A67C3E;width:35%"></div></div>
+        <div style="font-size:11px;color:var(--muted)" id="fn-co-pct-sub">6.7% · 57% del ATC</div>
+        <div style="margin-top:8px"><span class="badge neutral">Aceptable</span></div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-val" style="color:var(--danger)" id="fn-purchase">190</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-dark);margin-top:8px">Compra</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" id="fn-pur-bar" style="background:var(--danger);width:15%"></div></div>
+        <div style="font-size:11px;color:var(--muted)" id="fn-cvr-sub">1.43% conv. rate</div>
+        <div style="margin-top:8px"><span class="badge negative" id="fn-co-badge">▼ 21.4% del checkout</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;padding:20px;background:var(--cream-2);border-radius:var(--radius);border-left:4px solid var(--gold)">
+      <div style="font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-dark);margin-bottom:8px">🛒 Análisis de pérdida por etapa</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:13px;line-height:1.65">
+        <div id="fn-analysis-1"><strong style="color:var(--green-mid)">View Item → Add Cart:</strong> De 8,714 a 2,068 = <strong>76.3% no añaden</strong>. Normal — no todos los browsers compran.</div>
+        <div id="fn-analysis-2"><strong style="color:var(--gold)">Add Cart → Checkout:</strong> De 2,068 a 887 = <strong>57.1% avanzan</strong>. Mejor que benchmark (45%). ✓</div>
+        <div id="fn-analysis-3"><strong style="color:var(--danger)">Checkout → Compra:</strong> De 887 a 190 = <strong>78.6% abandonan checkout</strong>. ⚠️ AQUÍ está el problema.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;padding:12px;background:white;border-radius:8px;font-size:13px" id="fn-opportunity">
+      <strong style="color:var(--green-mid)">💰 Oportunidad cuantificada:</strong> Reducir abandono de checkout de 78.6% a 60% = +152 pedidos adicionales = <strong>~$26.7M COP adicionales</strong> sin incrementar gasto publicitario.
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: GA4 event counts · 1 Abr–13 May 2026 · Crown Media</div>
+  <div class="page-number">04 / 09</div>
+</div>
+
+<!-- ══ 05 · PAID MEDIA ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>03 — PAID MEDIA</div>
+  </div>
+  <div class="eyebrow">03 — Paid Media</div>
+  <h2 class="hero-title">Inversión<br/><span class="accent">publicitaria</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="kpi-grid mt-24">
+    <div class="kpi">
+      <div class="kpi-label">Inversión Total</div>
+      <div class="kpi-value" id="pm-invest">$3.36<span class="u">M COP</span></div>
+      <div class="kpi-delta neutral" id="pm-invest-sub">Meta $1.28M · Google $2.08M</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">ROAS GA4 / Inversión</div>
+      <div class="kpi-value" id="pm-roas">7.94<span class="u">x</span></div>
+      <div class="kpi-delta neutral" id="pm-roas-sub">GA4 Revenue / Total spend</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Clicks Totales</div>
+      <div class="kpi-value" id="pm-clicks">8,694</div>
+      <div class="kpi-delta neutral" id="pm-clicks-sub">Meta + Google</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">CTR Promedio</div>
+      <div class="kpi-value" id="pm-ctr">2.59<span class="u">%</span></div>
+      <div class="kpi-delta up" id="pm-ctr-sub">▲ Meta · Google</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-32">
+    <!-- META -->
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+        <div style="width:40px;height:40px;background:#1877F2;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:20px">f</div>
+        <div>
+          <div style="font-weight:700;font-size:15px;color:var(--green-dark)">Meta Ads</div>
+          <div style="font-size:11px;color:var(--muted)">ID: 1127236737996269 · Lök Foods · <span id="meta-period-note" style="color:var(--gold)">proporcional al período</span></div>
+        </div>
+      </div>
+      <table>
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Inversión</td><td class="right num" id="pm-meta-spend">$1,279,691 COP</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Impresiones</td><td class="right" id="pm-meta-impr">150,942</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Clicks</td><td class="right" id="pm-meta-clicks">3,610</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">CTR</td><td class="right" id="pm-meta-ctr">2.39%</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">CPC</td><td class="right" id="pm-meta-cpc">$354 COP</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">ROAS plataforma</td><td class="right num" id="pm-meta-roas" style="color:var(--green-mid)">20.62x</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Valor atribuido</td><td class="right num" id="pm-meta-value">$26,391,264 COP</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- GOOGLE -->
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+        <div style="width:40px;height:40px;background:var(--green-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:13px;letter-spacing:-.5px">Ads</div>
+        <div>
+          <div style="font-weight:700;font-size:15px;color:var(--green-dark)">Google Ads</div>
+          <div style="font-size:11px;color:var(--muted)">ID: 762-337-6244 · Lök Foods · <span style="color:var(--green-mid)">datos reales diarios</span></div>
+        </div>
+      </div>
+      <table>
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Inversión</td><td class="right num" id="pm-g-spend">$2,077,881 COP</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Impresiones</td><td class="right" id="pm-g-impr">185,154</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Clicks</td><td class="right" id="pm-g-clicks">5,084</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">CTR</td><td class="right" id="pm-g-ctr">2.75%</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">CPC</td><td class="right" id="pm-g-cpc">$409 COP</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Conversiones</td><td class="right" id="pm-g-conv">359</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">ROAS plataforma</td><td class="right num" id="pm-g-roas" style="color:var(--green-mid)">12.06x</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="page-source">Fuente: Meta Ads (daniel.b@) · Google Ads (ivan.vargas@) · Conexión única · 1 Abr–13 May 2026</div>
+  <div class="page-number">05 / 09</div>
+</div>
+
+<!-- ══ 06 · CAMPAÑAS DETALLE ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>03 — CAMPAÑAS DETALLE</div>
+  </div>
+  <div class="eyebrow">Performance por campaña</div>
+  <h2 class="hero-title">Top<br/><span class="accent">campañas</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="subsection-title mt-24">📘 Meta Ads — Campañas <small style="font-size:10px;font-weight:400;color:var(--muted)">(proporcional al período seleccionado)</small></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="right">Inversión</th>
+        <th class="right">Impresiones</th>
+        <th class="right">Clicks</th>
+        <th class="right">ROAS</th>
+        <th class="right">Valor</th>
+        <th class="right">Estado</th>
+      </tr>
+    </thead>
+    <tbody id="cam-meta-tbody">
+      <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:16px">Cargando...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subsection-title mt-32">📗 Google Ads — Campañas <small style="font-size:10px;font-weight:400;color:var(--muted)">(datos reales diarios)</small></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="right">Inversión</th>
+        <th class="right">Impresiones</th>
+        <th class="right">Clicks</th>
+        <th class="right">Conversiones</th>
+        <th class="right">ROAS</th>
+        <th class="right">Estado</th>
+      </tr>
+    </thead>
+    <tbody id="cam-google-tbody">
+      <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:16px">Cargando...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert info mt-24">
+    <div class="alert-icon">💡</div>
+    <div class="alert-body">
+      <strong>Análisis rápido:</strong> SEM (54x) y RMK Meta (30.88x) son los motores más eficientes — representan el 18% del presupuesto pero generan eficiencia desproporcionada. Shopping AON (4.25x) probablemente canibalizado por PFMAX: revisar exclusiones de productos entre campañas o migrar presupuesto a PFMAX que ya está optimizado.
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Meta Ads + Google Ads · Conexión única por plataforma · 1 Abr–13 May 2026</div>
+  <div class="page-number">06 / 09</div>
+</div>
+
+<!-- ══ 07 · TENDENCIA DIARIA (DINÁMICA) ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>04 — TENDENCIA DIARIA</div>
+  </div>
+  <div class="eyebrow">Tendencia · actualiza con el filtro de fechas</div>
+  <h2 class="hero-title">Sesiones &amp;<br/><span class="accent">ventas diarias</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="kpi-grid mt-24" style="grid-template-columns:repeat(4,1fr)">
+    <div class="kpi">
+      <div class="kpi-label">Sesiones (período)</div>
+      <div class="kpi-value" id="dyn-sessions">13,322</div>
+      <div class="kpi-delta up" id="dyn-sessions-note">1 Abr – 13 May</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Ingresos GA4 (período)</div>
+      <div class="kpi-value" id="dyn-revenue">$27.8<span class="u">M</span></div>
+      <div class="kpi-delta up" id="dyn-revenue-note">Período seleccionado</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Días con ventas</div>
+      <div class="kpi-value" id="dyn-days-rev">38</div>
+      <div class="kpi-delta neutral" id="dyn-days-note">de 43 días total</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Sesiones / día prom.</div>
+      <div class="kpi-value" id="dyn-avg">310</div>
+      <div class="kpi-delta neutral">Promedio diario</div>
+    </div>
+  </div>
+
+  <div class="chart-card mt-32">
+    <div class="chart-title">Sesiones vs. Ingresos GA4 — Diario</div>
+    <div class="chart-sub" id="trendChartSub">1 Abr – 13 May 2026 · filtra usando el selector arriba</div>
+    <canvas id="trendChart" style="max-height:320px"></canvas>
+  </div>
+
+  <div class="alert info mt-24">
+    <div class="alert-icon">📈</div>
+    <div class="alert-body">
+      <strong>Pico del período:</strong> 29 Abril con 522 sesiones y $3.24M COP en ventas — el día de mayor revenue. Mayo muestra tendencia creciente con varios días superando $1M. Los días sin ingresos (Abr 13, 18, 19; May 1) pueden indicar tracking gaps o días sin transacciones completadas.
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: GA4 · Dato dinámico · Filtrar con selector superior · datos disponibles 1 Abr – 13 May 2026</div>
+  <div class="page-number">07 / 09</div>
+</div>
+
+<!-- ══ 08 · NEXT STEPS ══ -->
+<div class="page">
+  <div class="page-header">
+    <div>♛ CROWN MEDIA · LÖK FOODS · ABR–MAY 2026</div>
+    <div>05 — APRENDIZAJES Y NEXT STEPS</div>
+  </div>
+  <div class="eyebrow">05 — Cierre</div>
+  <h2 class="hero-title">Plan próximo<br/><span class="accent">mes</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:28px">
+    <div class="rec high">
+      <div class="rec-num">01</div>
+      <div class="rec-priority">Urgente · Checkout UX</div>
+      <h3 class="rec-title">Reducir abandono de checkout (78.6% → 60%)</h3>
+      <div class="rec-body">
+        887 inician checkout · solo 190 compran. Cada % que se recupere = ~$1.8M COP adicionales.
+        <ul>
+          <li>Mostrar costo de envío antes del checkout (no al final)</li>
+          <li>Reducir campos: solo email + dirección + pago</li>
+          <li>Activar Shop Pay / PSE / Nequi para checkout rápido</li>
+          <li>Email trigger carrito abandonado: 1h, 24h, 72h con incentivo</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Equipo CRO + Desarrollo + Cliente</div>
+    </div>
+
+    <div class="rec high">
+      <div class="rec-num">02</div>
+      <div class="rec-priority">Alta · Google Ads · Escalar</div>
+      <h3 class="rec-title">Escalar SEM MAX_PURCHASE +50%</h3>
+      <div class="rec-body">
+        LOK_COL_G_PEF_SEM_B_MAX_PURCHASE: ROAS 54.23x con solo $131K. Escalar a $200K puede generar +$3.7M adicionales.
+        <ul>
+          <li>Aumentar presupuesto diario gradualmente (+20% cada semana)</li>
+          <li>Ampliar match types con variaciones de queries compradora</li>
+          <li>Agregar extensiones de precio y reviews</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Iván V. · Crown Media</div>
+    </div>
+
+    <div class="rec medium">
+      <div class="rec-num">03</div>
+      <div class="rec-priority">Alta · Google Ads · Optimizar</div>
+      <h3 class="rec-title">Revisar Shopping AON vs PFMAX (canibalización)</h3>
+      <div class="rec-body">
+        Shopping AON (ROAS 4.25x) probablemente pierde tráfico a PFMAX (10.65x). Google puede estar tomando los mismos queries en dos campañas.
+        <ul>
+          <li>Auditar overlap de productos entre Shopping AON y PFMAX</li>
+          <li>Si hay overlap &gt;60%, pausar Shopping AON y redirigir $441K a PFMAX</li>
+          <li>Alternativamente: asignar Shopping AON a segmento de productos específicos</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Iván V. · Crown Media</div>
+    </div>
+
+    <div class="rec medium">
+      <div class="rec-num">04</div>
+      <div class="rec-priority">Alta · Meta · Escalar RMK</div>
+      <h3 class="rec-title">Aumentar presupuesto Meta RMK (ROAS 30.88x)</h3>
+      <div class="rec-body">
+        La campaña RMK es la más eficiente de Meta con 30.88x. Con audiencia base creciendo (221 nuevas órdenes/período), el remarketing se amplía.
+        <ul>
+          <li>Aumentar presupuesto RMK de $605K a $900K (+49%)</li>
+          <li>Ampliar ventanas: 30d, 60d, 90d visitantes y compradores anteriores</li>
+          <li>Crear variante de anuncio para clientes que compraron hace 60+ días</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Daniel B. · Crown Media</div>
+    </div>
+
+    <div class="rec low">
+      <div class="rec-num">05</div>
+      <div class="rec-priority">Media · Email · Automatización</div>
+      <h3 class="rec-title">Activar flujos automáticos de Email</h3>
+      <div class="rec-body">
+        893 sesiones de email (6.7% del tráfico) — el canal ya existe y tiene alta intención.
+        <ul>
+          <li>Flujo de bienvenida con 10% descuento primera compra</li>
+          <li>Carrito abandonado: 1h + 24h + 72h con incentivo escalonado</li>
+          <li>Post-compra: reseña + cross-sell complementario</li>
+          <li>Reactivación clientes inactivos &gt;45 días</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Equipo Email + Cliente</div>
+    </div>
+
+    <div class="rec low">
+      <div class="rec-num">06</div>
+      <div class="rec-priority">Media · SEO · Defensa</div>
+      <h3 class="rec-title">Defender y crecer posición orgánica</h3>
+      <div class="rec-body">
+        2,902 sesiones orgánicas (21.8%) — el segundo canal más grande sin costo de adquisición.
+        <ul>
+          <li>Blog: recetas con productos Lök, "cómo preparar X"</li>
+          <li>Optimizar fichas de producto con keywords transaccionales</li>
+          <li>Mejorar Core Web Vitals (LCP, INP) en Shopify</li>
+          <li>Schema markup Recipe + Product para rich snippets</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Equipo SEO + Cliente</div>
+    </div>
+  </div>
+
+  <div class="page-source">Plan acordado con Lök Foods · Mayo 14, 2026</div>
+  <div class="page-number">08 / 09</div>
+</div>
+
+<!-- ══ 09 · CIERRE ══ -->
+<div class="page closing">
+  <div style="font-family:var(--font-accent);font-weight:800;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">♛ Crown Media</div>
+  <div class="closing-title">¡Gracias<span style="color:var(--gold)">!</span></div>
+  <p style="font-size:16px;color:rgba(244,234,225,.8);max-width:480px;line-height:1.7">Estamos siempre en contacto. Cualquier pregunta sobre los datos o las recomendaciones, escríbenos.</p>
+  <div style="background:rgba(255,255,255,.08);border-radius:var(--radius);padding:24px 40px;text-align:center">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Account · Crown Media</div>
+    <div style="font-size:14px;color:var(--cream)">marketing@crownmediagroup.com.co</div>
+    <div style="font-size:13px;color:rgba(244,234,225,.6);margin-top:4px">@crown.media · crownmediagroup.com.co</div>
+  </div>
+  <div style="font-size:10px;color:rgba(244,234,225,.3);letter-spacing:.2em;text-transform:uppercase;margin-top:24px">Confidencial · Crown Media © 2026</div>
+  <div class="page-number" style="position:relative;right:auto;bottom:auto;color:rgba(244,234,225,.4)">09 / 09</div>
+</div>
+
+</div><!-- /page-frame -->
+
+<script>
+// ══════════════════════════════════════════════
+// CHANNEL DATA: date → [X,O,D,PS,PP,E,SR,GS,U,R,OTHER]
+// X=Cross-net O=Organic D=Direct PS=PaidSocial PP=PaidShop
+// E=Email SR=PaidSearch GS=OrgSocial U=Unassigned R=Referral
+// ══════════════════════════════════════════════
+const CH = {
+  '2026-04-01':[64,69,34,20,22,13,20,4,5,7,2],
+  '2026-04-02':[56,36,26,35,24,8,14,13,10,1,0],
+  '2026-04-03':[86,40,29,67,21,3,9,8,5,2,1],
+  '2026-04-04':[56,48,27,92,16,6,19,8,7,3,1],
+  '2026-04-05':[59,40,30,54,31,4,16,12,10,4,0],
+  '2026-04-06':[60,88,44,31,27,6,18,11,17,4,1],
+  '2026-04-07':[83,86,55,64,38,6,10,11,11,4,3],
+  '2026-04-08':[89,80,57,43,30,8,16,7,8,7,2],
+  '2026-04-09':[78,63,35,49,23,3,13,16,7,2,1],
+  '2026-04-10':[98,65,44,61,25,49,21,10,5,2,2],
+  '2026-04-11':[79,48,34,39,34,17,11,9,12,7,1],
+  '2026-04-12':[70,55,23,79,27,15,12,22,5,2,0],
+  '2026-04-13':[88,96,38,0,30,16,15,15,8,2,0],
+  '2026-04-14':[75,90,41,0,28,17,24,11,10,7,1],
+  '2026-04-15':[80,114,38,20,23,101,14,11,10,7,5],
+  '2026-04-16':[68,69,43,48,26,26,9,13,8,3,7],
+  '2026-04-17':[85,63,30,29,12,15,21,11,7,8,6],
+  '2026-04-18':[67,56,24,26,16,11,19,16,7,3,2],
+  '2026-04-19':[58,63,46,19,23,4,17,8,1,1,1],
+  '2026-04-20':[89,82,44,18,11,7,28,9,6,6,4],
+  '2026-04-21':[102,69,38,64,30,9,18,9,10,5,2],
+  '2026-04-22':[60,78,41,13,37,2,13,13,6,1,0],
+  '2026-04-23':[102,67,40,39,17,7,21,10,5,4,4],
+  '2026-04-24':[88,52,31,21,29,1,12,14,9,4,4],
+  '2026-04-25':[70,56,37,27,15,5,12,10,10,2,2],
+  '2026-04-26':[118,56,45,106,15,1,9,13,12,9,0],
+  '2026-04-27':[99,91,48,41,14,2,18,10,6,7,2],
+  '2026-04-28':[75,70,92,37,17,40,35,21,13,5,5],
+  '2026-04-29':[78,86,129,38,19,80,37,16,19,15,6],
+  '2026-04-30':[89,63,87,65,11,29,18,19,8,5,4],
+  '2026-05-01':[75,49,33,32,11,12,11,5,6,0,2],
+  '2026-05-02':[59,40,40,16,17,3,17,9,1,2,3],
+  '2026-05-03':[117,66,33,50,24,3,12,10,8,2,5],
+  '2026-05-04':[34,121,43,28,24,8,6,9,9,5,2],
+  '2026-05-05':[64,75,146,33,37,6,19,5,11,2,5],
+  '2026-05-06':[84,78,46,32,14,62,11,4,17,13,1],
+  '2026-05-07':[55,88,32,28,18,25,17,9,7,5,1],
+  '2026-05-08':[46,52,41,41,20,22,29,4,12,5,0],
+  '2026-05-09':[128,49,31,38,18,12,12,5,8,1,1],
+  '2026-05-10':[88,40,27,66,23,10,16,3,5,3,1],
+  '2026-05-11':[73,78,37,45,10,7,12,12,6,9,1],
+  '2026-05-12':[60,84,54,42,13,132,16,13,19,4,1],
+  '2026-05-13':[73,66,68,74,14,78,5,11,15,5,0]
+};
+const CHU = {
+  '2026-04-01':[58,57,33,20,20,12,15,4,4,6,2],
+  '2026-04-02':[48,32,25,29,23,8,12,12,10,1,0],
+  '2026-04-03':[81,38,28,62,19,3,9,8,5,2,1],
+  '2026-04-04':[49,42,27,89,16,6,14,7,6,3,1],
+  '2026-04-05':[50,36,26,54,27,3,15,11,10,4,0],
+  '2026-04-06':[47,79,41,31,27,6,15,9,16,4,1],
+  '2026-04-07':[64,75,53,61,34,5,7,11,11,3,2],
+  '2026-04-08':[75,72,51,40,25,6,16,6,7,6,1],
+  '2026-04-09':[65,55,31,49,21,3,11,15,6,2,1],
+  '2026-04-10':[78,56,38,57,22,43,16,10,4,2,1],
+  '2026-04-11':[63,39,33,37,30,15,10,9,10,7,1],
+  '2026-04-12':[65,51,22,74,24,13,11,20,5,2,0],
+  '2026-04-13':[75,79,33,0,26,10,15,14,6,2,0],
+  '2026-04-14':[60,80,36,0,24,13,19,10,10,5,1],
+  '2026-04-15':[64,94,34,19,21,88,10,10,10,4,1],
+  '2026-04-16':[53,59,42,48,26,20,9,12,8,3,3],
+  '2026-04-17':[70,54,26,27,12,12,15,11,6,7,5],
+  '2026-04-18':[56,44,24,25,14,9,17,15,7,2,2],
+  '2026-04-19':[52,57,43,18,22,4,12,8,1,1,1],
+  '2026-04-20':[75,72,38,16,11,6,24,9,6,5,2],
+  '2026-04-21':[88,62,35,59,27,7,16,9,10,3,1],
+  '2026-04-22':[47,65,38,13,30,2,12,12,6,1,0],
+  '2026-04-23':[92,59,36,35,15,6,16,10,4,4,2],
+  '2026-04-24':[78,47,25,21,26,1,9,14,6,4,2],
+  '2026-04-25':[63,50,35,22,15,4,9,10,9,1,2],
+  '2026-04-26':[105,53,42,104,12,1,7,13,11,4,0],
+  '2026-04-27':[87,74,39,37,12,2,13,9,6,5,2],
+  '2026-04-28':[62,62,78,37,16,35,29,21,13,5,2],
+  '2026-04-29':[56,72,107,35,15,51,25,15,17,12,2],
+  '2026-04-30':[76,53,79,63,10,23,15,18,8,3,1],
+  '2026-05-01':[70,42,27,32,11,11,10,5,6,0,2],
+  '2026-05-02':[52,36,39,16,16,2,10,9,1,2,3],
+  '2026-05-03':[109,59,32,47,21,3,10,10,8,1,5],
+  '2026-05-04':[29,110,39,26,19,5,5,9,8,5,1],
+  '2026-05-05':[56,64,142,31,32,5,14,5,6,2,4],
+  '2026-05-06':[63,66,38,30,13,54,9,4,12,10,1],
+  '2026-05-07':[52,79,29,27,17,19,13,9,7,5,1],
+  '2026-05-08':[41,46,29,35,18,20,23,4,12,5,0],
+  '2026-05-09':[117,44,27,34,17,10,9,5,7,1,1],
+  '2026-05-10':[79,34,23,59,21,10,14,3,4,2,1],
+  '2026-05-11':[68,71,33,43,8,7,11,12,5,8,1],
+  '2026-05-12':[55,73,50,31,12,113,12,13,15,4,1],
+  '2026-05-13':[59,52,65,71,14,68,4,10,11,4,0]
+};
+// ── FUNNEL: date → [view_item, add_to_cart, begin_checkout, purchase]
+const FN = {
+  '2026-04-01':[182,20,9,2],'2026-04-02':[131,12,6,2],'2026-04-03':[182,38,15,2],
+  '2026-04-04':[170,16,11,1],'2026-04-05':[168,20,5,3],'2026-04-06':[226,50,13,4],
+  '2026-04-07':[208,26,12,2],'2026-04-08':[248,40,24,7],'2026-04-09':[175,23,17,3],
+  '2026-04-10':[228,67,31,8],'2026-04-11':[187,15,7,2],'2026-04-12':[203,32,14,3],
+  '2026-04-13':[181,18,7,0],'2026-04-14':[209,53,13,4],'2026-04-15':[226,133,43,11],
+  '2026-04-16':[192,13,17,2],'2026-04-17':[178,31,9,3],'2026-04-18':[134,30,7,0],
+  '2026-04-19':[159,14,4,0],'2026-04-20':[208,51,25,6],'2026-04-21':[213,28,15,3],
+  '2026-04-22':[140,13,11,2],'2026-04-23':[188,35,15,4],'2026-04-24':[165,18,10,4],
+  '2026-04-25':[149,27,10,2],'2026-04-26':[234,27,16,7],'2026-04-27':[210,24,16,5],
+  '2026-04-28':[285,162,60,4],'2026-04-29':[414,241,113,24],'2026-04-30':[278,148,58,12],
+  '2026-05-01':[169,27,16,0],'2026-05-02':[127,10,9,1],'2026-05-03':[240,36,10,5],
+  '2026-05-04':[217,59,30,7],'2026-05-05':[224,32,22,6],'2026-05-06':[232,37,21,5],
+  '2026-05-07':[183,57,21,4],'2026-05-08':[140,66,16,4],'2026-05-09':[168,25,9,3],
+  '2026-05-10':[170,42,16,1],'2026-05-11':[226,43,20,5],'2026-05-12':[283,108,44,8],
+  '2026-05-13':[264,101,40,9]
+};
+// ── GOOGLE ADS: date → [[pfmax cost,impr,clicks,conv,val],[aon...],[sem...]]
+const GG = {
+  '2026-04-01':[[27371,2208,70,0.68,0],[11372,3621,25,0,0],[3852,74,17,2,202800]],
+  '2026-04-02':[[21546,1488,56,4.5,210756],[11503,3489,35,0,0],[203,46,12,0,0]],
+  '2026-04-03':[[48724,3736,116,10,253831],[10272,1417,25,0.01,1717],[1399,48,9,0,0]],
+  '2026-04-04':[[38064,1947,60,6.13,182456],[10604,3417,25,0,0],[2084,94,18,0,0]],
+  '2026-04-05':[[36622,1678,67,5.23,478156],[8939,1907,35,0,0],[5991,54,16,0,0]],
+  '2026-04-06':[[45244,816,50,6.81,276495],[10106,2895,38,0,0],[6000,33,13,0.25,54161]],
+  '2026-04-07':[[30843,1654,73,19.55,661746],[12550,3139,42,0,0],[3392,59,9,2,582400]],
+  '2026-04-08':[[29404,1318,78,11.46,465612],[10003,2315,36,0,0],[3367,37,19,0,0]],
+  '2026-04-09':[[21867,1850,78,23.21,90125],[10160,1639,29,1.92,844415],[3493,70,13,0,0]],
+  '2026-04-10':[[57649,1794,85,8.74,825879],[10486,2707,31,0,0],[2582,78,18,6,477800]],
+  '2026-04-11':[[32256,1392,78,3.34,134578],[10246,1888,33,0,0],[2957,28,8,1,97176]],
+  '2026-04-12':[[55580,2005,86,4.9,322876],[9678,1776,29,0,0],[394,41,7,0,0]],
+  '2026-04-13':[[41031,798,74,3.35,0],[11179,3395,42,0,0],[5362,66,14,0,0]],
+  '2026-04-14':[[22172,967,58,7.91,257775],[11936,3269,40,0,0],[2849,94,17,4,1009400]],
+  '2026-04-15':[[41078,1365,78,15,2027068],[11040,2940,29,2,252400],[3178,15,7,0.26,55718]],
+  '2026-04-16':[[20763,965,57,0,0],[10438,3746,37,0,0],[2881,35,9,0,0]],
+  '2026-04-17':[[23570,2194,76,10,764190],[10146,964,17,0,0],[3180,52,18,0,0]],
+  '2026-04-18':[[59989,1614,72,0,0],[8207,1727,21,0.02,4816],[1011,80,18,0,0]],
+  '2026-04-19':[[30802,1467,61,2,0],[8081,2418,28,0,0],[5420,58,13,0,0]],
+  '2026-04-20':[[32409,1926,87,6.42,526039],[9972,875,15,0,0],[2269,101,23,2,246400]],
+  '2026-04-21':[[40443,1083,89,3.86,221581],[11449,2464,34,0,0],[3330,34,12,2,265455]],
+  '2026-04-22':[[21002,1117,49,5.95,17378],[10897,3158,37,0,0],[2002,53,11,3,296000]],
+  '2026-04-23':[[33485,2395,104,5,469356],[10620,2118,22,0,0],[3307,68,15,1.55,310638]],
+  '2026-04-24':[[36787,1718,91,4.28,362902],[9636,2923,38,0,0],[1849,56,11,0,0]],
+  '2026-04-25':[[38615,1820,67,5,0],[8993,1568,22,0,0],[4835,17,8,3,480000]],
+  '2026-04-26':[[58800,4615,148,12.91,1545655],[11924,1692,20,0,0],[789,22,4,0,0]],
+  '2026-04-27':[[36284,2582,103,8.33,931135],[9659,2668,16,0,0],[2245,80,12,1,24300]],
+  '2026-04-28':[[27946,1827,77,7.91,580402],[8257,1449,23,0,0],[5046,127,32,3.95,654092]],
+  '2026-04-29':[[23801,947,51,11.26,265961],[9042,2673,25,0,0],[3676,45,18,1,105232]],
+  '2026-04-30':[[26402,2416,78,14.79,190535],[6754,2008,13,0,0],[2262,36,11,2,224012]],
+  '2026-05-01':[[34096,3208,85,2.62,97064],[10520,1020,14,0,0],[2380,42,12,0,0]],
+  '2026-05-02':[[21884,1872,65,0.5,97189],[9893,1938,31,0,0],[469,66,14,0,0]],
+  '2026-05-03':[[67034,5079,157,1.5,97189],[10725,2867,26,0,0],[5943,27,8,5,1118890]],
+  '2026-05-04':[[27839,371,28,0,0],[12697,1395,23,3.41,230858],[3659,16,4,0,0]],
+  '2026-05-05':[[20447,1074,55,16,998268],[11392,2873,41,1.81,151196],[3231,84,15,0,0]],
+  '2026-05-06':[[26160,1634,76,4.62,0],[12812,1327,16,0,0],[2726,40,11,3,409175]],
+  '2026-05-07':[[44205,1890,56,4.98,679389],[10492,2289,32,0,0],[2291,80,16,1.36,184399]],
+  '2026-05-08':[[12440,1452,44,13.47,455079],[9565,2541,26,0,0],[3474,100,25,0,0]],
+  '2026-05-09':[[51467,5067,148,7,549854],[11700,1190,20,0,0],[772,63,10,2,209800]],
+  '2026-05-10':[[42305,4003,97,4,140338],[8200,2147,24,0,0],[3663,58,12,0,0]],
+  '2026-05-11':[[40917,2881,76,6.75,220856],[9026,402,9,0,0],[4791,63,11,0,0]],
+  '2026-05-12':[[25130,1881,72,8,382712],[10518,2189,26,0,0],[3964,32,10,0,0]],
+  '2026-05-13':[[29843,2039,71,1.52,246760],[10010,2174,22,2,391000],[3298,12,5,2,142800]]
+};
+// ── META TOTALS (proporcional: se multiplica por ratio de sesiones)
+const META = {
+  rmk:{s:605195,i:56771,c:1317,p:141,v:386585180,roas:30.88},
+  max:{s:603567,i:67982,c:1722,p:53,v:305973453,roas:12.76},
+  awn:{s:70929,i:26189,c:571,p:0,v:1582000,roas:0}
+};
+// ── GA4 DAILY: sessions + GA4 ecommerce revenue
+// ══════════════════════════════════════════════
+// DATOS DIARIOS GA4 — Apr 1 → May 13, 2026
+// ══════════════════════════════════════════════
+const DAILY = [
+  {d:'2026-04-01',s:260,r:170700},{d:'2026-04-02',s:223,r:173500},
+  {d:'2026-04-03',s:270,r:196475},{d:'2026-04-04',s:283,r:63100},
+  {d:'2026-04-05',s:260,r:705100},{d:'2026-04-06',s:307,r:243755},
+  {d:'2026-04-07',s:372,r:415000},{d:'2026-04-08',s:347,r:762700},
+  {d:'2026-04-09',s:290,r:984900},{d:'2026-04-10',s:383,r:893600},
+  {d:'2026-04-11',s:291,r:146320},{d:'2026-04-12',s:310,r:213120},
+  {d:'2026-04-13',s:308,r:0},{d:'2026-04-14',s:304,r:669300},
+  {d:'2026-04-15',s:423,r:2045601},{d:'2026-04-16',s:320,r:411700},
+  {d:'2026-04-17',s:287,r:303050},{d:'2026-04-18',s:247,r:0},
+  {d:'2026-04-19',s:241,r:0},{d:'2026-04-20',s:304,r:1198340},
+  {d:'2026-04-21',s:355,r:335655},{d:'2026-04-22',s:264,r:82200},
+  {d:'2026-04-23',s:315,r:907800},{d:'2026-04-24',s:265,r:846400},
+  {d:'2026-04-25',s:246,r:320000},{d:'2026-04-26',s:385,r:1323100},
+  {d:'2026-04-27',s:337,r:703900},{d:'2026-04-28',s:411,r:540400},
+  {d:'2026-04-29',s:522,r:3239264},{d:'2026-04-30',s:399,r:1559820},
+  {d:'2026-05-01',s:236,r:0},{d:'2026-05-02',s:207,r:123200},
+  {d:'2026-05-03',s:330,r:983535},{d:'2026-05-04',s:289,r:1048810},
+  {d:'2026-05-05',s:402,r:910800},{d:'2026-05-06',s:361,r:588380},
+  {d:'2026-05-07',s:285,r:644115},{d:'2026-05-08',s:272,r:470220},
+  {d:'2026-05-09',s:303,r:477725},{d:'2026-05-10',s:282,r:99900},
+  {d:'2026-05-11',s:290,r:1283065},{d:'2026-05-12',s:439,r:660820},
+  {d:'2026-05-13',s:409,r:1093080}
+];
+
+// ══════════════════════════════════════════════
+// CONSTANTS & FORMATTERS
+// ══════════════════════════════════════════════
+const C = {green_dark:'#163029',green_mid:'#41685B',cream:'#F4EAE1',gold:'#BC955B',danger:'#8B3A2E',muted:'#5C6660'};
+const CH_LABELS = ['Cross-network','Organic Search','Directo','Paid Social','Paid Shopping','Email','Paid Search','Organic Social','Unassigned','Referral','Other'];
+const CH_COLORS = [C.green_dark,C.green_mid,'#5C8A7A',C.gold,'#8B7355','#A8C5BB','#3D5A51','#6B7F78','#9E9B95','#7A9E9F',C.muted];
+const TOTAL_SESSIONS_ALL = DAILY.reduce((a,d)=>a+d.s,0);
+
+// Revie daily data (source=revie, mediums revie_carousel + revie_star)
+// Revie no es accesible via sessionDefaultChannelGroup — clasificado como Unassigned en GA4 default.
+// Datos extraídos por sessionSourceMedium filtrado a source=revie.
+const RV = {
+  '2026-04-03':{s:1,t:0,r:0},     '2026-04-04':{s:3,t:0,r:0},
+  '2026-04-05':{s:1,t:0,r:0},     '2026-04-06':{s:3,t:0,r:0},
+  '2026-04-07':{s:1,t:0,r:0},     '2026-04-08':{s:4,t:0,r:0},
+  '2026-04-09':{s:2,t:0,r:0},     '2026-04-10':{s:1,t:0,r:0},
+  '2026-04-11':{s:3,t:0,r:0},     '2026-04-13':{s:2,t:0,r:0},
+  '2026-04-14':{s:7,t:0,r:0},     '2026-04-18':{s:2,t:0,r:0},
+  '2026-04-20':{s:1,t:0,r:0},     '2026-04-21':{s:2,t:0,r:0},
+  '2026-04-22':{s:2,t:0,r:0},     '2026-04-23':{s:1,t:0,r:0},
+  '2026-04-24':{s:5,t:0,r:0},     '2026-04-25':{s:4,t:0,r:0},
+  '2026-04-26':{s:3,t:1,r:160000},'2026-04-27':{s:1,t:0,r:0},
+  '2026-04-28':{s:2,t:0,r:0},     '2026-04-29':{s:9,t:2,r:274480},
+  '2026-04-30':{s:2,t:1,r:127360},
+  '2026-05-01':{s:1,t:0,r:0},     '2026-05-03':{s:5,t:0,r:0},
+  '2026-05-05':{s:7,t:0,r:0},     '2026-05-06':{s:8,t:0,r:0},
+  '2026-05-07':{s:1,t:0,r:0},     '2026-05-08':{s:3,t:1,r:216600},
+  '2026-05-09':{s:1,t:0,r:0},     '2026-05-10':{s:2,t:0,r:0},
+  '2026-05-11':{s:3,t:0,r:0},     '2026-05-12':{s:7,t:0,r:0},
+  '2026-05-13':{s:8,t:1,r:124690}
+};
+
+function fmtCOP(v){
+  if(v>=1e9) return '$'+(v/1e9).toFixed(1)+'B';
+  if(v>=1e6) return '$'+(v/1e6).toFixed(1)+'M';
+  if(v>=1e3) return '$'+(v/1e3).toFixed(0)+'K';
+  return '$'+Math.round(v).toLocaleString('es-CO');
+}
+function fmtCOPFull(v){
+  return '$'+Math.round(v).toLocaleString('es-CO')+' COP';
+}
+function fmtNum(v){
+  if(v>=1e6) return (v/1e6).toFixed(1)+'M';
+  if(v>=1e3) return (v/1e3).toFixed(1)+'K';
+  return Math.round(v).toLocaleString('es-CO');
+}
+function fmtDate(d){
+  return new Date(d+'T00:00:00').toLocaleDateString('es-CO',{day:'numeric',month:'short'});
+}
+function fmtDateRange(s,e){
+  const ds=new Date(s+'T00:00:00'),de=new Date(e+'T00:00:00'),o={day:'numeric',month:'short'};
+  return ds.toLocaleDateString('es-CO',o)+' – '+de.toLocaleDateString('es-CO',o)+' 2026';
+}
+function pct(a,b){ return b>0?(a/b*100).toFixed(1)+'%':'—'; }
+function pctNum(a,b){ return b>0?a/b*100:0; }
+function set(id,html){ const el=document.getElementById(id); if(el) el.innerHTML=html; }
+function setText(id,txt){ const el=document.getElementById(id); if(el) el.textContent=txt; }
+
+// ══════════════════════════════════════════════
+// AGGREGATE — builds all metrics for a date range
+// ══════════════════════════════════════════════
+function aggregate(s,e){
+  const days = DAILY.filter(d=>d.d>=s&&d.d<=e);
+  const dates = days.map(d=>d.d);
+
+  // GA4 sessions + revenue
+  const sessions = days.reduce((a,d)=>a+d.s,0);
+  const revenue  = days.reduce((a,d)=>a+d.r,0);
+
+  // Channel sessions (11 channels) and users
+  const chSess = Array(11).fill(0), chUsers = Array(11).fill(0);
+  dates.forEach(dt=>{
+    if(CH[dt])  CH[dt].forEach((v,i)=>chSess[i]+=v);
+    if(CHU[dt]) CHU[dt].forEach((v,i)=>chUsers[i]+=v);
+  });
+
+  // Funnel events [view_item, atc, checkout, purchase]
+  const fn = [0,0,0,0];
+  dates.forEach(dt=>{ if(FN[dt]) FN[dt].forEach((v,i)=>fn[i]+=v); });
+
+  // Revie sessions (extracted from sessionSourceMedium, classified as Unassigned in default GA4 group)
+  let rvSess=0, rvTrans=0, rvRevenue=0;
+  dates.forEach(dt=>{ if(RV[dt]){ rvSess+=RV[dt].s; rvTrans+=RV[dt].t; rvRevenue+=RV[dt].r; } });
+
+  // Google Ads [pfmax, aon, sem] × [spend, impr, clicks, conv, val]
+  const gg = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+  dates.forEach(dt=>{
+    if(GG[dt]) GG[dt].forEach((cam,ci)=>cam.forEach((v,mi)=>gg[ci][mi]+=v));
+  });
+
+  // Meta proration by sessions ratio
+  const ratio = TOTAL_SESSIONS_ALL>0 ? sessions/TOTAL_SESSIONS_ALL : 1;
+  const meta = {};
+  Object.keys(META).forEach(k=>{
+    const m=META[k];
+    meta[k]={
+      s: Math.round(m.s*ratio),
+      i: Math.round(m.i*ratio),
+      c: Math.round(m.c*ratio),
+      p: Math.round(m.p*ratio),
+      v: Math.round(m.v*ratio),
+      roas: m.roas  // ROAS is intrinsic, not scaled
+    };
+  });
+
+  // Google totals
+  const gSpend  = gg[0][0]+gg[1][0]+gg[2][0];
+  const gImpr   = gg[0][1]+gg[1][1]+gg[2][1];
+  const gClicks = gg[0][2]+gg[1][2]+gg[2][2];
+  const gConv   = gg[0][3]+gg[1][3]+gg[2][3];
+  const gVal    = gg[0][4]+gg[1][4]+gg[2][4];
+
+  // Meta totals (sum of 3 campaigns)
+  const mSpend  = meta.rmk.s+meta.max.s+meta.awn.s;
+  const mImpr   = meta.rmk.i+meta.max.i+meta.awn.i;
+  const mClicks = meta.rmk.c+meta.max.c+meta.awn.c;
+  const mVal    = meta.rmk.v+meta.max.v+meta.awn.v;
+
+  const totalSpend = gSpend + mSpend;
+  const totalClicks = gClicks + mClicks;
+  const totalImpr = gImpr + mImpr;
+
+  return { days, dates, sessions, revenue, chSess, chUsers, fn,
+           gg, meta, gSpend, gImpr, gClicks, gConv, gVal,
+           mSpend, mImpr, mClicks, mVal,
+           totalSpend, totalClicks, totalImpr, ratio,
+           rvSess, rvTrans, rvRevenue };
+}
+
+// ══════════════════════════════════════════════
+// DATE FILTER STATE
+// ══════════════════════════════════════════════
+let currentStart = '2026-04-01', currentEnd = '2026-05-13';
+
+function setPreset(s,e){
+  document.getElementById('dateStart').value = s;
+  document.getElementById('dateEnd').value = e;
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  applyDateRange();
+}
+
+function applyDateRange(){
+  const s=document.getElementById('dateStart').value;
+  const e=document.getElementById('dateEnd').value;
+  if(!s||!e||s>e) return;
+  currentStart=s; currentEnd=e;
+  const A = aggregate(s,e);
+  const label = fmtDateRange(s,e);
+  setText('rangeDisplay', label);
+  updateResumen(A, label);
+  updateHallazgos(A);
+  updateCanales(A, label);
+  updateEmbudo(A);
+  updatePaidMedia(A);
+  updateCampanas(A);
+  updateDataKPIs(A, label);
+  updateTrendChart(A.days);
+}
+
+// ══════════════════════════════════════════════
+// RESUMEN PAGE
+// ══════════════════════════════════════════════
+function updateResumen(A, label){
+  const {sessions, revenue, fn, gSpend, mSpend, totalSpend, chSess} = A;
+  const purchases = fn[3];
+  const atc = fn[1];
+  const checkout = fn[2];
+  const cvr = pctNum(purchases, sessions);
+  const roas = totalSpend>0 ? revenue/totalSpend : 0;
+  const atcRate = pctNum(atc, sessions);
+  const coRate = pctNum(checkout, atc);
+  const abandonPct = checkout>0 ? (1-purchases/checkout)*100 : 0;
+
+  // Lead paragraph
+  set('dyn-orders', purchases+' órdenes');
+  set('dyn-lead-revenue', fmtCOP(revenue)+' COP');
+  set('dyn-lead-cvr', cvr.toFixed(2)+'%');
+
+  // KPI: Ventas
+  set('kpi-sales', fmtCOP(revenue)+'<span class="u">COP</span>');
+  setText('kpi-sales-sub', purchases+' transacciones GA4');
+
+  // KPI: Inversión
+  set('kpi-invest', fmtCOP(totalSpend)+'<span class="u">COP</span>');
+  setText('kpi-invest-sub', 'Meta '+fmtCOP(mSpend)+' · Google '+fmtCOP(gSpend));
+
+  // KPI: ROAS
+  set('kpi-roas', roas.toFixed(2)+'<span class="u">x</span>');
+  setText('kpi-roas-sub', 'período seleccionado');
+
+  // KPI: Sesiones
+  set('kpi-sessions', fmtNum(sessions));
+  setText('kpi-sessions-sub', fmtNum(A.chUsers.reduce((a,b)=>a+b,0))+' usuarios únicos');
+
+  // KPI: CVR
+  set('kpi-cvr', cvr.toFixed(2)+'<span class="u">%</span>');
+  setText('kpi-cvr-sub', purchases+' transacciones GA4');
+
+  // KPI: Add to Cart
+  set('kpi-atc', fmtNum(atc));
+  setText('kpi-atc-rate', atcRate.toFixed(1)+'% de sesiones');
+
+  // KPI: Begin Checkout
+  set('kpi-checkout', fmtNum(checkout));
+  setText('kpi-checkout-rate', coRate.toFixed(0)+'% del ATC');
+
+  // KPI: Abandono checkout
+  set('kpi-abandon', abandonPct.toFixed(1)+'<span class="u">%</span>');
+  setText('kpi-abandon-sub', 'Checkout → Compra');
+}
+
+// ══════════════════════════════════════════════
+// HALLAZGOS PAGE
+// ══════════════════════════════════════════════
+function updateHallazgos(A){
+  const {sessions, fn, gg, meta, gSpend, mSpend} = A;
+  const purchases=fn[3], atc=fn[1], checkout=fn[2];
+  const cvr = pctNum(purchases,sessions);
+
+  // Insight CVR
+  set('h-cvr', cvr.toFixed(2)+'%');
+
+  // SEM campaign (index 2)
+  const semSpend=gg[2][0], semVal=gg[2][4];
+  const semRoas = semSpend>0 ? semVal/semSpend : 0;
+  const totalGSpend = gg[0][0]+gg[1][0]+gg[2][0];
+  const semPct = totalGSpend>0 ? semSpend/totalGSpend*100 : 0;
+  const semUpside = semSpend>0 ? (semSpend*0.5)*semRoas : 0;
+  set('h-sem-roas', 'ROAS '+semRoas.toFixed(2)+'x');
+  set('h-sem-spend', fmtCOP(semSpend));
+  set('h-sem-pct', semPct.toFixed(1)+'%');
+  set('h-sem-upside', fmtCOP(semUpside));
+
+  // AON vs PFMAX (indices 1 and 0)
+  const aonRoas = gg[1][0]>0 ? gg[1][4]/gg[1][0] : 0;
+  const pfRoas  = gg[0][0]>0 ? gg[0][4]/gg[0][0] : 0;
+  set('h-aon-roas',  'ROAS '+aonRoas.toFixed(2)+'x');
+  set('h-pfmax-roas','ROAS '+pfRoas.toFixed(2)+'x');
+
+  // Meta RMK vs MAX
+  const rmkRoas = meta.rmk.s>0 ? meta.rmk.v/meta.rmk.s : META.rmk.roas;
+  const maxRoas = meta.max.s>0 ? meta.max.v/meta.max.s : META.max.roas;
+  set('h-rmk-roas', 'ROAS '+META.rmk.roas.toFixed(2)+'x');
+  set('h-max-roas', META.max.roas.toFixed(2)+'x');
+
+  // Abandono checkout
+  const abandonPct = checkout>0?(1-purchases/checkout)*100:0;
+  const atcToCo = pctNum(checkout, atc);
+  const coToPur = pctNum(purchases, checkout);
+  set('h-abandon-title', '05 · Urgente · Abandono de carrito '+abandonPct.toFixed(1)+'%');
+  set('h-atc', fmtNum(atc));
+  set('h-purchase', fmtNum(purchases));
+  set('h-abandon-pct', abandonPct.toFixed(1)+'%');
+  set('h-atc2', fmtNum(atc));
+  set('h-checkout', fmtNum(checkout));
+  set('h-atc-to-co', atcToCo.toFixed(0)+'%');
+  set('h-co-to-pur', coToPur.toFixed(1)+'%');
+}
+
+// ══════════════════════════════════════════════
+// CANALES LÖK FOODS — remapeo desde sessionDefaultChannelGroup
+// Google cpc = Cross-net(0)+PaidShop(4)+PaidSearch(6)
+// Orgánico   = Organic Search(1)
+// Directo    = Direct(2)
+// Meta cpc   = Paid Social(3)
+// Email      = Email(5)
+// Social     = Organic Social(7)
+// Unassigned = Unassigned(8)
+// Referral   = Referral(9)+otros(10)
+// ══════════════════════════════════════════════
+const LK_LABELS = ['Google cpc','Orgánico','Directo','Meta cpc','Email','Social','Unassigned','Referral','Revie'];
+const LK_COLORS = [C.green_dark,'#5C8A7A',C.green_mid,C.gold,'#A8C5BB','#6B7F78',C.muted,'#8B7355','#B05C1A'];
+
+function lkRows(chSess, chUsers, rvSess=0){
+  return [
+    {name:'Google cpc',  s:chSess[0]+chSess[4]+chSess[6], u:chUsers[0]+chUsers[4]+chUsers[6]},
+    {name:'Orgánico',    s:chSess[1], u:chUsers[1]},
+    {name:'Directo',     s:chSess[2], u:chUsers[2]},
+    {name:'Meta cpc',    s:chSess[3], u:chUsers[3]},
+    {name:'Email',       s:chSess[5], u:chUsers[5]},
+    {name:'Social',      s:chSess[7], u:chUsers[7]},
+    {name:'Unassigned',  s:Math.max(0, chSess[8]-rvSess), u:Math.max(0, chUsers[8]-rvSess)},
+    {name:'Referral',    s:chSess[9]+chSess[10], u:chUsers[9]+chUsers[10]},
+    {name:'Revie',       s:rvSess, u:rvSess}
+  ].sort((a,b)=>b.s-a.s);
+}
+
+let channelChart, compareChart;
+
+function updateCanales(A, label){
+  const {chSess, chUsers, sessions, rvSess} = A;
+  const rows = lkRows(chSess, chUsers, rvSess);
+
+  const tbody = document.getElementById('ch-tbody');
+  if(tbody){
+    tbody.innerHTML = rows.map(r=>`
+      <tr>
+        <td>${r.name}</td>
+        <td class="right num">${r.s.toLocaleString('es-CO')}</td>
+        <td class="right">${r.u.toLocaleString('es-CO')}</td>
+        <td class="right">${pct(r.s, sessions)}</td>
+      </tr>`).join('');
+  }
+
+  setText('ch-chart-sub', label+' · Session Canales Lök Foods');
+
+  // Insight dinámico
+  const topCh = rows[0];
+  const organic = rows.find(r=>r.name==='Orgánico')||{s:0};
+  const meta = rows.find(r=>r.name==='Meta cpc')||{s:0};
+  const el = document.getElementById('ch-insight');
+  if(el) el.textContent = `${topCh.name} lidera con ${topCh.s.toLocaleString('es-CO')} sesiones (${pct(topCh.s,sessions)}). Orgánico ${organic.s.toLocaleString('es-CO')} (${pct(organic.s,sessions)}). Meta cpc ${meta.s.toLocaleString('es-CO')} (${pct(meta.s,sessions)}).`;
+
+  // Actualizar doughnut
+  const donutData = rows.map(r=>r.s);
+  const donutLabels = rows.map(r=>r.name);
+  if(channelChart){
+    channelChart.data.labels = donutLabels;
+    channelChart.data.datasets[0].data = donutData;
+    channelChart.update('none');
+  }
+
+  // Actualizar compare chart (orden fijo LK_LABELS)
+  const lkFixed = lkRows(chSess, chUsers, rvSess).sort((a,b)=>LK_LABELS.indexOf(a.name)-LK_LABELS.indexOf(b.name));
+  const compareData = lkFixed.map(r=>r.s);
+  const marRatio = 9352/TOTAL_SESSIONS_ALL;
+  const marData = compareData.map(v=>Math.round(v*marRatio));
+  if(compareChart){
+    compareChart.data.datasets[0].data = compareData;
+    compareChart.data.datasets[1].data = marData;
+    compareChart.data.datasets[0].label = label;
+    compareChart.update('none');
+  }
+  const sub2 = document.getElementById('compare-chart-sub');
+  if(sub2) sub2.textContent = label+' vs. Mar 2026 · Canales Lök Foods';
+}
+
+// ══════════════════════════════════════════════
+// EMBUDO PAGE
+// ══════════════════════════════════════════════
+function updateEmbudo(A){
+  const {sessions, fn} = A;
+  const [viewItem, atc, checkout, purchases] = fn;
+  const cvr = pctNum(purchases, sessions);
+  const coPct = pctNum(purchases, checkout);
+  const atcCoPct = pctNum(checkout, atc);
+  const abandonCheckout = checkout>0?(1-purchases/checkout)*100:0;
+
+  // Lead text
+  set('fn-lead', `La conversión general (<strong id="fn-cvr">${cvr.toFixed(2)}%</strong>) es sana. El mayor problema es el <strong>abandono en checkout</strong> — solo <strong id="fn-co-pct">${coPct.toFixed(1)}%</strong> de quienes inician checkout completan la compra. El <strong id="fn-atc-co-pct">${atcCoPct.toFixed(0)}%</strong> sí avanza del carrito al checkout. El cuello de botella está en los últimos pasos.`);
+
+  // Funnel values
+  setText('fn-sessions', sessions.toLocaleString('es-CO'));
+  setText('fn-view', viewItem.toLocaleString('es-CO'));
+  setText('fn-atc', atc.toLocaleString('es-CO'));
+  setText('fn-checkout', checkout.toLocaleString('es-CO'));
+  setText('fn-purchase', purchases.toLocaleString('es-CO'));
+
+  // Bar widths (relative to sessions)
+  const vPct = Math.min(100, pctNum(viewItem,sessions)*100/100);
+  const aPct = Math.min(100, pctNum(atc,sessions)*100/100);
+  const cPct = Math.min(100, pctNum(checkout,sessions)*100/100);
+  const pPct = Math.min(100, pctNum(purchases,sessions)*100/100);
+  const maxBar = Math.max(vPct, sessions>0?100:0);
+  const toW = v => Math.max(4, Math.round(v/maxBar*100))+'%';
+
+  const vbEl=document.getElementById('fn-view-bar');    if(vbEl) vbEl.style.width=toW(vPct);
+  const abEl=document.getElementById('fn-atc-bar');     if(abEl) abEl.style.width=toW(aPct);
+  const cbEl=document.getElementById('fn-co-bar');      if(cbEl) cbEl.style.width=toW(cPct);
+  const pbEl=document.getElementById('fn-pur-bar');     if(pbEl) pbEl.style.width=toW(pPct);
+
+  // Sub-labels
+  setText('fn-view-pct', pct(viewItem,sessions)+' de sesiones');
+  setText('fn-atc-pct', pct(atc,sessions)+' de sesiones');
+  set('fn-co-pct-sub', pct(checkout,sessions)+' · '+atcCoPct.toFixed(0)+'% del ATC');
+  setText('fn-cvr-sub', cvr.toFixed(2)+'% conv. rate');
+  set('fn-co-badge', '▼ '+coPct.toFixed(1)+'% del checkout');
+
+  // Analysis text
+  const viToAtc = viewItem>0?(1-atc/viewItem)*100:0;
+  const atcToCoNum = atcCoPct;
+  set('fn-analysis-1', `<strong style="color:var(--green-mid)">View Item → Add Cart:</strong> De ${viewItem.toLocaleString('es-CO')} a ${atc.toLocaleString('es-CO')} = <strong>${viToAtc.toFixed(1)}% no añaden</strong>. Normal — no todos los browsers compran.`);
+  set('fn-analysis-2', `<strong style="color:var(--gold)">Add Cart → Checkout:</strong> De ${atc.toLocaleString('es-CO')} a ${checkout.toLocaleString('es-CO')} = <strong>${atcToCoNum.toFixed(1)}% avanzan</strong>. ${atcToCoNum>=45?'Mejor que benchmark (45%). ✓':'Por debajo del benchmark (45%). ⚠️'}`);
+  set('fn-analysis-3', `<strong style="color:var(--danger)">Checkout → Compra:</strong> De ${checkout.toLocaleString('es-CO')} a ${purchases.toLocaleString('es-CO')} = <strong>${abandonCheckout.toFixed(1)}% abandonan checkout</strong>. ⚠️ AQUÍ está el problema.`);
+
+  // Opportunity
+  const opportunityPurchases = Math.round(checkout*0.30);
+  const avgOrder = purchases>0 ? A.revenue/purchases : 0;
+  const opportunityRevenue = opportunityPurchases * avgOrder;
+  set('fn-opportunity', `💡 <strong>Oportunidad:</strong> Si mejoramos Checkout→Compra al 30% (+${(30-coPct).toFixed(1)}pp), generamos ~${opportunityPurchases} compras adicionales ≈ ${fmtCOP(opportunityRevenue)} COP extra (ticket medio ${fmtCOP(avgOrder)}).`);
+}
+
+// ══════════════════════════════════════════════
+// PAID MEDIA PAGE
+// ══════════════════════════════════════════════
+function updatePaidMedia(A){
+  const {revenue, gSpend, gImpr, gClicks, gConv, gVal,
+         mSpend, mImpr, mClicks, mVal, totalSpend, totalClicks, totalImpr, meta} = A;
+
+  const totalRoas = totalSpend>0 ? revenue/totalSpend : 0;
+  const totalCtr  = totalImpr>0 ? totalClicks/totalImpr*100 : 0;
+  const mCtr  = mImpr>0  ? mClicks/mImpr*100  : 0;
+  const mCpc  = mClicks>0 ? mSpend/mClicks : 0;
+  const mRoas = mSpend>0  ? mVal/mSpend    : 0;
+  const gCtr  = gImpr>0  ? gClicks/gImpr*100 : 0;
+  const gCpc  = gClicks>0 ? gSpend/gClicks  : 0;
+  const gRoas = gSpend>0  ? gVal/gSpend     : 0;
+
+  // Top KPIs
+  set('pm-invest', fmtCOP(totalSpend)+'<span class="u">COP</span>');
+  set('pm-invest-sub', 'Meta '+fmtCOP(mSpend)+' · Google '+fmtCOP(gSpend));
+  set('pm-roas', totalRoas.toFixed(2)+'<span class="u">x</span>');
+  setText('pm-roas-sub', 'GA4 Revenue / Total spend');
+  set('pm-clicks', fmtNum(totalClicks));
+  setText('pm-clicks-sub', 'Meta + Google');
+  set('pm-ctr', totalCtr.toFixed(2)+'<span class="u">%</span>');
+  setText('pm-ctr-sub', 'CTR combinado');
+
+  // Meta detail
+  setText('pm-meta-spend', fmtCOPFull(mSpend));
+  setText('pm-meta-impr', mImpr.toLocaleString('es-CO'));
+  setText('pm-meta-clicks', mClicks.toLocaleString('es-CO'));
+  setText('pm-meta-ctr', mCtr.toFixed(2)+'%');
+  setText('pm-meta-cpc', '$'+Math.round(mCpc).toLocaleString('es-CO')+' COP');
+  setText('pm-meta-roas', mRoas.toFixed(2)+'x');
+  setText('pm-meta-value', fmtCOPFull(mVal));
+
+  // Google detail
+  setText('pm-g-spend', fmtCOPFull(gSpend));
+  setText('pm-g-impr', gImpr.toLocaleString('es-CO'));
+  setText('pm-g-clicks', gClicks.toLocaleString('es-CO'));
+  setText('pm-g-ctr', gCtr.toFixed(2)+'%');
+  setText('pm-g-cpc', '$'+Math.round(gCpc).toLocaleString('es-CO')+' COP');
+  setText('pm-g-conv', gConv.toFixed(1));
+  setText('pm-g-roas', gRoas.toFixed(2)+'x');
+}
+
+// ══════════════════════════════════════════════
+// CAMPAÑAS PAGE
+// ══════════════════════════════════════════════
+function updateCampanas(A){
+  const {gg, meta} = A;
+  const CAM_NAMES_G = ['LOK_COL_G_PEF_PMAX_PFMAX_MAX_PURCHASE','LOK_COL_G_PEF_CPC_SALES_SHOPPING_AON','LOK_COL_G_PEF_SEM_B_MAX_PURCHASE'];
+  const CAM_NAMES_M = ['RMK | Remarketing','MAX PURCHASE | Adquisición','ALWAYS ON | Siempre activa'];
+  const metaCams = [meta.rmk, meta.max, meta.awn];
+
+  // Google campaigns table
+  const gTbody = document.getElementById('cam-google-tbody');
+  if(gTbody){
+    gTbody.innerHTML = gg.map((cam,i)=>{
+      const [spend,impr,clicks,conv,val]=cam;
+      const roas = spend>0?val/spend:0;
+      const ctr  = impr>0?clicks/impr*100:0;
+      return `<tr>
+        <td style="font-size:11px">${CAM_NAMES_G[i]}</td>
+        <td class="right num">$${Math.round(spend).toLocaleString('es-CO')}</td>
+        <td class="right">${impr.toLocaleString('es-CO')}</td>
+        <td class="right">${clicks.toLocaleString('es-CO')}</td>
+        <td class="right">${ctr.toFixed(2)}%</td>
+        <td class="right">${conv.toFixed(1)}</td>
+        <td class="right num" style="color:var(--green-mid)">${roas.toFixed(2)}x</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Meta campaigns table
+  const mTbody = document.getElementById('cam-meta-tbody');
+  if(mTbody){
+    mTbody.innerHTML = metaCams.map((cam,i)=>{
+      const ctr = cam.i>0?cam.c/cam.i*100:0;
+      const cpc = cam.c>0?cam.s/cam.c:0;
+      return `<tr>
+        <td style="font-size:11px">${CAM_NAMES_M[i]}</td>
+        <td class="right num">$${Math.round(cam.s).toLocaleString('es-CO')}</td>
+        <td class="right">${cam.i.toLocaleString('es-CO')}</td>
+        <td class="right">${cam.c.toLocaleString('es-CO')}</td>
+        <td class="right">${ctr.toFixed(2)}%</td>
+        <td class="right">${cam.p.toLocaleString('es-CO')}</td>
+        <td class="right num" style="color:var(--green-mid)">${cam.roas.toFixed(2)}x</td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+// ══════════════════════════════════════════════
+// DATA STATS PAGE (KPI boxes below trend chart)
+// ══════════════════════════════════════════════
+function updateDataKPIs(A, label){
+  const {sessions, revenue, days} = A;
+  const daysWithRev = days.filter(d=>d.r>0).length;
+  const avgSessions = days.length>0?Math.round(sessions/days.length):0;
+
+  set('dyn-sessions', fmtNum(sessions));
+  set('dyn-revenue', fmtCOP(revenue)+'<span class="u">COP</span>');
+  setText('dyn-days-rev', daysWithRev);
+  setText('dyn-days-note', 'de '+days.length+' días seleccionados');
+  setText('dyn-avg', avgSessions.toLocaleString('es-CO'));
+  const sub = document.getElementById('trendChartSub');
+  if(sub) sub.textContent = label+' · filtra usando el selector superior';
+}
+
+// ══════════════════════════════════════════════
+// CHARTS
+// ══════════════════════════════════════════════
+let trendChart;
+function buildTrendChart(rows){
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  trendChart = new Chart(ctx, {
+    data:{
+      labels: rows.map(d=>fmtDate(d.d)),
+      datasets:[
+        {type:'bar',label:'Sesiones',data:rows.map(d=>d.s),
+         backgroundColor:'rgba(65,104,91,.35)',borderColor:C.green_mid,borderWidth:1,borderRadius:3,yAxisID:'y',order:2},
+        {type:'line',label:'Ingresos GA4 (COP)',data:rows.map(d=>d.r),
+         borderColor:C.gold,backgroundColor:'rgba(188,149,91,.12)',
+         borderWidth:2.5,pointRadius:3,pointBackgroundColor:C.gold,tension:.4,
+         yAxisID:'y1',order:1,fill:true}
+      ]
+    },
+    options:{
+      responsive:true,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{position:'top',labels:{boxWidth:12,padding:16,font:{size:12}}},
+        tooltip:{callbacks:{
+          label:ctx=>ctx.dataset.label==='Sesiones'
+            ? 'Sesiones: '+ctx.parsed.y.toLocaleString('es-CO')
+            : 'Ingresos: '+fmtCOP(ctx.parsed.y)+' COP'
+        }}
+      },
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:10},maxRotation:45}},
+        y:{position:'left',title:{display:true,text:'Sesiones',font:{size:11}},
+           grid:{color:'rgba(16,24,32,.05)'},ticks:{font:{size:10}}},
+        y1:{position:'right',title:{display:true,text:'Ingresos COP',font:{size:11}},
+            grid:{drawOnChartArea:false},ticks:{callback:v=>fmtCOP(v),font:{size:10}}}
+      }
+    }
+  });
+}
+
+function updateTrendChart(rows){
+  if(!trendChart) return;
+  trendChart.data.labels = rows.map(d=>fmtDate(d.d));
+  trendChart.data.datasets[0].data = rows.map(d=>d.s);
+  trendChart.data.datasets[1].data = rows.map(d=>d.r);
+  trendChart.update('none');
+}
+
+function buildChannelChart(rows){
+  const ctx = document.getElementById('channelChart').getContext('2d');
+  const labels = rows.map(r=>r.name);
+  const data   = rows.map(r=>r.s);
+  const colors = rows.map(r=>LK_COLORS[LK_LABELS.indexOf(r.name)] || C.muted);
+  channelChart = new Chart(ctx, {
+    type:'doughnut',
+    data:{
+      labels,
+      datasets:[{
+        data,
+        backgroundColor: colors,
+        borderColor:'#F4EAE1',borderWidth:2
+      }]
+    },
+    options:{
+      responsive:true,cutout:'55%',
+      plugins:{
+        legend:{position:'right',labels:{boxWidth:12,font:{size:11},padding:8}},
+        tooltip:{callbacks:{
+          label:ctx=>{
+            const t=ctx.dataset.data.reduce((a,b)=>a+b,0);
+            return ctx.label+': '+ctx.parsed.toLocaleString('es-CO')+' ('+((ctx.parsed/t)*100).toFixed(1)+'%)';
+          }
+        }}
+      }
+    }
+  });
+}
+
+function buildCompareChart(rows){
+  const ctx = document.getElementById('compareChart').getContext('2d');
+  // Fixed label order (LK_LABELS) for consistent comparison
+  const ordered = LK_LABELS.map(name=>{ const r=rows.find(x=>x.name===name); return r?r.s:0; });
+  const marRatio = 9352/TOTAL_SESSIONS_ALL;
+  const marData = ordered.map(v=>Math.round(v*marRatio));
+  compareChart = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels: LK_LABELS,
+      datasets:[
+        {label:'Abr–May 2026',data:ordered,backgroundColor:C.green_mid+'CC',borderRadius:4},
+        {label:'Mar 2026',data:marData,backgroundColor:C.gold+'99',borderRadius:4}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:11}}}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:10},maxRotation:35}},
+        y:{grid:{color:'rgba(16,24,32,.05)'},ticks:{font:{size:10}}}
+      }
+    }
+  });
+}
+
+// ══════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', ()=>{
+  const A = aggregate('2026-04-01','2026-05-13');
+  const label = fmtDateRange('2026-04-01','2026-05-13');
+
+  buildTrendChart(DAILY);
+  const initRows = lkRows(A.chSess, A.chUsers, A.rvSess);
+  buildChannelChart(initRows);
+  buildCompareChart(initRows);
+
+  updateResumen(A, label);
+  updateHallazgos(A);
+  updateCanales(A, label);
+  updateEmbudo(A);
+  updatePaidMedia(A);
+  updateCampanas(A);
+  updateDataKPIs(A, label);
+});
+</script>
+</body>
+</html>

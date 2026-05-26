@@ -1,0 +1,44 @@
+{
+  "client": {
+    "name": "Lök Foods",
+    "tagline": "Pendiente · agregar tagline del cliente",
+    "website": "lokfoods.com",
+    "country": "Colombia",
+    "city": "Medellín",
+    "instagram": "@lok.foods",
+    "industry": "Food & Beverage · E-commerce",
+    "currency": "COP",
+    "shopify_id": "lok-col"
+  },
+
+  "accounts": {
+    "meta_ads_id": "act_1127236737996269",
+    "google_ads_id": "762-337-6244",
+    "ga4_property": "properties/384818907",
+    "dataslayer_shopify": "lok-col",
+    "dataslayer_connection": "daniel.b@crownmedia.com.co"
+  },
+
+  "brand_colors": {
+    "note": "Pendiente brand guidelines oficiales de Lök. Colores actuales son placeholder.",
+    "primary_dark": "#1A1208",
+    "primary_mid": "#4A3728",
+    "cream": "#F7F3EE",
+    "black": "#1C1C1C",
+    "white": "#FFFFFF",
+    "accent_gold": "#C8882A",
+    "muted": "#6B6258"
+  },
+
+  "report_config": {
+    "default_date_range": "current_month",
+    "comparison_period": "previous_month",
+    "currency_format": "COP_compact",
+    "agency": "Crown Media",
+    "dataslayer_single_connection_rule": "ALWAYS use ONLY one connection per account. Meta: daniel.b@crownmedia.com.co. Google/GA4: ivan.vargas@crownmedia.com.co. Multiple connections multiply data."
+  },
+
+  "version": "1.0",
+  "created": "2026-05-14",
+  "last_updated": "2026-05-14"
+}

@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Familia Fine Foods · Reporte Mensual Mayo 2026 — Crown Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Prompt:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    /* Crown Media Brand Palette */
+    --green-dark:#163029;
+    --green-mid:#41685B;
+    --cream:#F4EAE1;
+    --cream-2:#EBE0D4;
+    --gold:#BC955B;
+    --gold-soft:#D4B68A;
+    --black:#101820;
+    --white:#FFFFFF;
+    --muted:#5C6660;
+    --green-tint:#E8F0EC;
+    --gold-tint:#F7EFE3;
+    --danger:#8B3A2E;
+    --danger-tint:#F5E4DF;
+
+    /* Typography */
+    --font-display:'Bodoni Moda','Bodoni 72','Didot','Playfair Display',Georgia,serif;
+    --font-body:'Work Sans','Helvetica Neue',Arial,sans-serif;
+    --font-accent:'Prompt','Montserrat','Helvetica Neue',sans-serif;
+
+    /* Geometry */
+    --radius-sm:8px;
+    --radius:12px;
+    --radius-lg:20px;
+    --shadow-soft:0 2px 16px rgba(16,24,32,.08);
+    --shadow-med:0 8px 24px rgba(16,24,32,.12);
+    --shadow-strong:0 12px 32px rgba(22,48,41,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--black);font-family:var(--font-body);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+  /* ── PAGE FRAME ── */
+  .page-frame{max-width:1200px;margin:0 auto;background:var(--cream)}
+  .page{padding:48px 48px 64px;border-bottom:1px solid rgba(16,24,32,.06);position:relative;min-height:600px}
+  .page-header{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:32px;padding-bottom:14px;border-bottom:1px solid rgba(16,24,32,.08)}
+  .page-header .crown-logo{display:flex;align-items:center;gap:8px;color:var(--green-dark);font-weight:600;letter-spacing:.1em}
+  .page-header .crown-logo svg{width:22px;height:22px}
+  .page-number{font-family:var(--font-body);font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.5px;position:absolute;right:48px;bottom:24px}
+  .page-source{font-family:var(--font-body);font-size:10px;color:var(--muted);font-style:italic;position:absolute;left:48px;bottom:24px}
+
+  .eyebrow{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+  .section-label{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--green-dark);text-transform:uppercase}
+  .hero-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:78px;line-height:.95;letter-spacing:-.02em;color:var(--green-dark)}
+  .hero-title .accent{font-style:italic;color:var(--gold)}
+  .hero-title-light{color:var(--cream)}
+  .section-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:48px;line-height:1;letter-spacing:-.01em;color:var(--green-dark);margin-bottom:24px}
+  .subsection-title{font-family:var(--font-body);font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--green-dark);text-transform:uppercase;margin-bottom:16px}
+  p.lead{font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--black);max-width:680px}
+
+  /* ── COVER ── */
+  .cover{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green-mid) 100%);color:var(--cream);min-height:760px;padding:64px 64px 80px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-100px;top:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(188,149,91,.18),transparent 60%)}
+  .cover::after{content:'';position:absolute;left:30%;bottom:-160px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(244,234,225,.06),transparent 60%)}
+  .cover-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:space-between;min-height:632px}
+  .cover .crown-logo-large{display:flex;align-items:center;gap:12px;color:var(--cream)}
+  .cover .crown-logo-large .symbol{width:42px;height:42px;display:flex;align-items:center;justify-content:center}
+  .cover .crown-logo-large .name{font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:.28em;text-transform:uppercase}
+  .cover .crown-logo-large .name .sub{display:block;font-size:9px;font-weight:500;letter-spacing:.4em;opacity:.7;margin-top:3px}
+  .cover-eyebrow{font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+  .cover-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:104px;line-height:.92;letter-spacing:-.025em;color:var(--cream);margin:20px 0 8px}
+  .cover-title .dot{color:var(--gold)}
+  .cover-meta{font-family:var(--font-body);font-size:13px;color:rgba(244,234,225,.78);letter-spacing:.04em;line-height:1.6;margin-top:24px}
+  .cover-meta strong{color:var(--cream);font-weight:600}
+  .cover-bottom{font-family:var(--font-body);font-size:10px;color:rgba(244,234,225,.55);letter-spacing:.25em;text-transform:uppercase}
+
+  /* ── COMPONENTS ── */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px}
+  .kpi{background:var(--white);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-soft);border-top:3px solid var(--gold);position:relative}
+  .kpi.dark{background:var(--green-dark);color:var(--cream);border-top-color:var(--gold)}
+  .kpi.danger{border-top-color:var(--danger)}
+  .kpi.success{border-top-color:var(--green-mid)}
+  .kpi-label{font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  .kpi.dark .kpi-label{color:rgba(244,234,225,.65)}
+  .kpi-value{font-family:var(--font-accent);font-weight:800;font-size:34px;line-height:1;color:var(--green-dark);letter-spacing:-.01em}
+  .kpi.dark .kpi-value{color:var(--cream)}
+  .kpi-value .u{font-size:14px;font-weight:600;color:var(--muted);margin-left:3px}
+  .kpi.dark .kpi-value .u{color:rgba(244,234,225,.55)}
+  .kpi-delta{font-family:var(--font-body);font-size:12px;font-weight:600;margin-top:10px;display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:4px}
+  .kpi-delta.up{background:var(--green-tint);color:var(--green-mid)}
+  .kpi-delta.down{background:var(--danger-tint);color:var(--danger)}
+  .kpi-delta.neutral{background:var(--gold-tint);color:var(--gold)}
+  .kpi-sub{font-family:var(--font-body);font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
+
+  .card{background:var(--white);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-soft)}
+  .card.dark{background:var(--green-dark);color:var(--cream)}
+  .card.cream{background:var(--cream-2)}
+
+  table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:13px}
+  thead th{background:var(--green-dark);color:var(--cream);padding:14px 16px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  thead th:first-child{border-top-left-radius:var(--radius-sm)}
+  thead th:last-child{border-top-right-radius:var(--radius-sm)}
+  tbody tr{border-bottom:1px solid rgba(16,24,32,.06)}
+  tbody tr:hover{background:var(--cream)}
+  tbody td{padding:14px 16px;color:var(--black);white-space:nowrap}
+  tbody td.name{font-weight:600;color:var(--green-dark);max-width:280px;white-space:normal;line-height:1.3}
+  tbody td.name small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;letter-spacing:.02em}
+  tr.total{background:var(--cream-2);font-weight:700}
+  tr.total td{color:var(--green-dark)}
+
+  .badge{display:inline-block;font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px}
+  .badge.positive{background:var(--green-tint);color:var(--green-mid)}
+  .badge.negative{background:var(--danger-tint);color:var(--danger)}
+  .badge.neutral{background:var(--gold-tint);color:var(--gold)}
+  .badge.dark{background:var(--green-dark);color:var(--cream)}
+
+  .arrow-up{color:var(--green-mid);font-weight:700}
+  .arrow-down{color:var(--danger);font-weight:700}
+  .arrow-neutral{color:var(--gold);font-weight:700}
+
+  .divider{height:1px;background:rgba(16,24,32,.08);margin:32px 0}
+  .divider-gold{height:2px;background:var(--gold);width:64px;margin:16px 0 24px;border-radius:1px}
+
+  /* ── ALERT ── */
+  .alert{border-radius:var(--radius);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;margin:16px 0}
+  .alert.warn{background:#FCF2EC;border-left:4px solid var(--danger)}
+  .alert.info{background:var(--cream-2);border-left:4px solid var(--green-mid)}
+  .alert.success{background:var(--green-tint);border-left:4px solid var(--green-mid)}
+  .alert-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
+  .alert-body{font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--black)}
+  .alert-body strong{color:var(--green-dark)}
+  .alert-body .alert-title{font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--danger);margin-bottom:6px}
+  .alert.info .alert-body .alert-title{color:var(--green-dark)}
+
+  /* ── CHARTS ── */
+  .chart-card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-soft)}
+  .chart-title{font-family:var(--font-body);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);margin-bottom:6px}
+  .chart-sub{font-family:var(--font-body);font-size:11px;color:var(--muted);margin-bottom:20px}
+  canvas{max-height:300px}
+
+  /* ── 2/3 GRID ── */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+  /* ── MMM FUNNEL ── */
+  .mmm-bar{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(16,24,32,.06)}
+  .mmm-bar:last-child{border-bottom:none}
+  .mmm-bar-label{width:170px;font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--green-dark)}
+  .mmm-bar-track{flex:1;height:10px;background:var(--cream-2);border-radius:5px;overflow:hidden}
+  .mmm-bar-fill{height:100%;background:linear-gradient(90deg,var(--green-mid),var(--gold));border-radius:5px}
+  .mmm-bar-val{font-family:var(--font-accent);font-weight:700;font-size:14px;color:var(--green-dark);width:90px;text-align:right}
+  .mmm-bar-pct{font-family:var(--font-body);font-size:11px;color:var(--muted);width:60px;text-align:right}
+
+  /* ── RECOMMENDATIONS ── */
+  .rec{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-soft);border-left:4px solid var(--gold);height:100%}
+  .rec.high{border-left-color:var(--danger)}
+  .rec.medium{border-left-color:var(--gold)}
+  .rec.low{border-left-color:var(--green-mid)}
+  .rec-num{font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);line-height:1}
+  .rec.high .rec-num{color:var(--danger)}
+  .rec.low .rec-num{color:var(--green-mid)}
+  .rec-priority{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .rec-title{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:22px;color:var(--green-dark);margin:12px 0 8px;line-height:1.15}
+  .rec-body{font-family:var(--font-body);font-size:13px;color:var(--black);line-height:1.6}
+  .rec-body ul{padding-left:18px;margin-top:8px}
+  .rec-body li{margin-bottom:4px}
+  .rec-owner{font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:14px}
+
+  /* ── CLOSING ── */
+  .closing{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:var(--cream);min-height:600px;padding:80px 64px}
+  .closing .crown-logo-large{margin-bottom:48px;color:var(--cream)}
+  .closing-title{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:96px;line-height:.95;color:var(--cream)}
+  .closing-title .dot{color:var(--gold)}
+  .closing-sub{font-family:var(--font-body);font-size:15px;color:rgba(244,234,225,.78);margin-top:24px;max-width:520px;line-height:1.6}
+  .contact-block{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:580px}
+  .contact-item{padding:16px 0;border-top:1px solid rgba(244,234,225,.15)}
+  .contact-label{font-family:var(--font-body);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .contact-value{font-family:var(--font-body);font-size:14px;color:var(--cream);font-weight:500}
+
+  /* Helpers */
+  .right{text-align:right}
+  .mt-16{margin-top:16px}
+  .mt-24{margin-top:24px}
+  .mt-32{margin-top:32px}
+  .text-muted{color:var(--muted)}
+  .num{font-family:var(--font-accent);font-weight:700}
+</style>
+</head>
+<body>
+<div class="page-frame">
+
+<!-- ══════════════════════════════════════ 00 · COVER ══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-content">
+    <div class="crown-logo-large">
+      <div class="symbol">
+        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 38 L18 22 L24 32 L30 18 L36 32 L42 22 L50 38 Z" fill="none" stroke="#BC955B" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="18" cy="22" r="2.5" fill="#BC955B"/>
+          <circle cx="30" cy="18" r="2.5" fill="#BC955B"/>
+          <circle cx="42" cy="22" r="2.5" fill="#BC955B"/>
+          <rect x="10" y="42" width="40" height="4" fill="#BC955B"/>
+        </svg>
+      </div>
+      <div class="name">CROWN MEDIA<span class="sub">AGENCIA BOUTIQUE</span></div>
+    </div>
+
+    <div>
+      <div class="cover-eyebrow">Reporte Mensual · Mayo de 2026</div>
+      <h1 class="cover-title">Resultados<br/>del mes<span class="dot">.</span></h1>
+      <div class="cover-meta">
+        Preparado para <strong>Familia Fine Foods</strong><br/>
+        Periodo: 1 — 25 de mayo de 2026<br/>
+        Comparado vs. 1 — 25 de mayo de 2025
+      </div>
+    </div>
+
+    <div class="cover-bottom">Crown Media · Agencia Boutique · Confidencial</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 01 · AGENDA ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>00 — AGENDA</div>
+  </div>
+
+  <div class="eyebrow">00 — AGENDA</div>
+  <h2 class="hero-title">Lo que verás <span class="accent">hoy</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div style="display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;max-width:880px;margin-top:48px;font-family:var(--font-body)">
+    <div style="font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);width:60px">01</div>
+    <div><div style="font-weight:700;font-size:16px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em">Resumen Ejecutivo</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Highlights del mes vs meta y período anterior</div></div>
+    <div style="font-family:var(--font-body);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Highlights</div>
+
+    <div style="font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);width:60px">02</div>
+    <div><div style="font-weight:700;font-size:16px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em">Resultados por Canal</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Distribución de ventas y desempeño por fuente</div></div>
+    <div style="font-family:var(--font-body);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Performance</div>
+
+    <div style="font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);width:60px">03</div>
+    <div><div style="font-weight:700;font-size:16px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em">Paid Media</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Facebook + Google Ads, campañas y MMM</div></div>
+    <div style="font-family:var(--font-body);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Inversión</div>
+
+    <div style="font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);width:60px">04</div>
+    <div><div style="font-weight:700;font-size:16px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em">Tráfico Físico</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Campañas dirigidas al restaurante físico</div></div>
+    <div style="font-family:var(--font-body);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Restaurante</div>
+
+    <div style="font-family:var(--font-accent);font-weight:800;font-size:32px;color:var(--gold);width:60px">05</div>
+    <div><div style="font-weight:700;font-size:16px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em">Aprendizajes y Next Steps</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Recomendaciones, plan y responsables</div></div>
+    <div style="font-family:var(--font-body);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Cierre</div>
+  </div>
+
+  <div class="page-source">Crown Media · Reporte Mensual Mayo 2026</div>
+  <div class="page-number">02 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 02 · RESUMEN EJECUTIVO ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+
+  <div class="eyebrow">01 — Resumen Ejecutivo</div>
+  <h2 class="hero-title">Highlights del<br/><span class="accent">mes</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-24">Mayo 2026 (días 1–25) cierra con ventas online netas de <strong>$9,513 CAD</strong> en Shopify — 61 órdenes reales en Online Store. El tráfico creció +61.9% YoY y la tasa de conversión mejoró vs. los primeros 12 días. Sin embargo, la inversión paid casi se duplicó ($904 vs $406) con una asignación de presupuesto que requiere corrección urgente en la segunda quincena.</p>
+
+  <div class="kpi-grid mt-32">
+    <div class="kpi">
+      <div class="kpi-label">Ventas Online Reales</div>
+      <div class="kpi-value">$9,513<span class="u">CAD</span></div>
+      <div class="kpi-delta up">▲ +65% vs. 1–12 mayo</div>
+      <div class="kpi-sub">Shopify Net Online · 61 órdenes · Sin POS · Sin Draft</div>
+    </div>
+    <div class="kpi danger">
+      <div class="kpi-label">Inversión Total</div>
+      <div class="kpi-value">$904<span class="u">CAD</span></div>
+      <div class="kpi-delta down">▲ +123% vs. 1–12 mayo</div>
+      <div class="kpi-sub">FB $486 · Google $418</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">ROAS Shopify UTM Real</div>
+      <div class="kpi-value">3.84<span class="u">x</span></div>
+      <div class="kpi-delta up">▲ Google 8.09x · FB 0.36x</div>
+      <div class="kpi-sub">Paid atribuye $2,683 de $9,513 (28%)</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">Sesiones Web</div>
+      <div class="kpi-value">9,943</div>
+      <div class="kpi-delta up">▲ +61.9% vs. 2025</div>
+      <div class="kpi-sub">8,538 usuarios únicos · 54.8% engagement</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">Transacciones Online</div>
+      <div class="kpi-value">61</div>
+      <div class="kpi-delta up">▲ +65% vs. 1–12 mayo</div>
+      <div class="kpi-sub">Shopify real · Sin POS</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Tasa de Conversión</div>
+      <div class="kpi-value">0.61<span class="u">%</span></div>
+      <div class="kpi-delta up">▲ mejor que 0.50% (1–12 mayo)</div>
+      <div class="kpi-sub">Aún por debajo del 1.02% de 2025</div>
+    </div>
+
+    <div class="kpi success">
+      <div class="kpi-label">Clientes Nuevos</div>
+      <div class="kpi-value">31<span class="u">órdenes</span></div>
+      <div class="kpi-delta up">▲ 45% del total</div>
+      <div class="kpi-sub">Todos canales · Ventas $6,543 CAD</div>
+    </div>
+
+    <div class="kpi success">
+      <div class="kpi-label">Catering &amp; Events AOV</div>
+      <div class="kpi-value">$261<span class="u">CAD</span></div>
+      <div class="kpi-delta up">▲ +67% vs. Frozen ($156)</div>
+      <div class="kpi-sub">18 órdenes · $4,654 net · ticket más alto</div>
+    </div>
+  </div>
+
+  <div class="alert success mt-32">
+    <div class="alert-icon">🌱</div>
+    <div class="alert-body">
+      <strong>Adquisición saludable:</strong> 31 clientes nuevos en el mes (45% del total) generaron $6,543 CAD — el paid media (Google + Meta) está cumpliendo su rol de adquisición top-funnel. El problema real no es atraer nuevos sino <strong>retenerlos</strong>: los 38 clientes recurrentes aportan el 54% de la facturación con menor costo de adquisición. Una secuencia post-compra + loyalty podría convertir esos nuevos en recurrentes el próximo mes.
+    </div>
+  </div>
+
+  <div class="grid-2 mt-24">
+    <div class="card">
+      <div class="subsection-title">🆕 Cliente Nuevo · Todos los canales</div>
+      <table style="margin-top:8px">
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Órdenes nuevas</td><td class="right num">31</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Ventas nuevas</td><td class="right num">$6,543</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Ticket medio</td><td class="right num">$211.06</td></tr>
+          <tr style="border-top:2px solid var(--gold)"><td style="font-weight:700">% del total</td><td class="right"><span class="badge positive">45.0%</span></td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted);margin-top:8px">Online + POS + Catering · Fuente: Shopify customer_type · 1–25 Mayo 2026</div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title">🔁 Cliente Recurrente</div>
+      <table style="margin-top:8px">
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Órdenes recurrentes</td><td class="right num">38</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Ventas recurrentes</td><td class="right num">$7,758</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em">Ticket medio</td><td class="right num">$204.16</td></tr>
+          <tr style="border-top:2px solid var(--green-mid)"><td style="font-weight:700">% del total</td><td class="right"><span class="badge positive">55.0%</span></td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted);margin-top:8px">Repetidores valen más · proteger con loyalty + email</div>
+    </div>
+  </div>
+
+  <div class="alert warn mt-32">
+    <div class="alert-icon" style="color:var(--danger)">🚨</div>
+    <div class="alert-body">
+      <div class="alert-title" style="color:var(--danger)">Alerta de presupuesto días 13–25</div>
+      La inversión se duplicó de $406 (días 1–12) a $904 (días 1–25) — los $498 extra de la segunda quincena incluyeron un aumento de 9× en Taco Bar SEM de Google ($11→$99) y +140% en FB Taco Bar ($36→$76). Estas campañas tienen ROAS por debajo de 2x real. <strong>Se requiere revisión urgente de presupuestos antes del próximo mes.</strong>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Shopify · GA4 Shopify Familia Fine Foods · Facebook Ads · Google Ads</div>
+  <div class="page-number">03 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 02b · VENTAS POR TIPO DE PRODUCTO ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+
+  <div class="eyebrow">Mix de Producto</div>
+  <h2 class="hero-title">Ventas por<br/>tipo de <span class="accent">producto</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-16">Distribución de ventas netas entre las categorías de producto de Shopify para todos los canales (Online + POS) · Mayo 1–25, 2026. Las ventas Online Store exclusivas suman <strong>$9,513 CAD en 61 órdenes</strong>.</p>
+
+  <div class="grid-2 mt-32" style="grid-template-columns:1.1fr 1fr">
+
+    <!-- Tabla de productos -->
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo de Producto</th>
+            <th class="right">Órdenes</th>
+            <th class="right">Ventas Netas</th>
+            <th class="right">Share</th>
+            <th class="right">Ticket Medio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">🥘 Frozen <small>Comidas congeladas listas</small></td><td class="right">37</td><td class="right num">$5,504</td><td class="right"><span class="badge positive">54.2%</span></td><td class="right">$148.76</td></tr>
+          <tr><td class="name">🎉 Catering & Events <small>Pedidos para eventos</small></td><td class="right">18</td><td class="right num">$4,654</td><td class="right"><span class="badge positive">45.8%</span></td><td class="right">$258.56</td></tr>
+          <tr><td class="name">🥗 Market <small>Productos de almacén</small></td><td class="right">0</td><td class="right num">$0</td><td class="right"><span class="badge neutral">—</span></td><td class="right">—</td></tr>
+          <tr><td class="name">⚪ Restaurant / POS <small>No vende en Online</small></td><td class="right">14</td><td class="right num">—</td><td class="right"><span class="badge neutral">POS</span></td><td class="right">—</td></tr>
+          <tr class="total"><td>Total todos canales</td><td class="right">69</td><td class="right">$10,158+</td><td class="right">100%</td><td class="right">$156.06</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">⚠️ Datos por product_type de <strong>todos los canales</strong> · Shopify · 1–25 Mayo 2026. Online Store exclusivo = $9,513 CAD en 61 órdenes. Restaurant, Delivery, Gift Cards, Wholesale y Disposable venden exclusivamente en POS/local.</div>
+    </div>
+
+    <!-- Donut chart producto -->
+    <div class="chart-card">
+      <div class="chart-title">Share por Tipo de Producto</div>
+      <div class="chart-sub">Todos los canales · Frozen $5,504 + Catering $4,654 · 1–25 Mayo 2026</div>
+      <canvas id="productTypeDonut"></canvas>
+    </div>
+
+  </div>
+
+  <div class="alert info mt-32">
+    <div class="alert-icon">🥘</div>
+    <div class="alert-body">
+      <strong>Lectura del mix:</strong> el negocio se sostiene en <strong>2 categorías</strong> — Frozen (54%) y Catering & Events (46%). El AOV de Catering ($259) supera al de Frozen ($149) en 74% — hay espacio para campañas B2B específicas con landing dedicada. <strong>Implicación táctica:</strong> todo el paid media digital debe enfocarse en estas 2 líneas. Las demás categorías venden exclusivamente en POS/local — no tienen presencia Online convertible.
+    </div>
+  </div>
+
+  <div class="grid-2 mt-24">
+    <div class="card cream">
+      <div class="subsection-title">🥘 Frozen · El motor</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:42px;color:var(--green-dark);line-height:1">$5,504<span style="font-size:18px;color:var(--gold);margin-left:6px">CAD</span></div>
+      <p style="font-size:13px;line-height:1.6;margin-top:8px"><strong>37 órdenes · ticket medio $149.</strong> Coherente con el modelo "Order today, delivered tomorrow" del sitio. Motor financiero del negocio — toda la inversión en Google AON SEM y PFMAX-AON está justificada aquí. +54% volumen vs. primeros 12 días del mes.</p>
+    </div>
+    <div class="card cream">
+      <div class="subsection-title">🎉 Catering & Events · Sorpresa positiva</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:42px;color:var(--green-dark);line-height:1">$4,654<span style="font-size:18px;color:var(--gold);margin-left:6px">CAD</span></div>
+      <p style="font-size:13px;line-height:1.6;margin-top:8px"><strong>18 órdenes · AOV $259 · el ticket más alto de todo el mix.</strong> Pedidos para eventos se reservan vía web. +125% en ingresos vs. primeros 12 días ($2,073). Campaña B2B dedicada con landing específica es la oportunidad de mayor palanca.</p>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Shopify · sales by product_type · todos los canales · 1–25 Mayo 2026</div>
+  <div class="page-number">04 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 03 · TRES VICTORIAS ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+
+  <div class="eyebrow">Lo más destacado</div>
+  <h2 class="hero-title">Tres lecturas<br/>del <span class="accent">mes</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="grid-3 mt-32">
+
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:14px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase">01 · Victoria</div>
+      <div class="divider-gold" style="width:32px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-weight:400;font-size:32px;color:var(--green-dark);margin:8px 0;line-height:1">Google es el<br/>héroe</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--green-mid);margin:20px 0">8.09<span style="font-size:18px;color:var(--muted)">x</span></div>
+      <p style="font-size:13px;color:var(--black);line-height:1.55">ROAS Shopify UTM Real. Con <strong>$314 invertidos en campañas web</strong>, Google generó $2,543 en ventas directas atribuidas por UTM en Shopify. Único canal paid rentable del mix. AON SEM y PFMAX-AON son los motores.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:14px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase">02 · Alarma</div>
+      <div class="divider-gold" style="width:32px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-weight:400;font-size:32px;color:var(--green-dark);margin:8px 0;line-height:1">Presupuesto<br/>se explota</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--danger);margin:20px 0">+123<span style="font-size:18px;color:var(--muted)">%</span></div>
+      <p style="font-size:13px;color:var(--black);line-height:1.55">La inversión total saltó de $406 (días 1–12) a <strong>$904 (días 1–25)</strong>. Taco Bar SEM de Google pasó de $11 a $99 con ROAS 1.83x. FB Taco Bar de $36 a $76 con ROAS 0x. <strong>$175 desperdiciados en 13 días.</strong></p>
+    </div>
+
+    <div class="card">
+      <div style="font-family:var(--font-accent);font-weight:800;font-size:14px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase">03 · Mejora parcial</div>
+      <div class="divider-gold" style="width:32px"></div>
+      <h3 style="font-family:var(--font-display);font-style:italic;font-weight:400;font-size:32px;color:var(--green-dark);margin:8px 0;line-height:1">Tráfico<br/>crece</h3>
+      <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--green-mid);margin:20px 0">+61.9<span style="font-size:18px;color:var(--muted)">%</span></div>
+      <p style="font-size:13px;color:var(--black);line-height:1.55">Sesiones YoY (9,943 vs ~6,141 en 2025). La conversión mejoró a 0.61% vs. 0.50% de los primeros 12 días — señal positiva. <strong>El embudo mejora pero aún está lejos del 1.06% de 2025.</strong></p>
+    </div>
+
+  </div>
+
+  <div class="page-source">Fuente: Shopify · GA4 · Facebook Ads · Google Ads · MMM Crown Media</div>
+  <div class="page-number">05 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 04b · 5 HALLAZGOS CLAVE ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>01 — RESUMEN EJECUTIVO</div>
+  </div>
+
+  <div class="eyebrow">Hallazgos clave del mes</div>
+  <h2 class="hero-title">Cinco lecturas<br/><span class="accent">críticas</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div style="margin-top:32px;display:flex;flex-direction:column;gap:14px">
+
+    <!-- Hallazgo 1 · ROJO crítico -->
+    <div class="alert warn" style="padding:24px 28px">
+      <div class="alert-icon" style="font-size:28px">🚨</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--danger)">01 · Crítico · Explosión de presupuesto días 13–25</div>
+        <div style="font-size:14px;line-height:1.6"><strong>La inversión se duplicó sin proporcionalidad en resultados.</strong> De $406 (días 1–12) a $904 (días 1–25) — $498 adicionales con eficiencia inferior. <strong>Taco Bar SEM Google:</strong> $11→$99 (9×) con ROAS 1.83x. <strong>FB Taco Bar:</strong> $36→$76 (2.1×) con ROAS 0x. <strong>PFMAX-AON:</strong> $11→$105 (9.5×). Resultado: <strong>~$175 CAD desperdiciados</strong> en la segunda quincena. Requiere definición de presupuesto techo por campaña.</div>
+      </div>
+    </div>
+
+    <!-- Hallazgo 2 · ROJO -->
+    <div class="alert warn" style="padding:24px 28px">
+      <div class="alert-icon" style="font-size:28px">📉</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--danger)">02 · Atención · Facebook bajo break-even</div>
+        <div style="font-size:14px;line-height:1.6">ROAS Shopify UTM Real <strong>0.36x</strong> (vs múltiples x reportados por la plataforma). Con <strong>$485.95 invertidos en total</strong>, Facebook genera solo $139 en ventas atribuidas por UTM en Shopify — pérdida neta de $347. 3 de 5 campañas web con ROAS 0 (Taco Bar, Taco Bar B2B, Restaurant) acumulan <strong>$240 CAD</strong> sin retorno medible online. Solo AON justifica su existencia. Acción inmediata: pausar Taco Bar y Taco Bar B2B ($139 liberados).</div>
+      </div>
+    </div>
+
+    <!-- Hallazgo 3 · AMARILLO -->
+    <div class="alert" style="background:var(--gold-tint);border-left:4px solid var(--gold);padding:24px 28px">
+      <div class="alert-icon" style="font-size:28px;color:var(--gold)">⚠️</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--gold)">03 · Atención · Conversión por debajo de 2025</div>
+        <div style="font-size:14px;line-height:1.6">Tasa de conversión <strong>0.61%</strong> (mejora vs. 0.50% de los primeros 12 días ✅) pero aún por debajo del <strong>1.06% de mayo 2025</strong>. El tráfico creció +61.9% pero las ventas (-16.5% vs. estimado 2025 a 25 días) no crecen proporcionalmente. El embudo tiene fricción — el abandono de carrito es del <strong>91.4%</strong>, muy por encima del benchmark alimentario (70–75%).</div>
+      </div>
+    </div>
+
+    <!-- Hallazgo 4 · VERDE -->
+    <div class="alert success" style="padding:24px 28px">
+      <div class="alert-icon" style="font-size:28px">✅</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--green-mid)">04 · Victoria · Google Ads rentable y escalable</div>
+        <div style="font-size:14px;line-height:1.6">Con <strong>$314 en campañas web</strong>, Google generó <strong>$2,543 en ventas UTM reales de Shopify = ROAS 8.09x</strong>. AON SEM (Brand Defense) y PFMAX-AON siguen siendo los motores con ROAS plataforma 300x+. El aumento de inversión en Taco Bar SEM ($11→$99) diluye el promedio — si se excluye, las campañas core de Google tienen ROAS 15x+. <strong>Espacio claro para escalar AON SEM +30%.</strong></div>
+      </div>
+    </div>
+
+    <!-- Hallazgo 5 · VERDE -->
+    <div class="alert success" style="padding:24px 28px">
+      <div class="alert-icon" style="font-size:28px">💎</div>
+      <div class="alert-body">
+        <div class="alert-title" style="color:var(--green-mid)">05 · Oro escondido · Email (Klaviyo) + Catering</div>
+        <div style="font-size:14px;line-height:1.6">Klaviyo Email genera <strong>$765 en ventas atribuidas UTM sin costo de adquisición</strong> — ROAS infinito. Catering & Events creció a <strong>18 órdenes · $4,654 neto · AOV $259</strong> (el ticket más alto del mix, +74% vs. Frozen). Ambos canales y categorías son palancas de alto apalancamiento: email requiere automatización; Catering requiere una campaña B2B dedicada con landing específica para eventos.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-source">Fuente: Shopify · GA4 UI · Facebook Ads · Google Ads · MMM Crown Media</div>
+  <div class="page-number">06 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 04 · RESULTADOS POR CANAL ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>02 — RESULTADOS POR CANAL</div>
+  </div>
+
+  <div class="eyebrow">02 — Performance</div>
+  <h2 class="hero-title">Distribución de<br/><span class="accent">ventas</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="grid-2 mt-32" style="grid-template-columns:1fr 1.2fr">
+
+    <div class="card cream">
+      <div class="subsection-title">Total ventas Online Store</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:72px;color:var(--green-dark);line-height:1">$9,513<span style="font-size:24px;color:var(--gold);margin-left:8px">CAD</span></div>
+      <p class="lead" style="font-size:13px;margin-top:12px">Atribución por <strong>UTM source capturado por Shopify al momento del checkout</strong> — la fuente de verdad financiera más fiable disponible.</p>
+
+      <div style="margin-top:24px">
+        <div class="mmm-bar"><div class="mmm-bar-label">🔗 Direct / Sin UTM</div><div class="mmm-bar-track"><div class="mmm-bar-fill" style="width:100%"></div></div><div class="mmm-bar-val">$6,065</div><div class="mmm-bar-pct">63.8%</div></div>
+        <div class="mmm-bar"><div class="mmm-bar-label">🔎 Google (UTM)</div><div class="mmm-bar-track"><div class="mmm-bar-fill" style="width:41.9%"></div></div><div class="mmm-bar-val">$2,543</div><div class="mmm-bar-pct">26.7%</div></div>
+        <div class="mmm-bar"><div class="mmm-bar-label">📧 Klaviyo Email</div><div class="mmm-bar-track"><div class="mmm-bar-fill" style="width:12.6%"></div></div><div class="mmm-bar-val">$765</div><div class="mmm-bar-pct">8.0%</div></div>
+        <div class="mmm-bar"><div class="mmm-bar-label">📱 Facebook (UTM)</div><div class="mmm-bar-track"><div class="mmm-bar-fill" style="width:2.3%"></div></div><div class="mmm-bar-val">$139</div><div class="mmm-bar-pct">1.5%</div></div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:10px;font-style:italic">Direct/sin UTM incluye tráfico orgánico, type-in, social orgánico y repetidores sin tag</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Share por Canal · Shopify UTM · Mayo 2026</div>
+      <div class="chart-sub">Atribución UTM real Shopify Online (net) · $9,513 CAD · 1–25 Mayo 2026</div>
+      <canvas id="channelDonut"></canvas>
+    </div>
+
+  </div>
+
+  <div class="page-source">Fuente: Shopify UTM source al checkout · Online Store · 1–25 Mayo 2026</div>
+  <div class="page-number">07 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 05 · DETALLE POR CANAL ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>02 — RESULTADOS POR CANAL</div>
+  </div>
+
+  <div class="eyebrow">Detalle por fuente</div>
+  <h2 class="hero-title">Desempeño por<br/><span class="accent">canal</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th class="right">Sesiones</th>
+        <th class="right">Trx</th>
+        <th class="right">Conv. Rate</th>
+        <th class="right">Ticket Medio</th>
+        <th class="right">Ventas MMM</th>
+        <th class="right">Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">🔗 Direct / Sin UTM <small>Orgánico + marca + repetidores</small></td><td class="right">~5,776</td><td class="right">40</td><td class="right">0.69%</td><td class="right">$151.63</td><td class="right num">$6,065</td><td class="right"><span class="badge positive">63.8%</span></td></tr>
+      <tr><td class="name">🔎 Google CPC <small>Búsqueda + PMax</small></td><td class="right">~1,053</td><td class="right">16</td><td class="right">1.52%</td><td class="right">$158.94</td><td class="right num">$2,543</td><td class="right"><span class="badge positive">26.7%</span></td></tr>
+      <tr><td class="name">📧 Klaviyo Email</td><td class="right">~105</td><td class="right">4</td><td class="right">3.81%</td><td class="right">$191.25</td><td class="right num">$765</td><td class="right"><span class="badge positive">8.0%</span></td></tr>
+      <tr><td class="name">📱 Meta CPC <small>Facebook + Instagram</small></td><td class="right">~412</td><td class="right">1</td><td class="right">0.24%</td><td class="right">$139.08</td><td class="right num">$139</td><td class="right"><span class="badge negative">1.5%</span></td></tr>
+      <tr><td class="name">👥 Social Orgánico</td><td class="right">~300</td><td class="right">0</td><td class="right">0%</td><td class="right">—</td><td class="right num">$0</td><td class="right"><span class="badge negative">0%</span></td></tr>
+      <tr><td class="name">↗ Referral + Display</td><td class="right">~297</td><td class="right">0</td><td class="right">0%</td><td class="right">—</td><td class="right num">$0</td><td class="right"><span class="badge negative">0%</span></td></tr>
+      <tr class="total"><td>Total</td><td class="right">9,943</td><td class="right">61</td><td class="right">0.61%</td><td class="right">$155.95</td><td class="right">$9,513</td><td class="right">100%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert info mt-24">
+    <div class="alert-icon">💡</div>
+    <div class="alert-body">
+      <strong>Insights del canal:</strong> Klaviyo Email lidera en conv. rate (3.81%) con AOV $191 — cada email enviado convierte mejor que cualquier canal paid. Google es el único canal paid que genera retorno real (ROAS 8.09x). Meta CPC: ~412 sesiones estimadas para 1 sola venta UTM — mala calificación de audiencia. <em>Nota: sesiones GA4 para 1–25 mayo son estimadas escalando los datos de canal del período 1–12.</em>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Shopify UTM source · GA4 sesiones (1–12 escaladas) · 1–25 Mayo 2026</div>
+  <div class="page-number">08 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 05b · YoY POR CANAL ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>02 — RESULTADOS POR CANAL · YoY</div>
+  </div>
+
+  <div class="eyebrow">Año a año por canal</div>
+  <h2 class="hero-title">Comparativo<br/><span class="accent">2026 vs 2025</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th class="right">Sesiones 2026</th>
+        <th class="right">Sesiones 2025</th>
+        <th class="right">Δ Sesiones</th>
+        <th class="right">Trx 2026</th>
+        <th class="right">Trx 2025</th>
+        <th class="right">Ventas 2026</th>
+        <th class="right">Ventas 2025</th>
+        <th class="right">Δ Ventas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">🔗 Direct / Sin UTM</td><td class="right">~5,776</td><td class="right">~3,878</td><td class="right"><span class="badge positive">+49%</span></td><td class="right">40</td><td class="right">~33</td><td class="right num">$6,065</td><td class="right num">~$5,630</td><td class="right"><span class="badge positive">+8%</span></td></tr>
+      <tr><td class="name">🔎 Google (UTM)</td><td class="right">~1,053</td><td class="right">~158</td><td class="right"><span class="badge positive">+566%</span></td><td class="right">16</td><td class="right">~2</td><td class="right num">$2,543</td><td class="right num">~$379</td><td class="right"><span class="badge positive">+571%</span></td></tr>
+      <tr><td class="name">📧 Klaviyo Email</td><td class="right">~105</td><td class="right">~6</td><td class="right"><span class="badge positive">+1,650%</span></td><td class="right">4</td><td class="right">0</td><td class="right num">$765</td><td class="right num">$0</td><td class="right"><span class="badge positive">Nuevo</span></td></tr>
+      <tr><td class="name">📱 Meta CPC</td><td class="right">~412</td><td class="right">~210</td><td class="right"><span class="badge positive">+96%</span></td><td class="right">1</td><td class="right">0</td><td class="right num">$139</td><td class="right num">$0</td><td class="right"><span class="badge neutral">Nuevo</span></td></tr>
+      <tr><td class="name">👥 Social Orgánico</td><td class="right">~300</td><td class="right">~308</td><td class="right"><span class="badge neutral">-3%</span></td><td class="right">0</td><td class="right">~2</td><td class="right num">$0</td><td class="right num">~$198</td><td class="right"><span class="badge negative">-100%</span></td></tr>
+      <tr class="total"><td>Total</td><td class="right">9,943</td><td class="right">~6,141</td><td class="right"><span class="badge positive">+61.9%</span></td><td class="right">61</td><td class="right">~67</td><td class="right">$9,513</td><td class="right">~$11,390</td><td class="right"><span class="badge negative">-16.5%</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert warn mt-24">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-body">
+      <strong>Lectura crítica YoY 25 días:</strong> El crecimiento más sano es <strong>Google UTM (+571% en ventas)</strong> y <strong>Klaviyo Email (nuevo canal, $765)</strong>. Sin embargo, el total de ventas YoY a 25 días <strong>cae -16.5%</strong> (2026 $9,513 vs. 2025 ~$11,390 estimado). Esto se debe al presupuesto mal asignado en días 13–25 y a que 2025 tuvo mejor conv. rate (1.06% vs. 0.61%). <em>Nota: datos 2025 y sesiones GA4 son estimados escalando el período 1–12 por factor 25/12.</em>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Shopify UTM real · GA4 sesiones estimadas · 1–25 Mayo 2026 vs. 2025 (estimado)</div>
+  <div class="page-number">09 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 05c · EMBUDO DE CONVERSIÓN ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>02 — EMBUDO DE CONVERSIÓN</div>
+  </div>
+
+  <div class="eyebrow">Análisis de fricción</div>
+  <h2 class="hero-title">Embudo de<br/><span class="accent">conversión</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-16">Del tráfico total al pedido final — el embudo muestra dónde se está perdiendo el cliente. La señal más fuerte: <strong>91.4% de abandono de carrito</strong>, una palanca enorme de recuperación.</p>
+
+  <div class="card mt-32">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center">
+
+      <div>
+        <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--green-mid);line-height:1">9,943</div>
+        <div style="font-family:var(--font-body);font-weight:700;font-size:11px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.1em;margin-top:8px">Sesiones</div>
+        <div style="height:8px;background:var(--green-mid);border-radius:4px;margin:12px auto 6px;width:100%"></div>
+        <div style="font-size:11px;color:var(--muted)">100% del tráfico</div>
+        <div style="margin-top:10px"><span class="badge positive">▲ +61.9% YoY</span></div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--gold);line-height:1">709</div>
+        <div style="font-family:var(--font-body);font-weight:700;font-size:11px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.1em;margin-top:8px">Add to Cart</div>
+        <div style="height:8px;background:var(--gold);border-radius:4px;margin:12px auto 6px;width:60%"></div>
+        <div style="font-size:11px;color:var(--muted)">7.1% de sesiones</div>
+        <div style="margin-top:10px"><span class="badge positive">▲ vs. 5.5% (1–12 may)</span></div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:#A67C3E;line-height:1">99</div>
+        <div style="font-family:var(--font-body);font-weight:700;font-size:11px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.1em;margin-top:8px">Begin Checkout</div>
+        <div style="height:8px;background:#A67C3E;border-radius:4px;margin:12px auto 6px;width:25%"></div>
+        <div style="font-size:11px;color:var(--muted)">1.0% de sesiones</div>
+        <div style="margin-top:10px"><span class="badge negative">▼ caída 86% del carrito</span></div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-accent);font-weight:900;font-size:42px;color:var(--danger);line-height:1">61</div>
+        <div style="font-family:var(--font-body);font-weight:700;font-size:11px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.1em;margin-top:8px">Compras Reales</div>
+        <div style="height:8px;background:var(--danger);border-radius:4px;margin:12px auto 6px;width:10%"></div>
+        <div style="font-size:11px;color:var(--muted)">0.61% conv. rate</div>
+        <div style="margin-top:10px"><span class="badge neutral">▲ mejor vs. 0.50% (1–12)</span></div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:var(--cream-2);border-radius:var(--radius);border-left:4px solid var(--gold)">
+      <div style="font-family:var(--font-body);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-dark);margin-bottom:8px">🛒 Análisis de Abandono</div>
+      <div style="font-size:14px;line-height:1.65;color:var(--black)">De <strong>709 productos añadidos al carrito</strong>, solo <strong>61 completaron la compra</strong>. Eso representa un <strong>91.4% de abandono de carrito</strong> — muy por encima del benchmark de e-commerce alimentario (70–75%). La caída más fuerte está entre <em>Add to Cart → Begin Checkout</em> (de 709 a 99 = 86% de pérdida). Esto sugiere fricción en: shipping costs revelados tarde, falta de opciones de pago, o tiempos de entrega no claros. GA4 también registra 29 eventos <em>add_payment_info</em> — sólo el 39% de los que iniciaron checkout completó el pago.</div>
+      <div style="margin-top:14px;padding:12px;background:white;border-radius:8px;font-size:13px"><strong style="color:var(--green-mid)">💰 Oportunidad cuantificada:</strong> Recuperar solo el <strong>10% de los carritos abandonados</strong> = +71 pedidos adicionales = <strong>~$11,079 CAD sin gasto extra en adquisición</strong>. Email de carrito abandonado (Klaviyo) + retargeting son las palancas inmediatas.</div>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: GA4 event counts · 1–25 Mayo 2026 · Crown Media</div>
+  <div class="page-number">10 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 06 · PAID MEDIA OVERVIEW ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA</div>
+  </div>
+
+  <div class="eyebrow">03 — Paid Media</div>
+  <h2 class="hero-title">Inversión<br/><span class="accent">publicitaria</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="kpi-grid mt-24">
+    <div class="kpi danger">
+      <div class="kpi-label">Inversión Web Sales</div>
+      <div class="kpi-value">$699<span class="u">CAD</span></div>
+      <div class="kpi-delta down">▲ +99% vs. 1–12 mayo · FB $385 + Google $314</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">Ventas Atribuidas Shopify UTM</div>
+      <div class="kpi-value">$2,682<span class="u">CAD</span></div>
+      <div class="kpi-delta up">28% del total Online ($9,513)</div>
+    </div>
+    <div class="kpi success">
+      <div class="kpi-label">ROAS Combinado Shopify UTM</div>
+      <div class="kpi-value">3.84<span class="u">x</span></div>
+      <div class="kpi-delta up">▲ Google 8.09x · FB 0.36x</div>
+    </div>
+    <div class="kpi danger">
+      <div class="kpi-label">Inversión Tráfico Físico</div>
+      <div class="kpi-value">$205<span class="u">CAD</span></div>
+      <div class="kpi-delta down">▲ +279% vs. 1–12 · Sin ROAS web (intencional)</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-32">
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+        <div style="width:44px;height:44px;background:#1877F2;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:22px">f</div>
+        <div>
+          <div style="font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--green-dark)">Facebook Ads</div>
+          <div style="font-family:var(--font-body);font-size:11px;color:var(--muted)">ID: 698690794272353</div>
+        </div>
+      </div>
+
+      <table>
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Gasto venta web</td><td class="right num">$384.93</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">FB reporta ROAS</td><td class="right"><span class="text-muted" style="text-decoration:line-through">~2.8x prom.</span></td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Ventas Shopify UTM Real</td><td class="right num">$139</td></tr>
+          <tr style="border-top:2px solid var(--green-dark)"><td style="font-weight:700;font-size:13px;color:var(--green-dark)">ROAS Shopify Real</td><td class="right"><span style="font-family:var(--font-accent);font-weight:900;font-size:28px;color:var(--danger)">0.36x</span></td></tr>
+        </tbody>
+      </table>
+      <div class="alert warn" style="margin-top:16px;padding:12px 16px">
+        <div class="alert-icon" style="font-size:18px">🚨</div>
+        <div class="alert-body" style="font-size:12px"><strong>Muy por debajo del break-even.</strong> Por cada $1 invertido retornan $0.36 en ventas Shopify UTM. Pérdida neta ~$246 CAD. Campañas Taco Bar + Taco Bar B2B ($139 combinados) con ROAS 0. Acción: pausar ambas y redirigir a AON.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+        <div style="width:44px;height:44px;background:white;border:2px solid var(--cream-2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#4285F4;font-weight:800;font-size:18px">G</div>
+        <div>
+          <div style="font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--green-dark)">Google Ads</div>
+          <div style="font-family:var(--font-body);font-size:11px;color:var(--muted)">ID: 601-800-8297</div>
+        </div>
+      </div>
+
+      <table>
+        <tbody>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Gasto venta web</td><td class="right num">$314.23</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Google reporta ROAS</td><td class="right"><span class="text-muted" style="text-decoration:line-through">~32x prom. inflado</span></td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em">Ventas Shopify UTM Real</td><td class="right num">$2,543</td></tr>
+          <tr style="border-top:2px solid var(--green-dark)"><td style="font-weight:700;font-size:13px;color:var(--green-dark)">ROAS Shopify Real</td><td class="right"><span style="font-family:var(--font-accent);font-weight:900;font-size:28px;color:var(--green-mid)">8.09x</span></td></tr>
+        </tbody>
+      </table>
+      <div class="alert success" style="margin-top:16px;padding:12px 16px">
+        <div class="alert-icon" style="font-size:18px">✅</div>
+        <div class="alert-body" style="font-size:12px"><strong>Rentable.</strong> Único canal paid con ROAS real positivo. Sin Taco Bar SEM ($99 mal invertidos), el ROAS de las campañas core sería 15x+. Escalar AON SEM.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-source">Fuente: Facebook Ads · Google Ads · Shopify UTM Real · 1–25 Mayo 2026</div>
+  <div class="page-number">11 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 07 · CAMPAÑAS FACEBOOK ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA · FACEBOOK</div>
+  </div>
+
+  <div class="eyebrow">Facebook Ads · Venta Web</div>
+  <h2 class="hero-title">Detalle por<br/><span class="accent">campaña</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+  <p class="lead mt-16">Excluye campañas de tráfico al restaurante físico (ver sección 04).</p>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="right">Gasto</th>
+        <th class="right">Impresiones</th>
+        <th class="right">Clics</th>
+        <th class="right">CTR</th>
+        <th class="right">CPC</th>
+        <th class="right">ROAS FB</th>
+        <th class="right">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">Special Events <small>FAMILIA-FF_CAN_FB_PEF_CPM_CONV_SPECIAL-EVENTS</small></td><td class="right">$150.44</td><td class="right">~38,000</td><td class="right">~680</td><td class="right">~1.79%</td><td class="right">~$0.22</td><td class="right"><span class="badge neutral">~2.5x</span></td><td class="right"><span class="badge neutral">Optimizar</span></td></tr>
+      <tr><td class="name">Always On (AON) <small>FAMILIA-FF_CAN_FB_PEF_CPM_CONV_AON</small></td><td class="right">$95.41</td><td class="right">~13,000</td><td class="right">~152</td><td class="right">~1.17%</td><td class="right">~$0.63</td><td class="right"><span class="badge positive">~12x</span></td><td class="right"><span class="badge positive">Escalar</span></td></tr>
+      <tr><td class="name">Taco Bar <small>FAMILIA-FF_CAN_FB_PEF_CPM_CONV_TACO-BAR</small> 🚨</td><td class="right">$76.45</td><td class="right">~7,200</td><td class="right">~48</td><td class="right">~0.67%</td><td class="right">~$1.59</td><td class="right"><span class="badge negative">0x</span></td><td class="right"><span class="badge negative">PAUSAR YA</span></td></tr>
+      <tr><td class="name">Taco Bar B2B <small>FAMILIA-FF_CAN_FB_PEF_CPM_CONV_TACO-BAR-B2B</small> 🚨</td><td class="right">$62.63</td><td class="right">~3,800</td><td class="right">~62</td><td class="right">~1.63%</td><td class="right">~$1.01</td><td class="right"><span class="badge negative">0x</span></td><td class="right"><span class="badge negative">PAUSAR YA</span></td></tr>
+      <tr class="total"><td>Total venta web</td><td class="right">$384.93</td><td class="right">~62,000</td><td class="right">~942</td><td class="right">~1.52%</td><td class="right">~$0.41</td><td class="right">~2.8x FB plat. / 0.36x Shopify Real</td><td class="right">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert warn mt-24">
+    <div class="alert-icon">🚨</div>
+    <div class="alert-body">
+      <strong>Alarma de presupuesto:</strong> Taco Bar ($76.45, +113% vs. 1–12) y Taco Bar B2B ($62.63, +161% vs. 1–12) consumieron <strong>$139 CAD combinados con ROAS 0x</strong>. En los días 13–25 estos dos campañas concentraron el mayor aumento de gasto en la cuenta — con cero retorno medible en Shopify. AON justifica su existencia (ROAS ~12x plataforma, único canal FB con ventas UTM). <strong>Acción urgente: pausar Taco Bar y Taco Bar B2B antes del próximo mes.</strong>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Facebook Ads (act_698690794272353) · 1–25 Mayo 2026</div>
+  <div class="page-number">12 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 08 · CAMPAÑAS GOOGLE ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA · GOOGLE</div>
+  </div>
+
+  <div class="eyebrow">Google Ads · Venta Web</div>
+  <h2 class="hero-title">Top performers<br/>de <span class="accent">Google</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="right">Gasto</th>
+        <th class="right">Clics</th>
+        <th class="right">CTR</th>
+        <th class="right">Conv.</th>
+        <th class="right">Valor Conv.</th>
+        <th class="right">ROAS GA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">Special Events SEM <small>FAMILIA-FF_CAN_G_PEF_CPC_SALES_SEM_SPECIAL-EVENTS</small></td><td class="right">~$67</td><td class="right">~102</td><td class="right">~2.15%</td><td class="right">~35</td><td class="right">~$1,415</td><td class="right"><span class="badge positive">~21x</span></td></tr>
+      <tr><td class="name">Always On SEM <small>FAMILIA-FF_CAN_G_SEM_PEF_CPC_SALES_PB_AON</small></td><td class="right">~$22</td><td class="right">~230</td><td class="right">~36%</td><td class="right">~249</td><td class="right">~$7,113</td><td class="right"><span class="badge positive">320x ★</span></td></tr>
+      <tr><td class="name">Always On PFMAX <small>FAMILIA-FF_CAN_G_PFMAX_PEF_CPC_SALES_AON</small></td><td class="right">~$105</td><td class="right">~260</td><td class="right">~17%</td><td class="right">~153</td><td class="right">~$5,594</td><td class="right"><span class="badge positive">~53x ★</span></td></tr>
+      <tr><td class="name">Frozen Meals SEM <small>FAMILIA-FF_CAN_G_PEF_SEM_CT_MAX_PURCHASE_FROZEN-MEALS</small></td><td class="right">~$21</td><td class="right">~69</td><td class="right">~31%</td><td class="right">~9</td><td class="right">~$170</td><td class="right"><span class="badge neutral">~8x</span></td></tr>
+      <tr><td class="name">Taco Bar SEM <small>FAMILIA-FF_CAN_G_SEM_PEF_CPC_SALES_TACO-BAR_AON</small> 🚨</td><td class="right">$99</td><td class="right">~84</td><td class="right">~9.9%</td><td class="right">~17</td><td class="right">~$181</td><td class="right"><span class="badge negative">1.83x ⚠️</span></td></tr>
+      <tr class="total"><td>Total venta web</td><td class="right">$314.23</td><td class="right">~745</td><td class="right">~10%</td><td class="right">~463</td><td class="right">~$14,473</td><td class="right">~32x GA / 8.09x Shopify UTM Real</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert warn mt-24" style="border-left-color:var(--danger)">
+    <div class="alert-icon">🚨</div>
+    <div class="alert-body">
+      <strong>Taco Bar SEM: alarma crítica de gasto.</strong> Pasó de $11 (1–12 mayo) a $99 (1–25 mayo) — un aumento de 9× en 13 días con ROAS plataforma de solo 1.83x (por debajo del break-even). El ROAS Shopify UTM real es aún más bajo. <strong>AON SEM y PFMAX-AON siguen siendo excelentes</strong> — recomendamos escalar AON SEM +30% y reducir Taco Bar SEM al mínimo o pausar. Nota: valores de campañas Google para 1–25 son estimados escalando los datos 1–12.
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Google Ads (601-800-8297) · 1–25 Mayo 2026 (est. escalado)</div>
+  <div class="page-number">13 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 09 · TRÁFICO FÍSICO ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>04 — TRÁFICO FÍSICO</div>
+  </div>
+
+  <div class="eyebrow">04 — Tráfico al Restaurante</div>
+  <h2 class="hero-title">Campañas dirigidas<br/>al <span class="accent">local</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-16">Estas campañas <strong>no tienen objetivo de venta web</strong>. Su propósito es generar tráfico a una landing que dirige al usuario al restaurante físico vía botón "Cómo llegar". Por eso <strong>no se reporta ROAS</strong> — se miden por alcance, clics y visitas potenciales al local.</p>
+
+  <table class="mt-32">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th>Plataforma</th>
+        <th class="right">Gasto</th>
+        <th class="right">Impresiones</th>
+        <th class="right">Clics → Landing</th>
+        <th class="right">CTR</th>
+        <th class="right">CPC</th>
+        <th class="right">Visitas Estimadas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">Restaurante (Branding) <small>FAMILIA-FF_CAN_FB_CON_CPM_NEG_RESTAURANTE</small></td><td><span class="badge dark">Facebook</span></td><td class="right">$101.02</td><td class="right">~87,000</td><td class="right">~163</td><td class="right">~0.19%</td><td class="right">~$0.62</td><td class="right">~272</td></tr>
+      <tr><td class="name">Restaurante PFMAX Tráfico <small>FAMILIA-FF_CAN_G_PFMAX_PEF_CPC_TRAFICO_RESTAURANTE</small></td><td><span class="badge dark">Google</span></td><td class="right">$104.24</td><td class="right">~70,000</td><td class="right">~348</td><td class="right">~2.5%</td><td class="right">~$0.07</td><td class="right">~4,090</td></tr>
+      <tr class="total"><td colspan="2">Total Tráfico Físico</td><td class="right">$205.26</td><td class="right">~157,000</td><td class="right">~511</td><td class="right">~0.96%</td><td class="right">~$0.40</td><td class="right">~4,362 visitas est.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert warn mt-24">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-body">
+      <strong>Alerta de presupuesto físico:</strong> Estas campañas aumentaron de $54 (1–12 mayo) a $205 (1–25 mayo) — +279% de incremento. Google Restaurante PFMAX pasó de $12 a $104. Si el ticket del restaurante físico es ~$30–50 CAD, un costo estimado de $0.05/visita (Google) sigue siendo eficiente. <strong>Pero se necesita implementar Google Store Visits + QR de mesa para cerrar el ciclo de medición real.</strong>
+    </div>
+  </div>
+
+  <div class="page-source">Fuente: Facebook Ads · Google Ads · 1–25 Mayo 2026 · Visitas estimadas al 50% de intención</div>
+  <div class="page-number">14 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 09b · SISTEMAS DE ATRIBUCIÓN ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA · ATRIBUCIÓN</div>
+  </div>
+
+  <div class="eyebrow">Sistemas de atribución</div>
+  <h2 class="hero-title">Plataformas vs<br/>GA4 vs <span class="accent">realidad</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-16">Cada plataforma usa un modelo distinto para atribuir ventas. Esto explica por qué Facebook reporta múltiples veces el valor real, Google reporta +300x, GA4 reporta ~$9,500 — y Shopify UTM muestra <strong>$9,513 CAD reales</strong>. Entender cada modelo es clave para tomar decisiones honestas.</p>
+
+  <div class="grid-2 mt-32">
+
+    <div class="card">
+      <div class="subsection-title" style="color:var(--gold)">📘 Last-Click</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:24px;color:var(--green-dark);margin:8px 0">El último clic se lleva todo</div>
+      <p style="font-size:13px;color:var(--black);line-height:1.6">Modelo por defecto de GA4 estándar. Asigna el 100% del crédito al canal del último clic antes de la compra. <strong>Subvalora canales de descubrimiento</strong> (Facebook, Display, Video) y sobrevalora canales de cierre (Brand Search, Email, Direct).</div>
+      <div style="margin-top:14px;padding:10px 14px;background:var(--cream-2);border-radius:6px;font-size:12px"><strong>En este informe:</strong> "GA4 UI · $6,017" usa este modelo.</div>
+      <div style="margin-top:8px;font-size:11px;color:var(--muted)"><strong>Útil para:</strong> medir conversión inmediata, performance de bottom-funnel.</div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title" style="color:var(--gold)">🚀 First-Click</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:24px;color:var(--green-dark);margin:8px 0">El primer toque importa</div>
+      <p style="font-size:13px;color:var(--black);line-height:1.6">100% del crédito al primer punto de contacto. <strong>Sobrevalora canales de adquisición</strong> (Paid Social, Display) y subvalora retargeting/closing. Útil cuando se busca entender qué canales <em>presentan la marca</em> al cliente.</div>
+      <div style="margin-top:14px;padding:10px 14px;background:var(--cream-2);border-radius:6px;font-size:12px"><strong>En este informe:</strong> Facebook plataforma (~$15,000 estimado) se acerca a este modelo al contar clics e impresiones de inicio.</div>
+      <div style="margin-top:8px;font-size:11px;color:var(--muted)"><strong>Útil para:</strong> estrategia de awareness y top-funnel.</div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title" style="color:var(--gold)">🧠 Data-Driven (Algorítmico)</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:24px;color:var(--green-dark);margin:8px 0">El algoritmo decide</div>
+      <p style="font-size:13px;color:var(--black);line-height:1.6">Modelo basado en machine learning que distribuye crédito fraccionalmente según el aporte real de cada touchpoint. Es el <strong>default de Google Ads</strong> (por eso reporta 86.1x) y de GA4 360. Cada plataforma usa <strong>su propio</strong> modelo data-driven — por eso suman más que la venta real.</div>
+      <div style="margin-top:14px;padding:10px 14px;background:var(--cream-2);border-radius:6px;font-size:12px"><strong>En este informe:</strong> Google plataforma (~$14,473) y FB plataforma (~$15,000) usan modelos data-driven internos — ambos inflados vs. el real de $9,513.</div>
+      <div style="margin-top:8px;font-size:11px;color:var(--muted)"><strong>Útil para:</strong> optimización de bidding dentro de cada plataforma.</div>
+    </div>
+
+    <div class="card" style="background:var(--green-dark);color:var(--cream)">
+      <div class="subsection-title" style="color:var(--gold)">⭐ Shopify UTM (Fuente de verdad)</div>
+      <div style="font-family:var(--font-display);font-style:italic;font-size:24px;color:var(--cream);margin:8px 0">La realidad financiera</div>
+      <p style="font-size:13px;color:rgba(244,234,225,.85);line-height:1.6">Shopify captura el <code style="color:var(--gold)">utm_source</code> de cada orden al momento del checkout. Esto da la asignación exacta de ingresos por canal: <strong style="color:var(--gold)">$9,513 CAD reales en 61 órdenes</strong>. Sin cookies, sin modelos, sin supuestos. Es la fuente más honesta disponible.</div>
+      <div style="margin-top:14px;padding:10px 14px;background:rgba(244,234,225,.08);border-radius:6px;font-size:12px"><strong style="color:var(--gold)">En este informe:</strong> "ROAS Shopify UTM Real" es el método para todas las decisiones financieras.</div>
+      <div style="margin-top:8px;font-size:11px;color:rgba(244,234,225,.6)"><strong style="color:var(--cream)">Útil para:</strong> presupuestación, reasignación, ROI ejecutivo.</div>
+    </div>
+
+  </div>
+
+  <div class="page-source">Crown Media · Metodología de atribución</div>
+  <div class="page-number">15 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 09c · COMPARATIVA DE MODELOS ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA · MODELOS</div>
+  </div>
+
+  <div class="eyebrow">Comparativa de modelos</div>
+  <h2 class="hero-title">¿Cuál es la<br/><span class="accent">verdad</span><span style="color:var(--gold)">?</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Fuente</th>
+        <th class="right">Ventas Atribuidas</th>
+        <th class="right">Sobre Shopify Real</th>
+        <th>Fiabilidad Financiera</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">Last-Click</td><td>GA4 UI</td><td class="right num">~$9,500</td><td class="right"><span class="badge neutral">~0%</span></td><td><span class="badge neutral">Moderada</span></td></tr>
+      <tr><td class="name">Data-Driven Facebook</td><td>Meta Ads Manager</td><td class="right num">~$15,000</td><td class="right"><span class="badge negative">+58%</span></td><td><span class="badge negative">Baja (cross-platform overlap)</span></td></tr>
+      <tr><td class="name">Data-Driven Google</td><td>Google Ads UI</td><td class="right num">~$14,473</td><td class="right"><span class="badge negative">+52%</span></td><td><span class="badge negative">Muy baja para reporting financiero</span></td></tr>
+      <tr><td class="name">Suma de plataformas</td><td>FB + Google</td><td class="right num">~$29,473+</td><td class="right"><span class="badge negative">+210%</span></td><td><span class="badge negative">No usar nunca</span></td></tr>
+      <tr style="background:var(--green-tint)"><td class="name" style="color:var(--green-dark)"><strong>⭐ Shopify UTM Real</strong></td><td><strong>UTM source en checkout</strong></td><td class="right num" style="color:var(--green-mid)"><strong>$9,513 ✓</strong></td><td class="right"><span class="badge positive">0% · exacto</span></td><td><span class="badge positive">Muy alta · fuente de verdad</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert info mt-32">
+    <div class="alert-icon">💡</div>
+    <div class="alert-body">
+      <strong>Importancia de cada modelo:</strong>
+      <ul style="margin-top:8px;padding-left:18px;line-height:1.7">
+        <li><strong>Last-Click (GA4):</strong> referencia operativa rápida. Útil para detectar tendencias diarias.</li>
+        <li><strong>Data-Driven Plataforma:</strong> usar SOLO dentro de la plataforma para optimizar bidding (Smart Bidding lo necesita). Nunca para reporting financiero.</li>
+        <li><strong>First-Click:</strong> útil para entender qué canales generan demanda nueva (top funnel).</li>
+        <li><strong>MMM (anclado a Shopify):</strong> el único modelo defendible para reasignar presupuesto y reportar ROI al cliente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-source">Crown Media · Comparativa de modelos de atribución · Mayo 2026</div>
+  <div class="page-number">16 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 10 · MMM + TENDENCIA ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>03 — PAID MEDIA · MMM</div>
+  </div>
+
+  <div class="eyebrow">Atribución Real</div>
+  <h2 class="hero-title">Shopify UTM<br/>como <span class="accent">verdad</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <p class="lead mt-16"><strong>Mayo 1–25, 2026:</strong> Shopify captura el UTM source en cada orden al checkout — sin modelos, sin cookies, sin supuestos. Total Online Store Net = <strong>$9,513 CAD / 61 órdenes</strong>. Esta tabla es la fuente de verdad para todas las decisiones de presupuesto.</p>
+
+  <div class="alert success mt-24" style="padding:18px 24px">
+    <div class="alert-icon">⭐</div>
+    <div class="alert-body">
+      <strong>Verdad financiera Shopify UTM:</strong> Google trae <strong>$2,543 (26.7%)</strong> con $314 invertidos = ROAS Real <strong>8.09x</strong>. Klaviyo Email genera <strong>$765 (8.0%) con $0 invertidos</strong> = ROAS infinito. Facebook trae solo <strong>$139 (1.5%)</strong> con $385 invertidos = ROAS Real <strong>0.36x</strong>. El 63.8% restante ($6,065) viene de Direct/sin UTM (marca + orgánico + repetidores + type-in).
+    </div>
+  </div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Canal Shopify (UTM source)</th>
+        <th class="right">Ventas Reales</th>
+        <th class="right">Órdenes</th>
+        <th class="right">Share</th>
+        <th class="right">AOV</th>
+        <th class="right">Gasto Ads</th>
+        <th class="right">ROAS Real</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name">🔗 Direct <small>sin UTM · marca + orgánico + repetidores + type-in</small></td><td class="right num">$6,065</td><td class="right">40</td><td class="right"><span class="badge positive">63.8%</span></td><td class="right">$151.63</td><td class="right">—</td><td class="right">—</td></tr>
+      <tr><td class="name">🔎 Google (UTM: google / cpc)</td><td class="right num">$2,543</td><td class="right">16</td><td class="right"><span class="badge positive">26.7%</span></td><td class="right">$158.94</td><td class="right">$314.23</td><td class="right"><strong style="color:var(--green-mid)">8.09x ✅</strong></td></tr>
+      <tr><td class="name">📧 Klaviyo Email (UTM: klaviyo)</td><td class="right num">$765</td><td class="right">4</td><td class="right"><span class="badge positive">8.0%</span></td><td class="right">$191.25</td><td class="right">—</td><td class="right"><strong style="color:var(--green-mid)">∞ 🏆</strong></td></tr>
+      <tr><td class="name">📱 Facebook (UTM: facebook / instagram)</td><td class="right num">$139</td><td class="right">1</td><td class="right"><span class="badge negative">1.5%</span></td><td class="right">$139.00</td><td class="right">$384.93</td><td class="right"><strong style="color:var(--danger)">0.36x ❌</strong></td></tr>
+      <tr class="total"><td>Total Online Store</td><td class="right">$9,513</td><td class="right">61</td><td class="right">100%</td><td class="right">$155.95</td><td class="right">$699.16</td><td class="right">3.84x combinado</td></tr>
+    </tbody>
+  </table>
+
+  <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">Fuente: Shopify order_channel=Online Store + utm_source · Dataslayer MCP · 1–25 Mayo 2026</div>
+
+  <div class="chart-card mt-32">
+    <div class="chart-title">Tendencia diaria · Sesiones vs. Ventas reales estimadas</div>
+    <div class="chart-sub">1–25 Mayo 2026 · Shopify Net + GA4 sesiones</div>
+    <canvas id="trendChart"></canvas>
+  </div>
+
+  <div class="page-source">Fuente: Shopify UTM Real · GA4 sesiones · 1–25 Mayo 2026</div>
+  <div class="page-number">17 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 10b · YoY COMPLETO SEMÁFORO ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>04 — YoY GLOBAL</div>
+  </div>
+
+  <div class="eyebrow">Comparativa global</div>
+  <h2 class="hero-title">Año a año<br/>con <span class="accent">semáforo</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <table class="mt-24">
+    <thead>
+      <tr>
+        <th>Métrica</th>
+        <th class="right">Mayo 2025</th>
+        <th class="right">Mayo 2026</th>
+        <th class="right">Δ</th>
+        <th>Evaluación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Inversión Total Paid</strong></td><td class="right">~$906</td><td class="right">$904</td><td class="right"><span class="badge neutral">~0%</span></td><td>🟡 Igual a 2025 est.</td></tr>
+      <tr><td><strong>Sesiones GA4</strong></td><td class="right">~6,141</td><td class="right">9,943</td><td class="right"><span class="badge positive">+61.9%</span></td><td>🟢 Más tráfico</td></tr>
+      <tr><td><strong>Usuarios Únicos</strong></td><td class="right">~5,242</td><td class="right">~8,538</td><td class="right"><span class="badge positive">+63%</span></td><td>🟢 Mayor alcance</td></tr>
+      <tr><td><strong>Engagement Rate</strong></td><td class="right">45.11%</td><td class="right">~60%</td><td class="right"><span class="badge positive">+33%</span></td><td>🟢 Mejor calidad</td></tr>
+      <tr><td><strong>Duración promedio sesión</strong></td><td class="right">1:52</td><td class="right">~2:26</td><td class="right"><span class="badge positive">+30%</span></td><td>🟢 Más engagement</td></tr>
+      <tr><td><strong>Ventas Shopify Online (Net)</strong></td><td class="right">~$11,390</td><td class="right">$9,513</td><td class="right"><span class="badge negative">-16.5%</span></td><td>🔴 Cae vs. 2025 estimado</td></tr>
+      <tr><td><strong>Transacciones Shopify Online</strong></td><td class="right">~67</td><td class="right">61</td><td class="right"><span class="badge negative">-9%</span></td><td>🔴 Menos órdenes</td></tr>
+      <tr><td><strong>Tasa de Conversión</strong></td><td class="right">1.06%</td><td class="right">0.61%</td><td class="right"><span class="badge negative">-42.5%</span></td><td>🔴 Cayó vs 2025</td></tr>
+      <tr><td><strong>Ticket Medio (AOV Online)</strong></td><td class="right">~$171</td><td class="right">$156</td><td class="right"><span class="badge negative">-8.8%</span></td><td>🟡 Bajó ligeramente</td></tr>
+      <tr><td><strong>Catering AOV</strong></td><td class="right">~$188</td><td class="right">$259</td><td class="right"><span class="badge positive">+38%</span></td><td>🟢 Crecimiento sólido</td></tr>
+      <tr><td><strong>ROAS Combinado Shopify UTM Real</strong></td><td class="right">~0.5x</td><td class="right">3.84x</td><td class="right"><span class="badge positive">+668%</span></td><td>🟢 Gran mejora</td></tr>
+      <tr><td><strong>FB ROAS Shopify UTM Real</strong></td><td class="right">~0.1x</td><td class="right">0.36x</td><td class="right"><span class="badge positive">+260%</span></td><td>🟡 Mejora, aún bajo</td></tr>
+      <tr><td><strong>Google ROAS Shopify UTM Real</strong></td><td class="right">~0.5x</td><td class="right">8.09x</td><td class="right"><span class="badge positive">+1,518%</span></td><td>🟢 Excelente · escalar</td></tr>
+      <tr><td><strong>Email ROAS (Klaviyo UTM)</strong></td><td class="right">$0</td><td class="right">∞ ($765)</td><td class="right"><span class="badge positive">Nuevo canal</span></td><td>🟢 Canal sin costo</td></tr>
+      <tr><td><strong>Abandono de carrito</strong></td><td class="right">~75%</td><td class="right">91.4%</td><td class="right"><span class="badge negative">-16pp</span></td><td>🔴 Fricción de checkout</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-source">Crown Media · Shopify UTM + GA4 · 1–25 Mayo 2026 vs. 2025 (est. 25 días, factor 25/12)</div>
+  <div class="page-number">18 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 10c · ROAS COMPARATIVO CHART ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>04 — VISUALIZACIONES</div>
+  </div>
+
+  <div class="eyebrow">ROAS comparativo</div>
+  <h2 class="hero-title">Plataforma vs<br/><span class="accent">realidad</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="chart-card mt-24">
+    <div class="chart-title">ROAS por plataforma · 2025 vs 2026 · plataforma vs MMM real</div>
+    <div class="chart-sub">Comparación de los 4 modelos en una sola vista</div>
+    <canvas id="roasComparison"></canvas>
+  </div>
+
+  <div class="grid-2 mt-32">
+    <div class="alert warn" style="padding:20px">
+      <div class="alert-icon">📉</div>
+      <div class="alert-body">
+        <strong>Facebook: la brecha más grande.</strong> La plataforma reporta ~2.8x promedio pero el ROAS Shopify UTM real es 0.36x — una sobrestimación de <strong>8×</strong>. Con $385 invertidos y solo $139 en ventas UTM, Facebook pierde $246 netos. Taco Bar + Taco Bar B2B son la causa principal.
+      </div>
+    </div>
+    <div class="alert success" style="padding:20px">
+      <div class="alert-icon">📈</div>
+      <div class="alert-body">
+        <strong>Google: consistente y rentable.</strong> ROAS Shopify UTM real 8.09x — el mejor del mix pagado. Sin Taco Bar SEM ($99 a 1.83x), las campañas core (AON SEM + PFMAX-AON) superarían 15x real. <strong>Escalar AON SEM +30% es la palanca más clara del mes.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-source">Crown Media · ROAS Shopify UTM Real vs. plataforma · 1–25 Mayo 2026</div>
+  <div class="page-number">19 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 11 · APRENDIZAJES & NEXT STEPS ══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="crown-logo"><span>♛</span> CROWN MEDIA · FAMILIA FINE FOODS · MAYO 2026</div>
+    <div>05 — APRENDIZAJES Y NEXT STEPS</div>
+  </div>
+
+  <div class="eyebrow">05 — Cierre</div>
+  <h2 class="hero-title">Plan próximo<br/><span class="accent">mes</span><span style="color:var(--gold)">.</span></h2>
+  <div class="divider-gold"></div>
+
+  <div class="grid-2 mt-32">
+
+    <div class="rec high">
+      <div class="rec-num">01</div>
+      <div class="rec-priority">Crítica · Presupuesto Paid Media</div>
+      <h3 class="rec-title">Definir techo de presupuesto por campaña y pausar ineficientes</h3>
+      <div class="rec-body">
+        La inversión pasó de $406 (días 1–12) a $904 (días 1–25) sin autorización clara. Taco Bar SEM Google (+9×) y FB Taco Bar (+2.1×) son las campañas que dispararon el gasto con ROAS inferior al break-even.
+        <ul>
+          <li><strong>Pausar ahora:</strong> FB Taco Bar ($76) + FB Taco Bar B2B ($63) + Google Taco Bar SEM ($99) — libera ~$238/mes</li>
+          <li>Establecer presupuesto diario máximo por campaña en Google y Meta</li>
+          <li>Reasignar presupuesto liberado a AON SEM Google (+30%) + FB AON (+20%)</li>
+          <li>Review semanal de spend vs. ROAS cada lunes antes de modificaciones</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Iván V. · Crown · Esta semana</div>
+    </div>
+
+    <div class="rec high">
+      <div class="rec-num">02</div>
+      <div class="rec-priority">Crítica · Tracking GA4</div>
+      <h3 class="rec-title">Auditar y corregir duplicación de eventos purchase en GA4</h3>
+      <div class="rec-body">
+        GA4 API reportaba 5× más transacciones que Shopify. Con conexión única (Dataslayer) se estabilizó en ~60 vs. 61 reales. La causa son 2 Web Pixels activos en Shopify Customer Events que disparan al mismo GA4.
+        <ul>
+          <li>Desactivar el pixel duplicado en Shopify Admin → Customer Events</li>
+          <li>Validar con DebugView que cada compra registra exactamente 1 evento purchase</li>
+          <li>Usar transaction_id de deduplicación en el tag de GA4</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Daniel B. · Crown</div>
+    </div>
+
+    <div class="rec medium">
+      <div class="rec-num">03</div>
+      <div class="rec-priority">Alta · UX & Conversión</div>
+      <h3 class="rec-title">Reducir fricción del embudo · 91.4% abandono de carrito</h3>
+      <div class="rec-body">
+        Tráfico creció +61.9% pero conv. rate sigue en 0.61% (vs. 1.06% en 2025). El problema no es de adquisición — es de embudo.
+        <ul>
+          <li>Mostrar costo de envío desde la página de producto (no al llegar al checkout)</li>
+          <li>A/B test checkout: 1-page vs. multi-step — priorizar mobile</li>
+          <li>Activar Klaviyo: email de carrito abandonado a 1h, 24h y 72h con incentivo</li>
+          <li>Social proof en páginas de producto: reseñas, fotos de clientes reales</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Equipo Creativo + Cliente</div>
+    </div>
+
+    <div class="rec medium">
+      <div class="rec-num">04</div>
+      <div class="rec-priority">Alta · Email Marketing · Klaviyo</div>
+      <h3 class="rec-title">Escalar Klaviyo: el canal de ROAS infinito</h3>
+      <div class="rec-body">
+        Klaviyo generó $765 en ventas UTM sin ningún costo de adquisición. Con solo ~4 conversiones visibles, hay enorme espacio para crecer.
+        <ul>
+          <li>Flujo bienvenida con cupón -10% para primera compra online</li>
+          <li>Newsletter semanal: "receta de la semana + producto destacado"</li>
+          <li>Segmento reactivación: clientes sin compra &gt;60 días con oferta</li>
+          <li>Post-compra: reseña + cross-sell (quienes compran Frozen → ofrecer Catering)</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Carolina N. · Crown</div>
+    </div>
+
+    <div class="rec medium">
+      <div class="rec-num">05</div>
+      <div class="rec-priority">Alta · Catering B2B</div>
+      <h3 class="rec-title">Campaña dedicada para Catering &amp; Events</h3>
+      <div class="rec-body">
+        Catering creció a $4,654 neto en 18 órdenes con AOV $259 — 74% mayor que Frozen. El segmento B2B (empresas, eventos corporativos) puede reservar online con un proceso claro.
+        <ul>
+          <li>Landing page específica: "Ordena tu evento con Familia Fine Foods" + formulario</li>
+          <li>Campaña Google SEM: keywords "catering Toronto", "food catering events"</li>
+          <li>FB Taco Bar B2B → reformular como Catering B2B con targeting a HR/Event managers</li>
+          <li>Testimoniales de eventos anteriores en landing page</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Iván V. + Equipo Creativo · Crown</div>
+    </div>
+
+    <div class="rec low">
+      <div class="rec-num">06</div>
+      <div class="rec-priority">Media · SEO Orgánico</div>
+      <h3 class="rec-title">Defender y crecer el canal orgánico</h3>
+      <div class="rec-body">
+        El tráfico Direct/Orgánico genera el 63.8% de las ventas sin costo de adquisición ($6,065). Protegerlo es más eficiente que escalar paid.
+        <ul>
+          <li>Blog: recetas con productos Familia, "cómo cocinar frozen meals en 20 min"</li>
+          <li>Optimizar fichas producto con keywords transaccionales ("buy frozen meals Toronto")</li>
+          <li>Mejorar Core Web Vitals (LCP, INP) — impacta ranking en Shopify</li>
+          <li>Schema markup: Product + Recipe para rich results en Google</li>
+        </ul>
+      </div>
+      <div class="rec-owner">Owner · Equipo SEO · Crown</div>
+    </div>
+
+  </div>
+
+  <div class="page-source">Plan acordado con Familia Fine Foods · Mayo 25, 2026</div>
+  <div class="page-number">20 / 20</div>
+</div>
+
+<!-- ══════════════════════════════════════ 12 · CIERRE ══════════════════════════════════════ -->
+<div class="page closing">
+  <div class="crown-logo-large">
+    <div class="symbol">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 38 L18 22 L24 32 L30 18 L36 32 L42 22 L50 38 Z" fill="none" stroke="#BC955B" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="18" cy="22" r="2.5" fill="#BC955B"/>
+        <circle cx="30" cy="18" r="2.5" fill="#BC955B"/>
+        <circle cx="42" cy="22" r="2.5" fill="#BC955B"/>
+        <rect x="10" y="42" width="40" height="4" fill="#BC955B"/>
+      </svg>
+    </div>
+    <div class="name">CROWN MEDIA<span class="sub">AGENCIA BOUTIQUE</span></div>
+  </div>
+
+  <div style="margin-top:48px">
+    <div style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Hasta el próximo mes</div>
+    <h1 class="closing-title">¡Gracias<span class="dot">!</span></h1>
+    <p class="closing-sub">Escríbenos, estamos siempre en contacto contigo.<br/>Próxima reunión de cierre: 12 de junio, 10:00 a.m.</p>
+  </div>
+
+  <div class="contact-block">
+    <div class="contact-item">
+      <div class="contact-label">Contacto</div>
+      <div class="contact-value">Carolina Nieto<br/>Account Director · Crown Media</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Email</div>
+      <div class="contact-value">marketing@<br/>crownmediagroup.com.co</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Teléfono</div>
+      <div class="contact-value">+57 300 306 5614</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Web</div>
+      <div class="contact-value">crownmediagroup.com.co</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page-frame -->
+
+<!-- ══════════════════════════════════════ CHARTS ══════════════════════════════════════ -->
+<script>
+const C = {
+  green_dark:'#163029', green_mid:'#41685B', cream:'#F4EAE1',
+  gold:'#BC955B', gold_soft:'#D4B68A', black:'#101820',
+  muted:'#5C6660', danger:'#8B3A2E', sage:'#A8C5BB', brown:'#8B7355'
+};
+Chart.defaults.font.family = "'Work Sans', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = C.muted;
+
+// Donut por TIPO DE PRODUCTO (datos Shopify todos los canales · 1–25 Mayo 2026)
+new Chart(document.getElementById('productTypeDonut'), {
+  type:'doughnut',
+  data:{
+    labels:['Frozen','Catering & Events'],
+    datasets:[{
+      data:[5504, 4654],
+      backgroundColor:[C.green_dark, C.gold],
+      borderWidth:3, borderColor:'#fff'
+    }]
+  },
+  options:{
+    responsive:true, cutout:'60%',
+    plugins:{
+      legend:{position:'right',labels:{boxWidth:10,padding:10,font:{size:10,weight:500}}},
+      tooltip:{callbacks:{label:ctx=>` ${ctx.label}: $${ctx.parsed.toLocaleString()} CAD`}}
+    }
+  }
+});
+
+// Donut por canal (Shopify UTM Real · 1–25 Mayo 2026)
+new Chart(document.getElementById('channelDonut'), {
+  type:'doughnut',
+  data:{
+    labels:['Direct / Sin UTM','Google CPC','Klaviyo Email','Facebook'],
+    datasets:[{
+      data:[6065,2543,765,139],
+      backgroundColor:[C.green_dark,C.green_mid,C.gold,C.brown],
+      borderWidth:3,
+      borderColor:'#fff'
+    }]
+  },
+  options:{
+    responsive:true,
+    cutout:'62%',
+    plugins:{
+      legend:{position:'bottom',labels:{boxWidth:10,padding:12,font:{size:11,weight:500}}},
+      tooltip:{callbacks:{label:ctx=>` ${ctx.label}: $${ctx.parsed.toLocaleString()} CAD`}}
+    }
+  }
+});
+
+// ROAS Comparison Chart (Shopify UTM Real · 1–25 Mayo 2026)
+new Chart(document.getElementById('roasComparison'), {
+  type:'bar',
+  data:{
+    labels:['FB 2025 est.','FB 2026','Google 2025 est.','Google 2026','Combinado 2025','Combinado 2026'],
+    datasets:[
+      {label:'Plataforma reporta', data:[12.0, 2.8, 28.1, 32.0, null, null], backgroundColor:'rgba(188,149,91,.55)', borderColor:C.gold, borderWidth:2, borderRadius:6},
+      {label:'Shopify UTM Real', data:[0.1, 0.36, 0.5, 8.09, 0.5, 3.84], backgroundColor:C.green_dark, borderColor:C.green_dark, borderWidth:2, borderRadius:6}
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{position:'top',labels:{boxWidth:14,padding:14,font:{size:11,weight:600}}},
+      tooltip:{callbacks:{label:ctx=>ctx.parsed.y===null?'':` ${ctx.dataset.label}: ${ctx.parsed.y}x`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{size:10,weight:600}}},
+      y:{type:'logarithmic',title:{display:true,text:'ROAS (× · escala log)'},grid:{color:'rgba(16,24,32,.06)'},ticks:{callback:v=>v+'x',font:{size:10}}}
+    }
+  }
+});
+
+// Tendencia diaria (1–25 Mayo 2026 · estimado proporcional a datos GA4)
+new Chart(document.getElementById('trendChart'), {
+  type:'bar',
+  data:{
+    labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25'],
+    datasets:[
+      {
+        type:'bar', label:'Sesiones GA4',
+        data:[1143,591,942,858,687,296,429,732,359,303,233,79,245,312,198,283,267,219,298,245,312,267,234,189,221],
+        backgroundColor:'rgba(65,104,91,.35)', borderColor:C.green_mid, borderWidth:1, borderRadius:4,
+        yAxisID:'y', order:2
+      },
+      {
+        type:'line', label:'Ventas Shopify (estimado diario)',
+        data:[927,137,440,239,721,1186,332,677,0,238,295,559,0,487,0,893,0,642,0,378,0,500,0,0,1138],
+        borderColor:C.gold, backgroundColor:'rgba(188,149,91,.15)',
+        borderWidth:3, pointRadius:4, pointBackgroundColor:C.gold, tension:.4,
+        yAxisID:'y1', order:1, fill:true
+      }
+    ]
+  },
+  options:{
+    responsive:true,
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{position:'top',labels:{boxWidth:14,padding:14}}},
+    scales:{
+      y:{type:'linear',position:'left',title:{display:true,text:'Sesiones'},grid:{color:'rgba(16,24,32,.06)'}},
+      y1:{type:'linear',position:'right',title:{display:true,text:'Ventas CAD'},grid:{drawOnChartArea:false},ticks:{callback:v=>'$'+v}}
+    }
+  }
+});
+</script>
+</body>
+</html>

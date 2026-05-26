@@ -1,0 +1,14 @@
+{
+  "period": "2026-05-01 to 2026-05-12",
+  "note": "Single connection (ivan.vargas@crownmedia.com.co) to avoid multi-connection inflation",
+  "sessions": 6653,
+  "totalUsers": 5912,
+  "newUsers": 4748,
+  "engagedSessions": 4023,
+  "engagementRate": 60.47,
+  "averageSessionDuration": 145.63,
+  "transactions": 33,
+  "purchaseRevenue": 6017.71,
+  "conversionRate": 0.5,
+  "avgOrderValue": 182.35
+}

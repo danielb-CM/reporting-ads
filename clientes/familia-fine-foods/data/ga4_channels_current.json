@@ -1,0 +1,74 @@
+[
+  {
+    "channel": "Direct",
+    "sessions": 3864,
+    "ga4_trx_inflated": 35,
+    "ga4_rev_inflated": 5940.85
+  },
+  {
+    "channel": "Unassigned",
+    "sessions": 956,
+    "ga4_trx_inflated": 45,
+    "ga4_rev_inflated": 5953.15
+  },
+  {
+    "channel": "Organic Search",
+    "sessions": 705,
+    "ga4_trx_inflated": 20,
+    "ga4_rev_inflated": 7730.0
+  },
+  {
+    "channel": "Paid Social",
+    "sessions": 276,
+    "ga4_trx_inflated": 5,
+    "ga4_rev_inflated": 695.4
+  },
+  {
+    "channel": "Cross-network",
+    "sessions": 218,
+    "ga4_trx_inflated": 20,
+    "ga4_rev_inflated": 4332.7
+  },
+  {
+    "channel": "Paid Search",
+    "sessions": 210,
+    "ga4_trx_inflated": 25,
+    "ga4_rev_inflated": 3109.55
+  },
+  {
+    "channel": "Organic Social",
+    "sessions": 201,
+    "ga4_trx_inflated": 0,
+    "ga4_rev_inflated": 0
+  },
+  {
+    "channel": "Email",
+    "sessions": 70,
+    "ga4_trx_inflated": 15,
+    "ga4_rev_inflated": 2326.9
+  },
+  {
+    "channel": "Referral",
+    "sessions": 21,
+    "ga4_trx_inflated": 0,
+    "ga4_rev_inflated": 0
+  },
+  {
+    "channel": "Display",
+    "sessions": 19,
+    "ga4_trx_inflated": 0,
+    "ga4_rev_inflated": 0
+  },
+  {
+    "channel": "Organic Shopping",
+    "sessions": 15,
+    "ga4_trx_inflated": 0,
+    "ga4_rev_inflated": 0
+  },
+  {
+    "channel": "Paid Other",
+    "sessions": 1,
+    "ga4_trx_inflated": 0,
+    "ga4_rev_inflated": 0
+  }
+]

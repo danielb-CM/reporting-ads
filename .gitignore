@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Claude Code session data (no subir memoria de sesiones privadas)
+**/.claude/
+
+# Temporales
+*.tmp
+*.log
+*.bak
+
+# Env / secretos
+.env
+*.env.*
+secrets.*
+
+# Node (por si se agrega en el futuro)
+node_modules/
