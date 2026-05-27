@@ -1,0 +1,46 @@
+{
+  "_instrucciones": "Reemplaza TODOS los valores entre < > con datos reales del cliente. Elimina este campo _instrucciones antes de usar en producción.",
+
+  "client": {
+    "name": "<Nombre Comercial del Cliente>",
+    "tagline": "<Slogan o descripción breve, o 'Pendiente'>",
+    "website": "<dominio.com>",
+    "country": "<Colombia|Canada|USA|Mexico|...>",
+    "city": "<Ciudad>",
+    "instagram": "@<handle>",
+    "industry": "<Industria · E-commerce|Restaurant|Retail|B2B|...>",
+    "currency": "<COP|CAD|USD|MXN>",
+    "shopify_id": "<slug-shopify-en-dataslayer o null>"
+  },
+
+  "accounts": {
+    "meta_ads_id": "act_<ID_CUENTA_META_ADS>",
+    "google_ads_id": "<XXX-XXX-XXXX>",
+    "ga4_property": "properties/<ID_PROPIEDAD_GA4>",
+    "dataslayer_shopify": "<shopify-connection-id o null>",
+    "dataslayer_connection": "daniel.b@crownmedia.com.co"
+  },
+
+  "brand_colors": {
+    "note": "Pendiente brand guidelines oficiales del cliente. Colores actuales son placeholder — reemplazar con los reales.",
+    "primary_dark": "#163029",
+    "primary_mid": "#41685B",
+    "cream": "#F4EAE1",
+    "black": "#1C1C1C",
+    "white": "#FFFFFF",
+    "accent_gold": "#BC955B",
+    "muted": "#6B6258"
+  },
+
+  "report_config": {
+    "default_date_range": "current_month",
+    "comparison_period": "previous_month",
+    "currency_format": "<COP_compact|CAD|USD>",
+    "agency": "Crown Media",
+    "dataslayer_single_connection_rule": "ALWAYS use ONLY one connection per account. Meta: daniel.b@crownmedia.com.co. Google/GA4: ivan.vargas@crownmedia.com.co. Multiple connections multiply data."
+  },
+
+  "version": "1.0",
+  "created": "<YYYY-MM-DD>",
+  "last_updated": "<YYYY-MM-DD>"
+}
