@@ -38,7 +38,17 @@
     "dataslayer_single_connection_rule": "ALWAYS use ONLY one connection per account. Meta: daniel.b@crownmedia.com.co. Google/GA4: ivan.vargas@crownmedia.com.co. Multiple connections multiply data."
   },
 
+  "workflow": {
+    "type": "mcp",
+    "tools": {
+      "mcp": true,
+      "sheets": false
+    },
+    "description": "Claude Code + Dataslayer MCP. Datos desde GA4, Google Ads, Meta Ads. Reportes HTML dinámicos con filtros de fecha.",
+    "templates_folder": "_templates"
+  },
+
   "version": "1.0",
   "created": "2026-05-14",
-  "last_updated": "2026-05-14"
+  "last_updated": "2026-05-26"
 }

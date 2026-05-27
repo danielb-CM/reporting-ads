@@ -5,6 +5,22 @@
 
 ---
 
+## ¿Qué es el [slug]?
+
+Es el **nombre corto del cliente en minúsculas**, sin espacios ni caracteres especiales. Es lo que usamos para nombrar la carpeta de cada cliente.
+
+| Cliente | Slug |
+|---|---|
+| Familia Fine Foods | `familia-fine-foods` |
+| Lök Foods | `lok` |
+| Casa Editorial | `casa-editorial` |
+| Grupo Familia | `grupo-familia` |
+| Nutrisa Colombia | `nutrisa` |
+
+Cuando en esta guía veas `clientes/[slug]/config.json`, en la práctica sería `clientes/familia-fine-foods/config.json` o `clientes/lok/config.json`. Es un placeholder que reemplazas por el nombre real del cliente cada vez.
+
+---
+
 ## PARTE 1 — Configuración inicial (una sola vez por persona)
 
 ### Paso 1 — Clonar el repositorio

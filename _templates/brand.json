@@ -40,6 +40,16 @@
     "dataslayer_single_connection_rule": "ALWAYS use ONLY one connection per account. Meta: daniel.b@crownmedia.com.co. Google/GA4: ivan.vargas@crownmedia.com.co. Multiple connections multiply data."
   },
 
+  "workflow": {
+    "type": "<mcp|sheets|ambos>",
+    "tools": {
+      "mcp": "<true si usa Claude Code + Dataslayer>",
+      "sheets": "<true si usa Cowork + Google Sheets>"
+    },
+    "description": "<Descripción breve del flujo activo>",
+    "templates_folder": "<_templates para mcp · _plantillas para sheets>"
+  },
+
   "version": "1.0",
   "created": "<YYYY-MM-DD>",
   "last_updated": "<YYYY-MM-DD>"

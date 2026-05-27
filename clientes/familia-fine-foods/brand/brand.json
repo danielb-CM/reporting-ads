@@ -305,6 +305,17 @@
     "fonts_folder": "Fuentes/"
   },
 
+  "workflow": {
+    "type": "ambos",
+    "tools": {
+      "mcp": true,
+      "sheets": true
+    },
+    "description": "Dos flujos activos. MCP: Claude Code + Dataslayer para informes mensuales (informe-*.html). Sheets: Cowork + Google Sheets para dashboard semanal automático (*_dashboard_*.html).",
+    "templates_folder_mcp": "_templates",
+    "templates_folder_sheets": "_plantillas"
+  },
+
   "version": "1.0",
-  "last_updated": "2026-05-12"
+  "last_updated": "2026-05-26"
 }

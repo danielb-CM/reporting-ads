@@ -6,16 +6,32 @@ Contacto: marketing@crownmediagroup.com.co
 
 ---
 
+## ⚠️ Dos flujos de trabajo distintos en este repo
+
+Antes de tocar cualquier cliente, identifica cuál flujo usa leyendo `brand.json → workflow.type`:
+
+| `workflow.type` | Herramienta | Datos | Output | Plantillas |
+|---|---|---|---|---|
+| `mcp` | **Claude Code** (terminal) | Dataslayer MCP → GA4, Meta, Google Ads | `informe-{slug}-{mes}{año}.html` | `_templates/` |
+| `sheets` | **Cowork** (Claude desktop) | Google Sheets | `{slug}_dashboard_{año}.html` | `_plantillas/` |
+| `ambos` | Ambos según el tipo de entregable | Ambas fuentes | Ambos archivos | Ambas carpetas |
+
+**Regla:** si el usuario pide un *informe mensual de performance* → flujo `mcp`. Si pide un *dashboard semanal automático* → flujo `sheets`.
+
+---
+
 ## Estructura del repo
 
 ```
 clientes/{slug-cliente}/
-  CLAUDE.md              ← LEE ESTO PRIMERO al abrir cualquier cliente
-  brand/brand.json       ← IDs de cuentas, colores, config del cliente
-  html/                  ← Reportes: informe-{slug}-{mes}{año}.html
+  CLAUDE.md              ← LEE ESTO PRIMERO — incluye el workflow del cliente
+  brand/brand.json       ← IDs de cuentas + campo workflow.type
+  html/                  ← Informes MCP: informe-{slug}-{mes}{año}.html
+  {slug}_dashboard_*.html ← Dashboards Sheets (en raíz del cliente)
   data/                  ← JSONs de datos (si se guardan localmente)
-_templates/              ← Plantillas para crear nuevos clientes
-nuevo-cliente.sh         ← Script de scaffolding (ejecutar para nuevo cliente)
+_templates/              ← Plantillas flujo MCP (Claude Code + Dataslayer)
+_plantillas/             ← Plantillas flujo Sheets (Cowork + Google Sheets)
+nuevo-cliente.sh         ← Script de scaffolding
 ```
 
 ## Regla crítica — Dataslayer MCP
