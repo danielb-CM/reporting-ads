@@ -1,0 +1,75 @@
+{
+  "client": {
+    "name": "Familia Fine Foods",
+    "slug": "familia-fine-foods",
+    "industry": "ecommerce",
+    "country": "CO",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "sheet_url": "https://docs.google.com/spreadsheets/d/1gWMpuxTXQ75cpBPBwrxcAfemfeUDu_QW5sNgLJIJ3B0/edit",
+    "contact_email": "cliente@familiaff.com",
+    "account_manager": "Carolina"
+  },
+
+  "reporting": {
+    "year": 2026,
+    "compare_year": 2025,
+    "months_active": ["Ene", "Feb", "Mar", "Abr", "May"],
+    "fiscal_year_start_month": 1,
+    "week_day_report": "martes",
+    "report_hour": "08:00"
+  },
+
+  "sheets": {
+    "mes_actual": {
+      "sheet_name": "May 2026",
+      "description": "Comportamiento por canal: ventas web, sesiones, órdenes, conv, deltas vs mes anterior"
+    },
+    "yoy": {
+      "sheet_name": "YoY 2026",
+      "description": "Sesiones, órdenes, ventas USD, ROAS, inversión paid, ticket prom, conv — Ene a May"
+    },
+    "adquisicion": {
+      "sheet_name": "Clientes Nuevos",
+      "description": "Nuevos, recurrentes, pagados vs orgánicos, % mezcla — por mes"
+    },
+    "catering": {
+      "sheet_name": "Catering",
+      "description": "Inversión Meta + Google, impresiones, clics, CTR, CPM, CPC — por mes"
+    }
+  },
+
+  "channels": {
+    "paid": ["Google CPC", "Meta CPC"],
+    "organic": ["Organic", "Directo", "Referral", "Social", "Email"],
+    "attribution_source": "shopify_utm"
+  },
+
+  "modules": {
+    "ecommerce": true,
+    "paid_media": true,
+    "adquisicion_clientes": true,
+    "catering": true,
+    "seo_organico": false,
+    "retail_fisico": false
+  },
+
+  "kpis": {
+    "sales_target_monthly": null,
+    "roas_target": null,
+    "cpa_target": null,
+    "new_customer_target_pct": null
+  },
+
+  "notas": {
+    "anomalia_abril_2026": "Sessions de abril 2026 (~32,744) son una anomalía — bot/direct traffic. Mantener flag ⚠️ en tabla YoY.",
+    "catering_roas": "Catering 2026: ROAS = 0 porque ventas no se capturan en CRM web. Pendiente conectar CRM físico."
+  },
+
+  "dashboard": {
+    "output_file": "familia_ff_dashboard_2026.html",
+    "scheduled_task_id": "familia-ff-dashboard-semanal"
+  },
+
+  "brand_overrides": {}
+}

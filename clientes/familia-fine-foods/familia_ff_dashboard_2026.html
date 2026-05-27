@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Familia Fine Foods · Dashboard 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Prompt:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --green-dark:  #163029;
+      --green-mid:   #41685B;
+      --cream:       #F4EAE1;
+      --black:       #101820;
+      --white:       #FFFFFF;
+      --gold:        #BC955B;
+      --muted:       #5C6660;
+      --danger:      #8B3A2E;
+      --danger-bg:   #F5E4DF;
+      --success-bg:  #E8F0EC;
+      --gap: 20px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-soft: 0 2px 16px rgba(16,24,32,.08);
+      --shadow-md:   0 8px 24px rgba(16,24,32,.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Work Sans', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: var(--cream);
+      padding: 28px 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .header-left { display: flex; align-items: center; gap: 18px; }
+    .crown-logo {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .header-brand { }
+    .header-agency {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 2px;
+    }
+    .header-title {
+      font-family: Georgia, 'Bodoni 72', serif;
+      font-style: italic; font-size: 26px; font-weight: 400;
+      color: var(--cream); letter-spacing: -0.01em;
+    }
+    .header-subtitle {
+      font-size: 11px; color: rgba(244,234,225,.65);
+      letter-spacing: 0.04em; margin-top: 2px;
+    }
+    .header-meta {
+      text-align: right;
+    }
+    .header-period {
+      font-family: 'Prompt', sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .header-note { font-size: 11px; color: rgba(244,234,225,.6); margin-top: 4px; }
+
+    /* ── TAB NAV ── */
+    .tabs-bar {
+      background: var(--green-dark);
+      padding: 0 40px;
+      display: flex; gap: 4px; border-bottom: 1px solid rgba(244,234,225,.1);
+    }
+    .tab-btn {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(244,234,225,.55);
+      padding: 12px 16px; border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent; transition: all .2s;
+    }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab-btn:hover:not(.active) { color: var(--cream); }
+
+    /* ── MAIN LAYOUT ── */
+    .main { padding: 28px 40px 40px; max-width: 1400px; margin: 0 auto; }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--green-mid); margin-bottom: 14px;
+    }
+    .section-title span { color: var(--gold); margin-right: 6px; }
+
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── KPI GRID ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px; margin-bottom: var(--gap);
+    }
+    .kpi-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border-top: 3px solid var(--gold);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+    .kpi-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.6px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    }
+    .kpi-value {
+      font-family: 'Prompt', sans-serif;
+      font-size: 28px; font-weight: 900; color: var(--green-dark);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .kpi-delta {
+      font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 3px;
+    }
+    .kpi-delta.up { color: var(--green-mid); }
+    .kpi-delta.down { color: var(--danger); }
+    .kpi-delta.neutral { color: var(--muted); }
+    .kpi-period { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-soft);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--green-dark); margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-title .badge {
+      font-size: 10px; font-weight: 600; padding: 3px 8px;
+      border-radius: 999px; background: var(--success-bg); color: var(--green-mid);
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .card-title .badge.warn { background: #FEF3E2; color: #B8661F; }
+    .card-title .badge.danger-b { background: var(--danger-bg); color: var(--danger); }
+
+    /* ── GRID LAYOUTS ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-bottom: var(--gap); }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap); margin-bottom: var(--gap); }
+    .grid-6040 { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--gap); margin-bottom: var(--gap); }
+    .grid-4060 { display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--gap); margin-bottom: var(--gap); }
+    .mb { margin-bottom: var(--gap); }
+
+    /* ── CHART ── */
+    .chart-wrap { position: relative; }
+    .chart-wrap canvas { max-height: 280px !important; }
+    .chart-wrap.tall canvas { max-height: 340px !important; }
+
+    /* ── TABLES ── */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .data-table thead th {
+      background: var(--green-dark); color: var(--cream);
+      padding: 9px 12px; text-align: left; font-size: 10px;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      position: sticky; top: 0;
+    }
+    .data-table thead th:first-child { border-radius: 6px 0 0 0; }
+    .data-table thead th:last-child { border-radius: 0 6px 0 0; }
+    .data-table tbody td {
+      padding: 9px 12px; border-bottom: 1px solid rgba(16,24,32,.05); vertical-align: middle;
+    }
+    .data-table tbody tr:hover td { background: var(--cream); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .tbl-scroll { overflow-x: auto; border-radius: 8px; border: 1px solid rgba(16,24,32,.06); }
+    .num { text-align: right; font-family: 'Prompt', sans-serif; font-weight: 600; }
+    .delta-up   { color: var(--green-mid); font-weight: 700; }
+    .delta-down { color: var(--danger);    font-weight: 700; }
+    .highlight-row td { background: rgba(188,149,91,.08) !important; font-weight: 600; }
+
+    /* ── INSIGHT CARDS ── */
+    .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: var(--gap); }
+    .insight-card {
+      background: var(--white); border-radius: var(--radius-md);
+      padding: 18px 20px; box-shadow: var(--shadow-soft);
+      border-left: 4px solid var(--gold);
+    }
+    .insight-card.green { border-left-color: var(--green-mid); }
+    .insight-card.red   { border-left-color: var(--danger); }
+    .insight-icon { font-size: 20px; margin-bottom: 8px; }
+    .insight-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+    }
+    .insight-value {
+      font-family: 'Prompt', sans-serif; font-size: 22px;
+      font-weight: 900; color: var(--green-dark); margin-bottom: 4px;
+    }
+    .insight-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    /* ── CHANNEL PILLS ── */
+    .channel-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 12px; gap: 2px; }
+    .channel-bar-seg { height: 100%; border-radius: 2px; transition: flex .4s; }
+    .channel-list { display: flex; flex-direction: column; gap: 8px; }
+    .channel-row { display: flex; align-items: center; justify-content: space-between; }
+    .channel-name { font-size: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+    .ch-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .channel-vals { display: flex; gap: 16px; font-size: 11px; }
+    .channel-val { text-align: right; min-width: 52px; }
+    .channel-val span { display: block; font-weight: 700; font-family: 'Prompt', sans-serif; font-size: 13px; color: var(--green-dark); }
+    .channel-val small { font-size: 10px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--green-dark); color: rgba(244,234,225,.55);
+      padding: 18px 40px; font-size: 11px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px; margin-top: 40px;
+    }
+    .footer strong { color: var(--gold); }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap { margin-top: 6px; }
+    .progress-bar { height: 6px; background: rgba(16,24,32,.08); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 3px; background: var(--green-mid); }
+    .progress-fill.warn { background: var(--gold); }
+    .progress-fill.danger-f { background: var(--danger); }
+    .progress-label { font-size: 10px; color: var(--muted); margin-top: 3px; display: flex; justify-content: space-between; }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-radius: var(--radius-lg); padding: 28px 32px; color: var(--cream);
+      margin-bottom: var(--gap);
+    }
+    .summary-box h2 {
+      font-family: Georgia, serif; font-style: italic; font-size: 22px;
+      font-weight: 400; color: var(--cream); margin-bottom: 16px;
+    }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
+    .summary-stat .s-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(244,234,225,.6); margin-bottom: 4px; }
+    .summary-stat .s-val { font-family: 'Prompt', sans-serif; font-size: 24px; font-weight: 900; color: var(--gold); }
+    .summary-stat .s-sub { font-size: 11px; color: rgba(244,234,225,.65); margin-top: 2px; }
+
+    @media (max-width: 860px) {
+      .header { padding: 20px 20px 16px; }
+      .main { padding: 16px 16px 32px; }
+      .tabs-bar { padding: 0 16px; }
+      .grid-2, .grid-3, .grid-6040, .grid-4060 { grid-template-columns: 1fr; }
+      .footer { padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<div class="header">
+  <div class="header-left">
+    <div class="crown-logo">♛</div>
+    <div class="header-brand">
+      <div class="header-agency">Crown Media · Reporte Digital</div>
+      <div class="header-title">Familia Fine Foods</div>
+      <div class="header-subtitle">ECOMMERCE · RESTAURANT · CATERING</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="header-period">Enero — Mayo 2026</div>
+    <div class="header-note">YoY vs. mismo período 2025 · Datos: GA4 + Shopify + Meta Ads + Google Ads</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TABS ═══════════════════════ -->
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('resumen')">01 · Resumen ejecutivo</button>
+  <button class="tab-btn" onclick="switchTab('canales')">02 · Canales</button>
+  <button class="tab-btn" onclick="switchTab('paid')">03 · Paid Media</button>
+  <button class="tab-btn" onclick="switchTab('adquisicion')">04 · Adquisición</button>
+  <button class="tab-btn" onclick="switchTab('catering')">05 · Catering</button>
+  <button class="tab-btn" onclick="switchTab('tabla')">06 · Tabla YoY</button>
+</div>
+
+<!-- ═══════════════════════ MAIN ═══════════════════════ -->
+<div class="main">
+
+  <!-- ════════ TAB 1 · RESUMEN ════════ -->
+  <div id="tab-resumen" class="tab-panel active">
+
+    <!-- KPI HERO ROW -->
+    <div class="kpi-grid" style="margin-bottom:24px">
+      <div class="kpi-card">
+        <div class="kpi-label">Ventas YTD 2026</div>
+        <div class="kpi-value" id="kpi-ventas">$65.2K</div>
+        <div class="kpi-delta up" id="kpi-ventas-delta">▲ +11.9% vs 2025</div>
+        <div class="kpi-period">Ene–May · meta parcial $73.9K</div>
+        <div class="progress-wrap">
+          <div class="progress-bar"><div class="progress-fill warn" style="width:88.2%"></div></div>
+          <div class="progress-label"><span>Cumplimiento</span><span>88.2%</span></div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pedidos YTD 2026</div>
+        <div class="kpi-value">417</div>
+        <div class="kpi-delta up">▲ +15.8% vs 2025</div>
+        <div class="kpi-period">vs 360 (Ene–May 2025)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Sesiones YTD 2026</div>
+        <div class="kpi-value">77.6K</div>
+        <div class="kpi-delta up">▲ +100.6% vs 2025</div>
+        <div class="kpi-period">vs 38.7K (Ene–May 2025)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">ROAS General prom.</div>
+        <div class="kpi-value">27.5x</div>
+        <div class="kpi-delta up">▲ +105% vs 2025 (13.4x)</div>
+        <div class="kpi-period">Inversión total: $2,519 CAD</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Ticket Medio 2026</div>
+        <div class="kpi-value">$156</div>
+        <div class="kpi-delta down">▼ −5.9% vs 2025 ($166)</div>
+        <div class="kpi-period">Promedio Ene–May 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Conv. Rate prom.</div>
+        <div class="kpi-value">0.64%</div>
+        <div class="kpi-delta down">▼ −36% vs 2025 (1.00%)</div>
+        <div class="kpi-period">Sesiones infladas abr (32.7K)</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY BOX -->
+    <div class="summary-box">
+      <h2>El mes en números — Mayo 2026</h2>
+      <div class="summary-grid">
+        <div class="summary-stat">
+          <div class="s-label">Ventas Mayo</div>
+          <div class="s-val">$9.5K</div>
+          <div class="s-sub">−5.6% vs May 2025</div>
+        </div>
+        <div class="summary-stat">
+          <div class="s-label">Pedidos</div>
+          <div class="s-val">61</div>
+          <div class="s-sub">vs 65 May 2025</div>
+        </div>
+        <div class="summary-stat">
+          <div class="s-label">Sesiones</div>
+          <div class="s-val">9,956</div>
+          <div class="s-sub">▲ +32% YoY</div>
+        </div>
+        <div class="summary-stat">
+          <div class="s-label">ROAS General</div>
+          <div class="s-val">35.0x</div>
+          <div class="s-sub">vs 13.5x May 2025</div>
+        </div>
+        <div class="summary-stat">
+          <div class="s-label">Inversión</div>
+          <div class="s-val">$272</div>
+          <div class="s-sub">−63.6% vs $747 May 2025</div>
+        </div>
+        <div class="summary-stat">
+          <div class="s-label">Cumplimiento</div>
+          <div class="s-val">84.2%</div>
+          <div class="s-sub">vs meta $11,100</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHARTS ROW -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Ventas Mensuales · 2025 vs 2026 <span class="badge">YoY</span></div>
+        <div class="chart-wrap"><canvas id="chartVentasYoY"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ROAS General · 2025 vs 2026 <span class="badge">Mejora sostenida ▲</span></div>
+        <div class="chart-wrap"><canvas id="chartRoasYoY"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Pedidos Mensuales · 2025 vs 2026</div>
+        <div class="chart-wrap"><canvas id="chartOrdersYoY"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Conv. Rate & Ticket Medio · 2026</div>
+        <div class="chart-wrap"><canvas id="chartConvTicket"></canvas></div>
+      </div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="section-title"><span>▸</span> Insights clave del período</div>
+    <div class="insight-grid">
+      <div class="insight-card green">
+        <div class="insight-icon">📈</div>
+        <div class="insight-label">Eficiencia Publicitaria</div>
+        <div class="insight-value">+105%</div>
+        <div class="insight-text">El ROAS general pasó de 13.4x en 2025 a 27.5x en 2026, con una inversión 70% menor ($2,519 vs $4,573). Señal clara de optimización de campañas.</div>
+      </div>
+      <div class="insight-card green">
+        <div class="insight-icon">👥</div>
+        <div class="insight-label">Adquisición de Clientes</div>
+        <div class="insight-value">40% nuevos</div>
+        <div class="insight-text">En promedio, el 40% de los compradores mensuales son clientes nuevos (vs 16–22% en inicio 2025). La base de clientes se está renovando activamente.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📧</div>
+        <div class="insight-label">Canal Email · Mayo 2026</div>
+        <div class="insight-value">+3,345%</div>
+        <div class="insight-text">Email fue el canal de mayor crecimiento en ventas en mayo 2026 ($625 vs $0 anterior). Conv. rate del 3.82%, el doble del promedio del sitio.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🚀</div>
+        <div class="insight-label">Google CPC · Ene 2026</div>
+        <div class="insight-value">ROAS 6.1x</div>
+        <div class="insight-text">Paid Google generó $4,222 en ventas directas en enero con sólo $537 de inversión. El canal paid más eficiente del primer trimestre.</div>
+      </div>
+      <div class="insight-card red">
+        <div class="insight-icon">⚠️</div>
+        <div class="insight-label">Tasa de Conversión</div>
+        <div class="insight-value">0.64% prom.</div>
+        <div class="insight-text">La tasa de conversión bajó de 1.00% (2025) a 0.64% (2026). Abril registró 0.27% por sesiones infladas (32.7K). El sitio recibe más tráfico pero convierte menos.</div>
+      </div>
+      <div class="insight-card red">
+        <div class="insight-icon">📉</div>
+        <div class="insight-label">Organic Search · Mayo</div>
+        <div class="insight-value">−9% ventas</div>
+        <div class="insight-text">Organic cayó −9% en ventas y −38% en pedidos en mayo 2026 vs mayo 2025. Las sesiones orgánicas bajaron 29%. Oportunidad de reforzar SEO.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ TAB 2 · CANALES ════════ -->
+  <div id="tab-canales" class="tab-panel">
+    <div class="section-title"><span>▸</span> Resultados por canal — Mayo 2026 vs Mayo 2025</div>
+
+    <div class="grid-6040">
+      <div class="card">
+        <div class="card-title">Share de Ventas por Canal · Mayo 2026</div>
+        <div class="chart-wrap"><canvas id="chartChannelDough"></canvas></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;">
+        <div class="card-title">Distribución de canales</div>
+        <div class="channel-bar" id="channelBar"></div>
+        <div class="channel-list" id="channelList"></div>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">Variación YoY por canal · Mayo 2026 vs Mayo 2025</div>
+      <div class="chart-wrap tall"><canvas id="chartChannelYoY"></canvas></div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">Detalle por canal · Mayo 2026</div>
+      <div class="tbl-scroll">
+        <table class="data-table" id="tableChannels"></table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Evolución Share de Canales por Venta · 2026</div>
+      <div class="chart-wrap tall"><canvas id="chartChannelEvol"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ════════ TAB 3 · PAID MEDIA ════════ -->
+  <div id="tab-paid" class="tab-panel">
+    <div class="section-title"><span>▸</span> Performance Paid Media — Ecommerce 2026</div>
+
+    <div class="kpi-grid" style="margin-bottom:24px">
+      <div class="kpi-card">
+        <div class="kpi-label">Inversión Total YTD</div>
+        <div class="kpi-value">$2,519</div>
+        <div class="kpi-delta up">▼ −45% vs $4,573 (2025)</div>
+        <div class="kpi-period">Ecommerce paid Ene–May</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Ventas Paid YTD</div>
+        <div class="kpi-value">$15.7K</div>
+        <div class="kpi-delta up">▲ +66.6% vs $9.4K (2025)</div>
+        <div class="kpi-period">Atribución last click GA4</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">ROAS Paid prom.</div>
+        <div class="kpi-value">6.3x</div>
+        <div class="kpi-delta up">▲ vs 2.6x (Ene–May 2025)</div>
+        <div class="kpi-period">Google + Meta ecommerce</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Part. Paid / Ventas</div>
+        <div class="kpi-value">24.1%</div>
+        <div class="kpi-delta neutral">Ene 29% → May 21%</div>
+        <div class="kpi-period">% ventas atribuibles a paid</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Inv. Google Ads</div>
+        <div class="kpi-value">$2,127</div>
+        <div class="kpi-delta up">▼ −43% vs 2025</div>
+        <div class="kpi-period">Ecommerce campaigns</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Inv. Meta Ads</div>
+        <div class="kpi-value">$731</div>
+        <div class="kpi-delta up">▼ −52% vs 2025</div>
+        <div class="kpi-period">Conversiones ecommerce</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Ventas Paid vs Inversión · 2026 <span class="badge">ROAS improving</span></div>
+        <div class="chart-wrap"><canvas id="chartPaidSales"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ROAS Paid · 2025 vs 2026 <span class="badge">+141%</span></div>
+        <div class="chart-wrap"><canvas id="chartRoasPaid"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Inversión: Google vs Meta · 2026</div>
+        <div class="chart-wrap"><canvas id="chartPaidSplit"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Ticket Medio Paid · 2025 vs 2026</div>
+        <div class="chart-wrap"><canvas id="chartPaidTicket"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">Detalle Paid Media Ecommerce · Mensual 2026</div>
+      <div class="tbl-scroll">
+        <table class="data-table" id="tablePaid"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ TAB 4 · ADQUISICIÓN ════════ -->
+  <div id="tab-adquisicion" class="tab-panel">
+    <div class="section-title"><span>▸</span> Adquisición de clientes — Ecommerce 2026</div>
+
+    <div class="kpi-grid" style="margin-bottom:24px">
+      <div class="kpi-card">
+        <div class="kpi-label">Clientes Nuevos YTD</div>
+        <div class="kpi-value">171</div>
+        <div class="kpi-delta up">▲ vs 96 (Ene–May 2025)</div>
+        <div class="kpi-period">+78.1% YoY adquisición</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">% Clientes Nuevos</div>
+        <div class="kpi-value">41%</div>
+        <div class="kpi-delta up">▲ vs 27% (2025 mismo período)</div>
+        <div class="kpi-period">Renovación de base activa</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Nuevos vía Paid</div>
+        <div class="kpi-value">42</div>
+        <div class="kpi-delta neutral">24.6% de los nuevos</div>
+        <div class="kpi-period">vs 75.4% canales orgánicos</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Clientes Recurrentes</div>
+        <div class="kpi-value">246</div>
+        <div class="kpi-delta up">▲ vs 264 (2025)</div>
+        <div class="kpi-period">59% del total de compras</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Nuevos vs Recurrentes · 2026 <span class="badge">Stacked</span></div>
+        <div class="chart-wrap"><canvas id="chartNewRet"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">% Clientes Nuevos vs Recurrentes</div>
+        <div class="chart-wrap"><canvas id="chartNewPct"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Nuevos Paid vs Orgánicos · 2026</div>
+        <div class="chart-wrap"><canvas id="chartNewPaid"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Evolución Adquisición Mensual · 2025 vs 2026</div>
+        <div class="chart-wrap"><canvas id="chartAcqYoY"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">Detalle Clientes Nuevos · Mensual 2026</div>
+      <div class="tbl-scroll">
+        <table class="data-table" id="tableAcq"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ TAB 5 · CATERING ════════ -->
+  <div id="tab-catering" class="tab-panel">
+    <div class="section-title"><span>▸</span> Catering — Inversión y Performance 2026</div>
+
+    <div class="kpi-grid" style="margin-bottom:24px">
+      <div class="kpi-card">
+        <div class="kpi-label">Inversión Total Catering</div>
+        <div class="kpi-value">$1,916</div>
+        <div class="kpi-delta neutral">Ene–May 2026</div>
+        <div class="kpi-period">Meta + Google Ads</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Inversión Meta Catering</div>
+        <div class="kpi-value">$1,004</div>
+        <div class="kpi-delta neutral">52.4% del total</div>
+        <div class="kpi-period">vs $261 May 2025</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Inversión Google Catering</div>
+        <div class="kpi-value">$912</div>
+        <div class="kpi-delta neutral">47.6% del total</div>
+        <div class="kpi-period">Display + Search</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Impresiones YTD</div>
+        <div class="kpi-value">219K</div>
+        <div class="kpi-delta neutral">Alcance acumulado</div>
+        <div class="kpi-period">Meta + Google 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Clics YTD</div>
+        <div class="kpi-value">5,676</div>
+        <div class="kpi-delta up">▲ CTR avg 2.73%</div>
+        <div class="kpi-period">Tráfico generado catering</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">CPM Promedio 2026</div>
+        <div class="kpi-value">$9.53</div>
+        <div class="kpi-delta down">▼ vs $25+ (2025)</div>
+        <div class="kpi-period">Eficiencia en awareness</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Inversión Catering · Google vs Meta <span class="badge">2026</span></div>
+        <div class="chart-wrap"><canvas id="chartCateringInv"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Impresiones y Clics · Catering 2026</div>
+        <div class="chart-wrap"><canvas id="chartCateringReach"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">CPM y CTR · Catering 2026</div>
+      <div class="chart-wrap"><canvas id="chartCateringCpm"></canvas></div>
+    </div>
+
+    <div class="card mb">
+      <div class="card-title">Detalle Catering · Mensual 2026</div>
+      <div class="tbl-scroll">
+        <table class="data-table" id="tableCatering"></table>
+      </div>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card green">
+        <div class="insight-icon">💡</div>
+        <div class="insight-label">CPM en mejora</div>
+        <div class="insight-value">$9.53 avg</div>
+        <div class="insight-text">El CPM de catering bajó significativamente vs 2025 ($25+), generando más impresiones con menos inversión. Marzo fue el mejor mes con 76K impresiones.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-label">CTR consistente</div>
+        <div class="insight-value">2.73% avg</div>
+        <div class="insight-text">El CTR de catering se mantiene sólido entre 2-3.2% (mar fue el mejor con 3.16%). Indica que la audiencia objetivo está bien segmentada y los creativos resuenan.</div>
+      </div>
+      <div class="insight-card red">
+        <div class="insight-icon">📊</div>
+        <div class="insight-label">Sin ROAS registrado</div>
+        <div class="insight-value">Sin data</div>
+        <div class="insight-text">Las ventas de catering 2026 aún no están capturadas en el reporte. Es clave conectar el CRM o pipeline de catering para medir el ROI completo de la inversión.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ TAB 6 · TABLA YoY ════════ -->
+  <div id="tab-tabla" class="tab-panel">
+    <div class="section-title"><span>▸</span> Tabla comparativa YoY completa — 2025 vs 2026</div>
+    <div class="card mb">
+      <div class="card-title">Ecommerce · Todos los KPIs mensuales</div>
+      <div class="tbl-scroll">
+        <table class="data-table" id="tableYoY"></table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Variación % acumulada YTD Ene–May</div>
+      <div class="chart-wrap tall"><canvas id="chartYoYBar"></canvas></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<div class="footer">
+  <span>Fuente: GA4 · Shopify · Google Ads · Meta Ads &nbsp;|&nbsp; Período: Enero–Mayo 2026</span>
+  <span><strong>Crown Media</strong> · crownmediagroup.com.co &nbsp;|&nbsp; Reporte generado 2026</span>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+// ─────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────
+const MONTHS = ['Ene','Feb','Mar','Abr','May'];
+
+const yoy = {
+  sessions_25: [7171, 6402, 6775, 6910, 7543],
+  sessions_26: [9642, 11995, 13266, 32744, 9956],
+  orders_25:   [70, 90, 68, 67, 65],
+  orders_26:   [84, 92, 93, 87, 61],
+  sales_25:    [10650, 13107, 10704, 11396, 10072],
+  sales_26:    [14579, 13991, 13067, 14032, 9513],
+  roas_25:     [9.50, 10.48, 12.70, 20.35, 13.48],
+  roas_26:     [21.08, 23.62, 23.59, 34.25, 34.99],
+  inv_25:      [1121, 1251, 894, 560, 747],
+  inv_26:      [692, 592, 554, 410, 272],
+  ticket_25:   [152, 146, 167, 170, 155],
+  ticket_26:   [174, 152, 141, 161, 156],
+  conv_25:     [0.98, 1.41, 1.00, 0.97, 0.86],
+  conv_26:     [0.87, 0.77, 0.70, 0.27, 0.61],
+};
+
+const paid = {
+  sales_25:   [1417, 2469, 3353, 2168, 1905],
+  sales_26:   [4222, 2754, 3718, 2998, 1982],
+  roas_25:    [1.3,  2.0,  3.8,  3.9,  2.6],
+  roas_26:    [6.1,  4.6,  6.7,  7.3,  7.3],
+  inv_google_26: [537, 454, 399, 260, 177],
+  inv_meta_26:   [154, 138, 155, 149, 95],
+  ticket_25:  [101, 165, 168, 217, 119],
+  ticket_26:  [184, 145, 138, 214, 152],
+};
+
+const channels_may26 = [
+  { name:'Organic',    sales:2221, sessions:1444, orders:9,  conv:0.63, delta_sales:-9,  delta_sessions:-29, delta_orders:-38 },
+  { name:'Directo',    sales:4108, sessions:4926, orders:29, conv:0.58, delta_sales:55,  delta_sessions:122, delta_orders:51  },
+  { name:'Google CPC', sales:1858, sessions:992,  orders:12, conv:1.34, delta_sales:58,  delta_sessions:6,   delta_orders:11  },
+  { name:'Meta CPC',   sales:124,  sessions:60,   orders:1,  conv:1.69, delta_sales:-37, delta_sessions:-74, delta_orders:-35 },
+  { name:'Referral',   sales:215,  sessions:101,  orders:2,  conv:1.90, delta_sales:-70, delta_sessions:-9,  delta_orders:-13 },
+  { name:'Social',     sales:363,  sessions:331,  orders:2,  conv:0.61, delta_sales:734, delta_sessions:-21, delta_orders:160 },
+  { name:'Email',      sales:625,  sessions:133,  orders:5,  conv:3.82, delta_sales:3345,delta_sessions:100, delta_orders:550 },
+];
+
+const acq = {
+  new_26:  [30, 34, 37, 43, 27],
+  ret_26:  [54, 58, 56, 44, 34],
+  paid_26: [6,  11, 12,  8,  5],
+  new_25:  [11, 20, 22, 21, 22],
+  pct_new_26: [36, 37, 40, 49, 44],
+  pct_ret_26: [64, 63, 60, 51, 56],
+};
+
+const catering = {
+  inv:    [336.2, 471.4, 592.8, 278.5, 238.1],
+  meta:   [153.75,251.10,282.34,173.83,139.05],
+  google: [182.43,220.30,310.49,104.66,99.04],
+  imps:   [25433, 32562, 76461, 48653, 36621],
+  clicks: [676,   801,   2414,  1042,  743],
+  ctr:    [2.66,  2.46,  3.16,  2.14,  2.03],
+  cpm:    [13.22, 14.48, 7.75,  5.72,  6.50],
+  cpc:    [0.50,  0.59,  0.25,  0.27,  0.32],
+};
+
+// ─────────────────────────────────────────
+// COLORS (Crown Media brand palette)
+// ─────────────────────────────────────────
+const C = {
+  green_dark: '#163029',
+  green_mid:  '#41685B',
+  gold:       '#BC955B',
+  muted:      '#8B7355',
+  sage:       '#A8C5BB',
+  danger:     '#8B3A2E',
+  cream:      '#F4EAE1',
+};
+const PALETTE = [C.green_dark, C.green_mid, C.gold, C.muted, C.sage, C.danger,'#5C6660'];
+const CHANNEL_COLORS = [C.green_mid, C.green_dark, C.gold, '#DD8452', C.muted, C.sage, '#5C6660'];
+
+function alphaColor(hex, a) {
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+const chartDefaults = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: { legend: { labels: { font: { family:'Work Sans', size:11 }, usePointStyle:true, padding:16 } } },
+  scales: {
+    x: { grid: { color: alphaColor(C.green_dark,0.05) }, ticks: { font: { family:'Work Sans', size:11 } } },
+    y: { grid: { color: alphaColor(C.green_dark,0.05) }, ticks: { font: { family:'Work Sans', size:11 } } }
+  }
+};
+
+function fmtMoney(v){ return v>=1000?'$'+(v/1000).toFixed(1)+'K':'$'+v.toLocaleString(); }
+function fmtPct(v){ return (v>0?'▲ +':'▼ ')+v.toFixed(1)+'%'; }
+function pctClass(v){ return v>0?'delta-up':'delta-down'; }
+function pctChange(a,b){ return b===0?0:((a-b)/Math.abs(b)*100); }
+
+// ─────────────────────────────────────────
+// TABS
+// ─────────────────────────────────────────
+let chartsBuilt = {};
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`[onclick="switchTab('${name}')"]`).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  if (!chartsBuilt[name]) { buildTab(name); chartsBuilt[name]=true; }
+}
+
+function buildTab(name) {
+  if (name==='resumen')    buildResumen();
+  if (name==='canales')    buildCanales();
+  if (name==='paid')       buildPaid();
+  if (name==='adquisicion')buildAdquisicion();
+  if (name==='catering')   buildCatering();
+  if (name==='tabla')      buildTabla();
+}
+
+// ─────────────────────────────────────────
+// TAB: RESUMEN
+// ─────────────────────────────────────────
+function buildResumen() {
+  // Ventas YoY
+  mkChart('chartVentasYoY','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'2025', data:yoy.sales_25, backgroundColor:alphaColor(C.green_mid,.65), borderColor:C.green_mid, borderWidth:1.5, borderRadius:4 },
+        { label:'2026', data:yoy.sales_26, backgroundColor:alphaColor(C.gold,.75), borderColor:C.gold, borderWidth:1.5, borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults, plugins:{...chartDefaults.plugins, tooltip:{ callbacks:{ label:ctx=>`${ctx.dataset.label}: ${fmtMoney(ctx.parsed.y)}` } }},
+      scales:{ ...chartDefaults.scales, y:{ ...chartDefaults.scales.y, ticks:{ callback:v=>fmtMoney(v), font:{family:'Work Sans',size:11} } } } }
+  });
+  // ROAS YoY
+  mkChart('chartRoasYoY','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'ROAS 2025', data:yoy.roas_25, borderColor:C.green_mid, backgroundColor:alphaColor(C.green_mid,.1), borderWidth:2, tension:.3, pointRadius:4, fill:true },
+        { label:'ROAS 2026', data:yoy.roas_26, borderColor:C.gold, backgroundColor:alphaColor(C.gold,.12), borderWidth:2.5, tension:.3, pointRadius:5, pointBackgroundColor:C.gold, fill:true }
+      ]},
+    options:{ ...chartDefaults, plugins:{...chartDefaults.plugins, tooltip:{ callbacks:{ label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}x` } }},
+      scales:{ ...chartDefaults.scales, y:{ ...chartDefaults.scales.y, ticks:{ callback:v=>v+'x', font:{family:'Work Sans',size:11} } } } }
+  });
+  // Orders YoY
+  mkChart('chartOrdersYoY','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Pedidos 2025', data:yoy.orders_25, backgroundColor:alphaColor(C.green_mid,.65), borderColor:C.green_mid, borderWidth:1.5, borderRadius:4 },
+        { label:'Pedidos 2026', data:yoy.orders_26, backgroundColor:alphaColor(C.gold,.75), borderColor:C.gold, borderWidth:1.5, borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults }
+  });
+  // Conv + Ticket
+  mkChart('chartConvTicket','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Conv. Rate 2026 (%)', data:yoy.conv_26, borderColor:C.green_dark, backgroundColor:alphaColor(C.green_dark,.08), borderWidth:2, tension:.3, yAxisID:'y1', pointRadius:4 },
+        { label:'Ticket Medio 2026 ($)', data:yoy.ticket_26, borderColor:C.gold, backgroundColor:'transparent', borderWidth:2.5, tension:.3, yAxisID:'y2', pointRadius:4, pointBackgroundColor:C.gold, borderDash:[5,3] }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{
+        x:chartDefaults.scales.x,
+        y1:{ type:'linear', position:'left', grid:{color:alphaColor(C.green_dark,.05)}, ticks:{callback:v=>v+'%', font:{family:'Work Sans',size:11}}, title:{display:true,text:'Conv. Rate'} },
+        y2:{ type:'linear', position:'right', grid:{display:false}, ticks:{callback:v=>'$'+v, font:{family:'Work Sans',size:11}}, title:{display:true,text:'Ticket $'} }
+      }
+    }
+  });
+}
+
+// ─────────────────────────────────────────
+// TAB: CANALES
+// ─────────────────────────────────────────
+function buildCanales() {
+  const names = channels_may26.map(c=>c.name);
+  const sales  = channels_may26.map(c=>c.sales);
+  const total  = sales.reduce((a,b)=>a+b,0);
+
+  // Doughnut
+  mkChart('chartChannelDough','doughnut',{
+    data:{ labels:names, datasets:[{ data:sales, backgroundColor:CHANNEL_COLORS.map(c=>alphaColor(c,.85)), borderColor:'#fff', borderWidth:2 }]},
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'58%',
+      plugins:{ legend:{ position:'right', labels:{ font:{family:'Work Sans',size:11}, usePointStyle:true, padding:12 } },
+        tooltip:{ callbacks:{ label:ctx=>{ const pct=((ctx.parsed/total)*100).toFixed(1); return `${ctx.label}: ${fmtMoney(ctx.parsed)} (${pct}%)`; } } } } }
+  });
+
+  // Channel bar + list
+  const bar = document.getElementById('channelBar');
+  const list = document.getElementById('channelList');
+  bar.innerHTML = '';
+  list.innerHTML = '';
+  channels_may26.forEach((c,i)=>{
+    const pct = (c.sales/total*100).toFixed(1);
+    const seg = document.createElement('div');
+    seg.className='channel-bar-seg';
+    seg.style.cssText=`flex:${c.sales};background:${CHANNEL_COLORS[i]};`;
+    seg.title=`${c.name}: ${pct}%`;
+    bar.appendChild(seg);
+
+    const ticket = c.orders>0?Math.round(c.sales/c.orders):0;
+    const row = document.createElement('div');
+    row.className='channel-row';
+    row.innerHTML=`
+      <div class="channel-name"><div class="ch-dot" style="background:${CHANNEL_COLORS[i]}"></div>${c.name}</div>
+      <div class="channel-vals">
+        <div class="channel-val"><span>${fmtMoney(c.sales)}</span><small>${pct}% ventas</small></div>
+        <div class="channel-val"><span>${c.orders}</span><small>pedidos</small></div>
+        <div class="channel-val"><span>${c.conv.toFixed(2)}%</span><small>conv.</small></div>
+      </div>`;
+    list.appendChild(row);
+  });
+
+  // YoY grouped bar
+  mkChart('chartChannelYoY','bar',{
+    data:{ labels:names,
+      datasets:[
+        { label:'Δ Ventas %', data:channels_may26.map(c=>c.delta_sales), backgroundColor:channels_may26.map(c=>c.delta_sales>=0?alphaColor(C.green_mid,.75):alphaColor(C.danger,.75)), borderRadius:4 },
+        { label:'Δ Sesiones %', data:channels_may26.map(c=>c.delta_sessions), backgroundColor:channels_may26.map(c=>c.delta_sessions>=0?alphaColor(C.gold,.75):alphaColor(C.muted,.5)), borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults,
+      plugins:{...chartDefaults.plugins, tooltip:{ callbacks:{ label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toFixed(0)}%` } }},
+      scales:{...chartDefaults.scales, y:{ ...chartDefaults.scales.y, ticks:{callback:v=>v+'%', font:{family:'Work Sans',size:11}} } } }
+  });
+
+  // Channel table
+  const tbl = document.getElementById('tableChannels');
+  tbl.innerHTML=`<thead><tr>
+    <th>Canal</th><th>Ventas</th><th>Δ Ventas</th><th>Sesiones</th><th>Δ Sesiones</th>
+    <th>Pedidos</th><th>Δ Pedidos</th><th>Conv. Rate</th><th>Ticket</th>
+  </tr></thead><tbody>`+channels_may26.map(c=>{
+    const ticket=c.orders>0?fmtMoney(Math.round(c.sales/c.orders)):'-';
+    return `<tr>
+      <td><strong>${c.name}</strong></td>
+      <td class="num">${fmtMoney(c.sales)}</td>
+      <td class="num ${pctClass(c.delta_sales)}">${fmtPct(c.delta_sales)}</td>
+      <td class="num">${c.sessions.toLocaleString()}</td>
+      <td class="num ${pctClass(c.delta_sessions)}">${fmtPct(c.delta_sessions)}</td>
+      <td class="num">${c.orders}</td>
+      <td class="num ${pctClass(c.delta_orders)}">${fmtPct(c.delta_orders)}</td>
+      <td class="num">${c.conv.toFixed(2)}%</td>
+      <td class="num">${ticket}</td>
+    </tr>`;
+  }).join('')+'</tbody>';
+
+  // Channel evolution stacked area (usando share estimado por mes de YoY 2026)
+  const shareData = {
+    'Organic':    [28.0, 24.2, 13.4, 13.1, 23.3],
+    'Directo':    [30.7, 29.3, 41.7, 53.1, 43.2],
+    'Google CPC': [29.0, 19.7, 28.5, 19.6, 19.5],
+    'Meta CPC':   [0,    0,    0,    1.8,  1.3],
+    'Referral':   [9.8,  8.7,  3.4,  3.5,  2.3],
+    'Email':      [12.0, 19.0, 11.0, 6.4,  6.6],
+    'Social':     [0.6,  0,    0.4,  2.6,  3.8],
+  };
+  const evolDatasets = Object.entries(shareData).map(([name,data],i)=>({
+    label:name, data, backgroundColor:alphaColor(CHANNEL_COLORS[i],.75), borderColor:CHANNEL_COLORS[i], borderWidth:1, fill:true, tension:.3
+  }));
+  mkChart('chartChannelEvol','line',{
+    data:{ labels:MONTHS, datasets:evolDatasets },
+    options:{ ...chartDefaults,
+      plugins:{...chartDefaults.plugins, tooltip:{ callbacks:{ label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }},
+      scales:{...chartDefaults.scales, y:{ stacked:true, ...chartDefaults.scales.y, ticks:{callback:v=>v+'%',font:{family:'Work Sans',size:11}}, max:100 },
+        x:{ ...chartDefaults.scales.x, stacked:true } } }
+  });
+}
+
+// ─────────────────────────────────────────
+// TAB: PAID MEDIA
+// ─────────────────────────────────────────
+function buildPaid() {
+  // Ventas paid vs inv
+  mkChart('chartPaidSales','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { type:'bar', label:'Ventas Paid 2026', data:paid.sales_26, backgroundColor:alphaColor(C.gold,.75), borderColor:C.gold, borderWidth:1.5, borderRadius:4, yAxisID:'y1' },
+        { type:'line', label:'Inversión 2026', data:yoy.inv_26, borderColor:C.danger, backgroundColor:'transparent', borderWidth:2, tension:.3, pointRadius:4, yAxisID:'y2', borderDash:[4,3] }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:chartDefaults.scales.x,
+        y1:{ type:'linear', position:'left', grid:{color:alphaColor(C.green_dark,.05)}, ticks:{callback:v=>fmtMoney(v),font:{family:'Work Sans',size:11}} },
+        y2:{ type:'linear', position:'right', grid:{display:false}, ticks:{callback:v=>fmtMoney(v),font:{family:'Work Sans',size:11}} } } }
+  });
+
+  // ROAS paid YoY
+  mkChart('chartRoasPaid','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'ROAS Paid 2025', data:paid.roas_25, borderColor:C.green_mid, backgroundColor:alphaColor(C.green_mid,.1), borderWidth:2, tension:.3, pointRadius:4, fill:true },
+        { label:'ROAS Paid 2026', data:paid.roas_26, borderColor:C.gold, backgroundColor:alphaColor(C.gold,.12), borderWidth:2.5, tension:.3, pointRadius:5, pointBackgroundColor:C.gold, fill:true }
+      ]},
+    options:{ ...chartDefaults, plugins:{...chartDefaults.plugins, tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}x`}}},
+      scales:{...chartDefaults.scales, y:{...chartDefaults.scales.y, ticks:{callback:v=>v+'x',font:{family:'Work Sans',size:11}}}} }
+  });
+
+  // Google vs Meta split
+  mkChart('chartPaidSplit','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Google Ads', data:paid.inv_google_26, backgroundColor:alphaColor(C.green_dark,.8), borderRadius:4 },
+        { label:'Meta Ads',   data:paid.inv_meta_26,   backgroundColor:alphaColor(C.gold,.8),        borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults,
+      plugins:{...chartDefaults.plugins},
+      scales:{ x:{...chartDefaults.scales.x, stacked:true}, y:{...chartDefaults.scales.y, stacked:true, ticks:{callback:v=>fmtMoney(v),font:{family:'Work Sans',size:11}}} } }
+  });
+
+  // Ticket paid YoY
+  mkChart('chartPaidTicket','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Ticket Paid 2025', data:paid.ticket_25, backgroundColor:alphaColor(C.green_mid,.65), borderRadius:4 },
+        { label:'Ticket Paid 2026', data:paid.ticket_26, backgroundColor:alphaColor(C.gold,.75), borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults, scales:{...chartDefaults.scales, y:{...chartDefaults.scales.y, ticks:{callback:v=>'$'+v,font:{family:'Work Sans',size:11}}}} }
+  });
+
+  // Paid table
+  const tbl = document.getElementById('tablePaid');
+  const rows = MONTHS.map((m,i)=>{
+    const pc25 = pctChange(paid.sales_25[i], yoy.sales_25[i])*100;
+    const pc26 = pctChange(paid.sales_26[i], yoy.sales_26[i])*100;
+    const roasDelta = pctChange(paid.roas_26[i], paid.roas_25[i]);
+    return `<tr>
+      <td><strong>${m} 2026</strong></td>
+      <td class="num">${fmtMoney(yoy.inv_26[i])}</td>
+      <td class="num">${fmtMoney(paid.inv_google_26[i])}</td>
+      <td class="num">${fmtMoney(paid.inv_meta_26[i])}</td>
+      <td class="num">${fmtMoney(paid.sales_26[i])}</td>
+      <td class="num ${pctClass(pctChange(paid.sales_26[i],paid.sales_25[i]))}">
+        ${fmtPct(pctChange(paid.sales_26[i],paid.sales_25[i]))}
+      </td>
+      <td class="num">${paid.roas_26[i].toFixed(1)}x</td>
+      <td class="num delta-up">${fmtPct(roasDelta)}</td>
+      <td class="num">${(paid.sales_26[i]/yoy.sales_26[i]*100).toFixed(1)}%</td>
+    </tr>`;
+  });
+  tbl.innerHTML=`<thead><tr>
+    <th>Mes</th><th>Inv. Total</th><th>Google</th><th>Meta</th>
+    <th>Ventas Paid</th><th>Δ vs 2025</th><th>ROAS Paid</th><th>Δ ROAS</th><th>% Participación</th>
+  </tr></thead><tbody>${rows.join('')}</tbody>`;
+}
+
+// ─────────────────────────────────────────
+// TAB: ADQUISICIÓN
+// ─────────────────────────────────────────
+function buildAdquisicion() {
+  // Stacked new + ret
+  mkChart('chartNewRet','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Clientes Nuevos', data:acq.new_26, backgroundColor:alphaColor(C.gold,.8), borderRadius:4 },
+        { label:'Recurrentes',     data:acq.ret_26, backgroundColor:alphaColor(C.green_mid,.7), borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:{...chartDefaults.scales.x, stacked:true}, y:{...chartDefaults.scales.y, stacked:true} } }
+  });
+
+  // % new vs ret
+  mkChart('chartNewPct','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'% Nuevos',      data:acq.pct_new_26, borderColor:C.gold, backgroundColor:alphaColor(C.gold,.1), fill:true, tension:.3, borderWidth:2.5, pointRadius:5 },
+        { label:'% Recurrentes', data:acq.pct_ret_26, borderColor:C.green_mid, backgroundColor:alphaColor(C.green_mid,.1), fill:true, tension:.3, borderWidth:2, pointRadius:4 }
+      ]},
+    options:{ ...chartDefaults, scales:{...chartDefaults.scales, y:{...chartDefaults.scales.y, ticks:{callback:v=>v+'%',font:{family:'Work Sans',size:11}}, max:100}} }
+  });
+
+  // Nuevos paid vs orgánicos
+  const organicos = acq.new_26.map((n,i)=>n-acq.paid_26[i]);
+  mkChart('chartNewPaid','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Nuevos Paid',     data:acq.paid_26, backgroundColor:alphaColor(C.gold,.8), borderRadius:4 },
+        { label:'Nuevos Orgánicos', data:organicos,  backgroundColor:alphaColor(C.green_mid,.7), borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:{...chartDefaults.scales.x, stacked:true}, y:{...chartDefaults.scales.y, stacked:true} } }
+  });
+
+  // YoY adquisición
+  mkChart('chartAcqYoY','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Nuevos 2025', data:acq.new_25, borderColor:C.green_mid, backgroundColor:alphaColor(C.green_mid,.1), borderWidth:2, tension:.3, fill:true, pointRadius:4 },
+        { label:'Nuevos 2026', data:acq.new_26, borderColor:C.gold, backgroundColor:alphaColor(C.gold,.12), borderWidth:2.5, tension:.3, fill:true, pointRadius:5, pointBackgroundColor:C.gold }
+      ]},
+    options:{ ...chartDefaults }
+  });
+
+  // Table
+  const tbl = document.getElementById('tableAcq');
+  const rows = MONTHS.map((m,i)=>{
+    const org = acq.new_26[i]-acq.paid_26[i];
+    const yoy_delta = pctChange(acq.new_26[i], acq.new_25[i]);
+    return `<tr>
+      <td><strong>${m} 2026</strong></td>
+      <td class="num">${acq.new_26[i]+acq.ret_26[i]}</td>
+      <td class="num">${acq.new_26[i]}</td>
+      <td class="num">${acq.pct_new_26[i]}%</td>
+      <td class="num">${acq.ret_26[i]}</td>
+      <td class="num">${acq.paid_26[i]}</td>
+      <td class="num">${(acq.paid_26[i]/acq.new_26[i]*100).toFixed(0)}%</td>
+      <td class="num">${org}</td>
+      <td class="num ${pctClass(yoy_delta)}">${fmtPct(yoy_delta)}</td>
+    </tr>`;
+  });
+  tbl.innerHTML=`<thead><tr>
+    <th>Mes</th><th>Total</th><th>Nuevos</th><th>% Nuevos</th><th>Recurrentes</th>
+    <th>Nuevos Paid</th><th>% Paid/Nuevos</th><th>Nuevos Orgánicos</th><th>Δ vs 2025</th>
+  </tr></thead><tbody>${rows.join('')}</tbody>`;
+}
+
+// ─────────────────────────────────────────
+// TAB: CATERING
+// ─────────────────────────────────────────
+function buildCatering() {
+  // Inv stacked
+  mkChart('chartCateringInv','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'Google Ads', data:catering.google, backgroundColor:alphaColor(C.green_dark,.8), borderRadius:4 },
+        { label:'Meta Ads',   data:catering.meta,   backgroundColor:alphaColor(C.gold,.8), borderRadius:4 }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:{...chartDefaults.scales.x,stacked:true}, y:{...chartDefaults.scales.y,stacked:true,ticks:{callback:v=>fmtMoney(v),font:{family:'Work Sans',size:11}}} } }
+  });
+
+  // Reach + clicks
+  mkChart('chartCateringReach','bar',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { type:'bar', label:'Impresiones', data:catering.imps, backgroundColor:alphaColor(C.sage,.7), yAxisID:'y1', borderRadius:4 },
+        { type:'line', label:'Clics',      data:catering.clicks, borderColor:C.green_dark, backgroundColor:'transparent', yAxisID:'y2', borderWidth:2, pointRadius:4, tension:.3 }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:chartDefaults.scales.x,
+        y1:{ type:'linear', position:'left', grid:{color:alphaColor(C.green_dark,.05)}, ticks:{callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{family:'Work Sans',size:11}}, title:{display:true,text:'Impresiones'} },
+        y2:{ type:'linear', position:'right', grid:{display:false}, ticks:{font:{family:'Work Sans',size:11}}, title:{display:true,text:'Clics'} } } }
+  });
+
+  // CPM + CTR
+  mkChart('chartCateringCpm','line',{
+    data:{ labels:MONTHS,
+      datasets:[
+        { label:'CPM ($)', data:catering.cpm, borderColor:C.green_dark, backgroundColor:alphaColor(C.green_dark,.08), fill:true, tension:.3, borderWidth:2, pointRadius:4, yAxisID:'y1' },
+        { label:'CTR (%)', data:catering.ctr, borderColor:C.gold, backgroundColor:'transparent', borderWidth:2.5, tension:.3, pointRadius:5, pointBackgroundColor:C.gold, yAxisID:'y2', borderDash:[5,3] }
+      ]},
+    options:{ ...chartDefaults,
+      scales:{ x:chartDefaults.scales.x,
+        y1:{ type:'linear', position:'left', grid:{color:alphaColor(C.green_dark,.05)}, ticks:{callback:v=>'$'+v,font:{family:'Work Sans',size:11}} },
+        y2:{ type:'linear', position:'right', grid:{display:false}, ticks:{callback:v=>v+'%',font:{family:'Work Sans',size:11}} } } }
+  });
+
+  // Table
+  const tbl = document.getElementById('tableCatering');
+  const rows = MONTHS.map((m,i)=>`<tr>
+    <td><strong>${m} 2026</strong></td>
+    <td class="num">${fmtMoney(catering.inv[i])}</td>
+    <td class="num">${fmtMoney(catering.meta[i])}</td>
+    <td class="num">${fmtMoney(catering.google[i])}</td>
+    <td class="num">${catering.imps[i].toLocaleString()}</td>
+    <td class="num">${catering.clicks[i].toLocaleString()}</td>
+    <td class="num">${catering.ctr[i].toFixed(2)}%</td>
+    <td class="num">$${catering.cpm[i].toFixed(2)}</td>
+    <td class="num">$${catering.cpc[i].toFixed(2)}</td>
+  </tr>`);
+  tbl.innerHTML=`<thead><tr>
+    <th>Mes</th><th>Inversión Total</th><th>Meta</th><th>Google</th>
+    <th>Impresiones</th><th>Clics</th><th>CTR</th><th>CPM</th><th>CPC</th>
+  </tr></thead><tbody>${rows.join('')}</tbody>`;
+}
+
+// ─────────────────────────────────────────
+// TAB: TABLA YoY
+// ─────────────────────────────────────────
+function buildTabla() {
+  const tbl = document.getElementById('tableYoY');
+  const rows = MONTHS.map((m,i)=>{
+    const dSales   = pctChange(yoy.sales_26[i],    yoy.sales_25[i]);
+    const dSess    = pctChange(yoy.sessions_26[i], yoy.sessions_25[i]);
+    const dOrders  = pctChange(yoy.orders_26[i],   yoy.orders_25[i]);
+    const dRoas    = pctChange(yoy.roas_26[i],      yoy.roas_25[i]);
+    const dInv     = pctChange(yoy.inv_26[i],       yoy.inv_25[i]);
+    const dTicket  = pctChange(yoy.ticket_26[i],    yoy.ticket_25[i]);
+    const dConv    = pctChange(yoy.conv_26[i],      yoy.conv_25[i]);
+    const isAbr    = i===3;
+    return `<tr class="${isAbr?'highlight-row':''}">
+      <td><strong>${m}</strong>${isAbr?' ⚠️':''}</td>
+      <td class="num">${fmtMoney(yoy.sales_25[i])}</td>
+      <td class="num">${fmtMoney(yoy.sales_26[i])}</td>
+      <td class="num ${pctClass(dSales)}">${fmtPct(dSales)}</td>
+      <td class="num">${yoy.sessions_25[i].toLocaleString()}</td>
+      <td class="num">${yoy.sessions_26[i].toLocaleString()}</td>
+      <td class="num ${pctClass(dSess)}">${fmtPct(dSess)}</td>
+      <td class="num">${yoy.orders_25[i]} → ${yoy.orders_26[i]}</td>
+      <td class="num ${pctClass(dOrders)}">${fmtPct(dOrders)}</td>
+      <td class="num">${yoy.roas_25[i].toFixed(1)}x → ${yoy.roas_26[i].toFixed(1)}x</td>
+      <td class="num ${pctClass(dRoas)}">${fmtPct(dRoas)}</td>
+      <td class="num">${fmtMoney(yoy.inv_25[i])} → ${fmtMoney(yoy.inv_26[i])}</td>
+      <td class="num ${pctClass(-dInv)}">${fmtPct(dInv)}</td>
+      <td class="num ${pctClass(dConv)}">${yoy.conv_25[i].toFixed(2)}% → ${yoy.conv_26[i].toFixed(2)}%</td>
+    </tr>`;
+  });
+
+  // Totals
+  const s25=yoy.sales_25.reduce((a,b)=>a+b,0), s26=yoy.sales_26.reduce((a,b)=>a+b,0);
+  const ss25=yoy.sessions_25.reduce((a,b)=>a+b,0), ss26=yoy.sessions_26.reduce((a,b)=>a+b,0);
+  const o25=yoy.orders_25.reduce((a,b)=>a+b,0), o26=yoy.orders_26.reduce((a,b)=>a+b,0);
+  const i25=yoy.inv_25.reduce((a,b)=>a+b,0), i26=yoy.inv_26.reduce((a,b)=>a+b,0);
+  const rAvg25=(yoy.roas_25.reduce((a,b)=>a+b,0)/5).toFixed(1), rAvg26=(yoy.roas_26.reduce((a,b)=>a+b,0)/5).toFixed(1);
+
+  tbl.innerHTML=`<thead><tr>
+    <th>Mes</th>
+    <th>Ventas 25</th><th>Ventas 26</th><th>Δ Ventas</th>
+    <th>Sesiones 25</th><th>Sesiones 26</th><th>Δ Sesiones</th>
+    <th>Pedidos</th><th>Δ Pedidos</th>
+    <th>ROAS</th><th>Δ ROAS</th>
+    <th>Inversión</th><th>Δ Inv.</th>
+    <th>Conv. Rate</th>
+  </tr></thead><tbody>${rows.join('')}
+  <tr class="highlight-row">
+    <td><strong>TOTAL</strong></td>
+    <td class="num">${fmtMoney(s25)}</td>
+    <td class="num">${fmtMoney(s26)}</td>
+    <td class="num ${pctClass(pctChange(s26,s25))}">${fmtPct(pctChange(s26,s25))}</td>
+    <td class="num">${ss25.toLocaleString()}</td>
+    <td class="num">${ss26.toLocaleString()}</td>
+    <td class="num delta-up">${fmtPct(pctChange(ss26,ss25))}</td>
+    <td class="num">${o25} → ${o26}</td>
+    <td class="num ${pctClass(pctChange(o26,o25))}">${fmtPct(pctChange(o26,o25))}</td>
+    <td class="num">${rAvg25}x → ${rAvg26}x</td>
+    <td class="num delta-up">${fmtPct(pctChange(parseFloat(rAvg26),parseFloat(rAvg25)))}</td>
+    <td class="num">${fmtMoney(i25)} → ${fmtMoney(i26)}</td>
+    <td class="num delta-up">${fmtPct(pctChange(i26,i25))}</td>
+    <td class="num">1.00% → 0.64%</td>
+  </tr>
+  </tbody>`;
+
+  // YoY Summary Bar
+  const kpiLabels = ['Ventas','Sesiones','Pedidos','ROAS','Inversión'];
+  const kpiVals   = [
+    pctChange(s26,s25),
+    pctChange(ss26,ss25),
+    pctChange(o26,o25),
+    pctChange(parseFloat(rAvg26),parseFloat(rAvg25)),
+    pctChange(i26,i25)
+  ];
+  mkChart('chartYoYBar','bar',{
+    data:{ labels:kpiLabels, datasets:[{
+      label:'Variación % vs 2025', data:kpiVals,
+      backgroundColor:kpiVals.map((v,i)=>i===3?alphaColor(C.gold,.8):i===4?alphaColor(C.danger,.7):v>=0?alphaColor(C.green_mid,.8):alphaColor(C.danger,.7)),
+      borderRadius:6
+    }]},
+    options:{ ...chartDefaults, indexAxis:'y',
+      plugins:{...chartDefaults.plugins, tooltip:{callbacks:{label:ctx=>`${ctx.parsed.x.toFixed(1)}%`}}},
+      scales:{ x:{...chartDefaults.scales.x, ticks:{callback:v=>v+'%',font:{family:'Work Sans',size:11}}}, y:chartDefaults.scales.y } }
+  });
+}
+
+// ─────────────────────────────────────────
+// HELPER: make chart
+// ─────────────────────────────────────────
+function mkChart(id, type, config) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  return new Chart(ctx, { type, ...config });
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', ()=>{
+  buildResumen();
+  chartsBuilt['resumen'] = true;
+});
+</script>
+</body>
+</html>
